@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>Pyrrha dmarket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.2/darkly/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+      <a class="navbar-brand" href="#">Pyrrha DMarket</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link sectionhead" data-num="0" href="#">Kernel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sectionhead" data-num="1" href="#">Dataset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sectionhead" data-num="2" href="#">Cognitive Job</a>
+          </li>
+        </ul>
+
+      </div>
+      </div>
+    </nav>
+    <div class="container py-5 section">
+
+      <form>
+        <fieldset>
+          <legend>Kernel</legend>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+
+    </div>
+    <div class="container py-5 d-none section">
+
+      <form>
+        <fieldset>
+          <legend>Dataset</legend>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+
+    </div>
+    <div class="container py-5 d-none section">
+
+      <form>
+        <fieldset>
+          <legend>Cognitive Job</legend>
+          <div class="form-group">
+            <label for="inpkernel">Kernel</label>
+            <input type="text" class="form-control" id="inpkernel" aria-describedby="emailHelp" placeholder="Enter Kernel">
+          </div>
+          <div class="form-group">
+            <label for="inpdataset">Dataset</label>
+            <input type="text" class="form-control" id="inpdataset" aria-describedby="emailHelp" placeholder="Enter Dataset">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+
+    </div>
+    <script src="ui.js"></script>
+  </body>
+</html>
