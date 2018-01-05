@@ -1,6 +1,5 @@
 const pandoraMarketContract = require('../pyrrha-abi/PandoraMarket.json');
 const kernelContract = require('../pyrrha-abi/Kernel.json');
-require("./ui");
 var Config = require("../config/config");
 var IpfsHelper = require("./ipfs_helper")
 var ContractConstructor = require("./contract_constructor")
@@ -33,15 +32,14 @@ document.addEventListener('DOMContentLoaded', function()
     jsonFileChooser.addEventListener("change", captureJson, false);
 
     var kernelForm = document.getElementById("kernelForm");
-    kernelForm.addEventListener("submit", captureJson);
+    kernelForm.addEventListener("submit", checkIfReadyAndUpload);
 });
 
 function captureJson(event)
 {
     event.stopPropagation()
     event.preventDefault()
-    jsonFile = event.target.files[0]
-    IpfsHelper.submitFile(jsonFile, onJsonUploaded);
+    json = event.target.files[0]
 }
 
 function captureModel(event)
@@ -71,9 +69,12 @@ function checkIfReadyAndUpload(event)
     event.preventDefault();
     if (model && weights)
     {
-        let json = {"model": model,
-                    "weights": weights};
-        IpfsHelper.submitJson(json, onJsonUploaded);
+        json = {"model": model,
+                "weights": weights};
+    }
+    if (json)
+    {
+        IpfsHelper.submitJson(json, onJsonUploaded);        
     }
 }
 
