@@ -14,6 +14,7 @@ domReady(function() {
         sec.classList.add('d-none');
       });
       sections.item(num).classList.remove('d-none');
+      event.returnValue = false;
     }, false);
   })
 });
