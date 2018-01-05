@@ -84,6 +84,7 @@ function onJsonUploaded(err, ipfsId)
     if (!err)
     {
         saveToBlockchain(ipfsId);
+        json = null;
     }
     else console.log(err);
 }

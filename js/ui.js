@@ -21,7 +21,7 @@ domReady(function() {
   abb.addEventListener('click', function(event) {
     var el = document.createElement('div');
     el.classList.add("form-group")
-    el.innerHTML = "<label for='exampleInputFile'>One More Batch</label><input type='file' class='form-control-file' id='exampleInputFile' aria-describedby='fileHelp'>"
+    el.innerHTML = "<label for='exampleInputFile'>One More Batch</label><input type='file' class='form-control-file dataset-input-file' id='exampleInputFile' aria-describedby='fileHelp'>"
     var target = document.querySelector(".batches");
     target.appendChild(el);
     event.returnValue = false;
