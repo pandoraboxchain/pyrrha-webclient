@@ -17,4 +17,13 @@ domReady(function() {
       event.returnValue = false;
     }, false);
   })
+  let abb = document.getElementById('addbatch');
+  abb.addEventListener('click', function(event) {
+    var el = document.createElement('div');
+    el.classList.add("form-group")
+    el.innerHTML = "<label for='exampleInputFile'>One More Batch</label><input type='file' class='form-control-file' id='exampleInputFile' aria-describedby='fileHelp'>"
+    var target = document.querySelector(".batches");
+    target.appendChild(el);
+    event.returnValue = false;
+  }, false)
 });
