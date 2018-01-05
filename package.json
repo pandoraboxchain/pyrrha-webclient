@@ -1,0 +1,25 @@
+{
+  "name": "pyrrha-webclient",
+  "version": "1.0.0",
+  "description": "Webclient for Pyrrha",
+  "main": "backend/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandoraboxchain/pyrrha-webclient.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandoraboxchain/pyrrha-webclient/issues"
+  },
+  "homepage": "https://github.com/pandoraboxchain/pyrrha-webclient#readme",
+  "dependencies": {
+    "connect": "^3.6.5",
+    "ipfs-api": "^17.2.6",
+    "serve-static": "^1.13.1"
+  }
+}

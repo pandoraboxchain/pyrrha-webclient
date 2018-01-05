@@ -1,0 +1,14 @@
+/vendor/
+/bower_components/
+/node_modules/
+/.idea
+/docroot/
+/build/
+.DS_Store
+npm-debug.log
+.eslintcache
+/.env
+package-lock.json
+/browserified/
+/.vscode/
+
