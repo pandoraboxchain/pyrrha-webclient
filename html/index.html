@@ -26,7 +26,10 @@
             <a class="nav-link sectionhead" data-num="2" href="#">Dataset</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link sectionhead" data-num="3" href="#">Cognitive Job</a>
+            <a class="nav-link sectionhead" data-num="3" href="#">Dataset Constructor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link sectionhead" data-num="4" href="#">Cognitive Job</a>
           </li>
         </ul>
 
@@ -101,6 +104,22 @@
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
           </div>
 
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+      </form>
+
+    </div>
+    <div class="container py-5 d-none section">
+
+      <form>
+        <fieldset>
+          <legend>Dataset Constructor</legend>
+          <div class="form-group">
+            <label for="exampleInputFile">Batch</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+          </div>
+          <div class="batches"></div>
+          <button type="button" class="btn btn-success" id="addbatch">More batch</button>
           <button type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
       </form>
