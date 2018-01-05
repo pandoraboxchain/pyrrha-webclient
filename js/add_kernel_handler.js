@@ -1,50 +1,73 @@
-const ipfsAPI = require('ipfs-api')
 const pandoraMarketContract = require('../pyrrha-abi/PandoraMarket.json');
 const kernelContract = require('../pyrrha-abi/Kernel.json');
 require("./ui");
-require("../config/config");
+var Config = require("../config/config");
+var IpfsHelper = require("./ipfs_helper")
 
-var currentFile
+var json
+var model
+var weights
+var dimension
+var complexity
+var price
 
 document.addEventListener('DOMContentLoaded', function(){ 
-    var fileChooser = document.getElementById("exampleInputFile");
-    fileChooser.addEventListener("change", captureFile, false);
+    var modelFileChooser = document.getElementById("modelInputFile");
+    modelFileChooser.addEventListener("change", captureModel, false);
 
-    var kernelForm = document.getElementById("kernelForm");
-    kernelForm.addEventListener("submit", submitFile);
-    console.log("kernelForm");
-    console.log(kernelForm);
+    var weightsFileChooser = document.getElementById("weightsInputFile");
+    weightsFileChooser.addEventListener("change", captureWeights, false);
+
+    var kernelContructor = document.getElementById("kernelContructor");
+    kernelContructor.addEventListener("submit", checkIfReadyAndUpload);
 });
 
-function captureFile(event) {
+function captureJson(event)
+{
     event.stopPropagation()
     event.preventDefault()
-    file = event.target.files[0]
+    jsonFile = event.target.files[0]
+    IpfsHelper.submitFile(jsonFile, onJsonUploaded);
 }
 
-function submitFile(event)
+function captureModel(event)
 {
-    event.preventDefault(); //do not refresh
-
-    let reader = new window.FileReader()
-    reader.onloadend = () => saveToIpfs(reader)
-    reader.readAsArrayBuffer(file)
+    event.stopPropagation();
+    event.preventDefault();
+    let modelFile = event.target.files[0];
+    IpfsHelper.submitFile(modelFile, function(err, ipfsId)
+    {
+        model = ipfsId;
+    });
 }
 
-function saveToIpfs(reader) {
-    let ipfsId
-    const buffer = Buffer.from(reader.result)
-    
-    ipfsApi = ipfsAPI('localhost', '5001')
-    ipfsApi.add(buffer, { progress: (prog) => console.log(`received: ${prog}`) })
-      .then((response) => {
-        console.log(response)
-        ipfsId = response[0].hash
-        console.log(ipfsId)
-        saveToBlockchain(ipfsId);
-      }).catch((err) => {
-        console.error(err)
-      })
+function captureWeights(event)
+{
+    event.stopPropagation();
+    event.preventDefault();
+    let weightsFile = event.target.files[0];
+    IpfsHelper.submitFile(weightsFile, function(err, ipfsId)
+    {
+        weights = ipfsId;
+    });
+}
+
+function checkIfReadyAndUpload(event)
+{
+    event.preventDefault();
+    if (model && weights)
+    {
+        let json = {"model": model,
+                    "weights": weights};
+        IpfsHelper.submitJson(json, onJsonUploaded);
+    }
+}
+
+function onJsonUploaded(err, ipfsId)
+{
+    console.log("json ipfs id " + ipfsId);
+    if (!err) saveToBlockchain(ipfsId);
+    else console.log(err);
 }
 
 function saveToBlockchain(ipfsId)
@@ -63,14 +86,12 @@ function saveToBlockchain(ipfsId)
 function onGasEstimated(err, gasEstimate, kernelIpfsId)
 {
     let newKernelContract = web3.eth.contract(kernelContract.abi);
-    console.log("kernelConstructor");
-    console.log(newKernelContract);
     let bytecode = kernelContract.bytecode;
 
     console.log("gas estimate: " + gasEstimate);
     let mySenderAddress = web3.eth.coinbase; 
     console.log("my address "+ mySenderAddress);
-    newKernelContract.new(kernelIpfsId,
+    newKernelContract.new(kernelIpfsId, dimension, complexity, price,
         {from: mySenderAddress,
          data: bytecode,
          gas: gasEstimate},
@@ -81,14 +102,10 @@ function onKernelConstructed(err, constructedKernel)
 {    
     if (!err)
     { 
-        console.log("kernel constructed");
-        console.log(constructedKernel);
-        console.log("with address");
-        console.log(constructedKernel.address);
-
         //this callback may fire twice
         if(!constructedKernel.address)
         {
+            console.log("kernel constructed with hash");
             console.log(constructedKernel.transactionHash)
             web3.eth.getTransactionReceipt(constructedKernel.transactionHash, onContructedKernelAddressReceived);
         }
@@ -104,7 +121,7 @@ function onContructedKernelAddressReceived(err, transactionInfo)
     const address = transactionInfo.contractAddress;
     console.log("onContructedKernelAddressReceived");
     console.log(address);
-    let pandoraMarket = web3.eth.contract(pandoraMarketContract.abi).at(pandoraMarketAddress);
+    let pandoraMarket = web3.eth.contract(pandoraMarketContract.abi).at(Config.pandoraMarketAddress);
     pandoraMarket.addKernel(address, function (err, result)
     {
         if (err)
