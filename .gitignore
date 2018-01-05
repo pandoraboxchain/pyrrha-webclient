@@ -9,6 +9,6 @@ npm-debug.log
 .eslintcache
 /.env
 package-lock.json
-/browserified/
+/browserified/bundle.js
 /.vscode/
 
