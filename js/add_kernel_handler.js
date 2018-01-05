@@ -2,6 +2,7 @@ const ipfsAPI = require('ipfs-api')
 const pandoraMarketContract = require('../pyrrha-abi/PandoraMarket.json');
 const kernelContract = require('../pyrrha-abi/Kernel.json');
 require("./ui");
+require("../config/config");
 
 var currentFile
 
@@ -100,8 +101,6 @@ function onKernelConstructed(err, constructedKernel)
 
 function onContructedKernelAddressReceived(err, transactionInfo)
 {
-    const pandoraMarketAddress = '0xfb88de099e13c3ed21f80a7a1e49f8caecf10df6';
-    
     const address = transactionInfo.contractAddress;
     console.log("onContructedKernelAddressReceived");
     console.log(address);
