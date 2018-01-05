@@ -3,6 +3,7 @@ const kernelContract = require('../pyrrha-abi/Kernel.json');
 require("./ui");
 var Config = require("../config/config");
 var IpfsHelper = require("./ipfs_helper")
+var ContractConstructor = require("./contract_constructor")
 
 var json
 var model
@@ -11,7 +12,14 @@ var dimension
 var complexity
 var price
 
-document.addEventListener('DOMContentLoaded', function(){ 
+document.addEventListener('DOMContentLoaded', function()
+{
+    if (typeof web3 === 'undefined')
+    {
+        console.log("Please install MetaMask to access the Ethereum Web3 API from your Web browser.");
+        return;
+    }
+
     var modelFileChooser = document.getElementById("modelInputFile");
     modelFileChooser.addEventListener("change", captureModel, false);
 
@@ -20,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var kernelContructor = document.getElementById("kernelContructor");
     kernelContructor.addEventListener("submit", checkIfReadyAndUpload);
+
+    var jsonFileChooser = document.getElementById("jsonInputFile");
+    jsonFileChooser.addEventListener("change", captureJson, false);
+
+    var kernelForm = document.getElementById("kernelForm");
+    kernelForm.addEventListener("submit", captureJson);
 });
 
 function captureJson(event)
@@ -66,66 +80,27 @@ function checkIfReadyAndUpload(event)
 function onJsonUploaded(err, ipfsId)
 {
     console.log("json ipfs id " + ipfsId);
-    if (!err) saveToBlockchain(ipfsId);
+    if (!err)
+    {
+        saveToBlockchain(ipfsId);
+    }
     else console.log(err);
 }
 
 function saveToBlockchain(ipfsId)
-{ 
-    if (typeof web3 === 'undefined')
-    {
-        console.log("Please install MetaMask to access the Ethereum Web3 API from your Web browser.");
-        return;
-    }
-
-    let gasEstimate = web3.eth.estimateGas({data: kernelContract.bytecode}, 
-        (err, gasEstimate) => onGasEstimated(err, gasEstimate, ipfsId)    
-    ); 
-}
-
-function onGasEstimated(err, gasEstimate, kernelIpfsId)
 {
-    let newKernelContract = web3.eth.contract(kernelContract.abi);
-    let bytecode = kernelContract.bytecode;
-
-    console.log("gas estimate: " + gasEstimate);
-    let mySenderAddress = web3.eth.coinbase; 
-    console.log("my address "+ mySenderAddress);
-    newKernelContract.new(kernelIpfsId, dimension, complexity, price,
-        {from: mySenderAddress,
-         data: bytecode,
-         gas: gasEstimate},
-        onKernelConstructed); 
-}
- 
-function onKernelConstructed(err, constructedKernel)
-{    
-    if (!err)
-    { 
-        //this callback may fire twice
-        if(!constructedKernel.address)
+    let params = [ipfsId, dimension, complexity, price];
+    ContractConstructor.constructWithParams(kernelContract, params, function(err, transaction)
+    {
+        const address = transaction.contractAddress;
+        console.log("onContructedKernelAddressReceived");
+        console.log(address);
+        let pandoraMarket = web3.eth.contract(pandoraMarketContract.abi).at(Config.pandoraMarketAddress);
+        pandoraMarket.addKernel(address, function (err, result)
         {
-            console.log("kernel constructed with hash");
-            console.log(constructedKernel.transactionHash)
-            web3.eth.getTransactionReceipt(constructedKernel.transactionHash, onContructedKernelAddressReceived);
-        }
-    }
-    else
-    {
-        console.log("Smart contract call failed: " + err);
-    }
-}
-
-function onContructedKernelAddressReceived(err, transactionInfo)
-{
-    const address = transactionInfo.contractAddress;
-    console.log("onContructedKernelAddressReceived");
-    console.log(address);
-    let pandoraMarket = web3.eth.contract(pandoraMarketContract.abi).at(Config.pandoraMarketAddress);
-    pandoraMarket.addKernel(address, function (err, result)
-    {
-        if (err)
-            console.log("Smart contract call failed: " + err);
-        console.log("Kernel with address " + address + " added to the registry.");
+            if (err)
+                console.log("Smart contract call failed: " + err);
+            console.log("Kernel with address " + address + " added to the registry.");
+        });
     });
 }
