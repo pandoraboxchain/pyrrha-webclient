@@ -1,12 +1,14 @@
 const pandoraMarketContract = require('../pyrrha-abi/PandoraMarket.json');
-const datasetContract = require('../pyrrha-abi/Kernel.json');
+const datasetContract = require('../pyrrha-abi/Dataset.json');
 var Config = require("../config/config");
 var IpfsHelper = require("./ipfs_helper")
 var ContractConstructor = require("./contract_constructor")
 
+var json;
 var price;
-var sample_count;
+var sampleCount;
 var dimension;
+var batchCount;
 
 document.addEventListener('DOMContentLoaded', function()
 {
@@ -21,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function()
 
     var datasetForm = document.getElementById("datasetForm");
     datasetForm.addEventListener("submit", checkIfReadyAndUpload);
+    
+    var datasetContructor = document.getElementById("datasetContructor");
+    datasetContructor.addEventListener("submit", checkIfReadyAndUpload);
 });
 
 function captureJson(event)
@@ -35,8 +40,45 @@ function checkIfReadyAndUpload(event)
     event.preventDefault();
     if (json)
     {
-        IpfsHelper.submitJson(json, onJsonUploaded);        
+        uploadJson();
+        return;
     }
+    else
+    {
+        var selectedFilesCount = 0;
+        var ipfsIdList = [];
+        var batchFiles = document.getElementsByClassName("dataset-input-file");
+        for (index in batchFiles)
+        {
+            var selectedFiles = batchFiles[index].files;
+            var file = selectedFiles ? selectedFiles[0] : null;
+            if (file)
+            {
+                selectedFilesCount++;
+                IpfsHelper.submitFile(file, function(err, ipfsId)
+                {
+                    selectedFilesCount--;
+                    ipfsIdList.push(ipfsId);
+                    if (selectedFilesCount == 0)
+                    {
+                        formJson(ipfsIdList);
+                        uploadJson();
+                    }
+                });
+            }
+        }
+    }
+}
+
+function formJson(ipfsIdList)
+{
+    json = { "batches": ipfsIdList };
+    console.log(json);
+}
+
+function uploadJson()
+{
+    IpfsHelper.submitJson(json, onJsonUploaded);  
 }
 
 function onJsonUploaded(err, ipfsId)
@@ -44,6 +86,7 @@ function onJsonUploaded(err, ipfsId)
     console.log("json ipfs id " + ipfsId);
     if (!err)
     {
+        json = null;
         saveToBlockchain(ipfsId);
     }
     else console.log(err);
@@ -51,18 +94,18 @@ function onJsonUploaded(err, ipfsId)
 
 function saveToBlockchain(ipfsId)
 {
-    let params = [ipfsId, dimension, sample_count, price];
+    let params = [ipfsId, dimension, sampleCount, price];
     ContractConstructor.constructWithParams(datasetContract, params, function(err, transaction)
     {
         const address = transaction.contractAddress;
-        console.log("onContructedKernelAddressReceived");
+        console.log("onContructedContractAddressReceived");
         console.log(address);
         let pandoraMarket = web3.eth.contract(pandoraMarketContract.abi).at(Config.pandoraMarketAddress);
         pandoraMarket.addDataset(address, function (err, result)
         {
             if (err)
                 console.log("Smart contract call failed: " + err);
-            console.log("Kernel with address " + address + " added to the registry.");
+            console.log("Dataset with address " + address + " added to the registry.");
         });
     });
 }
