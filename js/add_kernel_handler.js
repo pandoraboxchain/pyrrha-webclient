@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', function()
     weightsFileChooser.addEventListener("change", captureWeights, false);
 
     var kernelContructor = document.getElementById("kernelContructor");
-    kernelContructor.addEventListener("submit", checkIfReadyAndUpload);
+    kernelContructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event, true));
 
     var jsonFileChooser = document.getElementById("jsonInputFile");
     jsonFileChooser.addEventListener("change", captureJson, false);
 
     var kernelForm = document.getElementById("kernelForm");
-    kernelForm.addEventListener("submit", checkIfReadyAndUpload);
+    kernelForm.addEventListener("submit", (event) => checkIfReadyAndUpload(event, false));
 });
 
 function captureJson(event)
@@ -64,9 +64,21 @@ function captureWeights(event)
     });
 }
 
-function checkIfReadyAndUpload(event)
+function parseInputFields(isConstructorPage)
+{
+    var elementSuffix = isConstructorPage ? "Constructor" : "";
+
+    price = document.getElementById('inpPriceKernel' + elementSuffix).value;
+    complexity = document.getElementById('inpComplexityKernel' + elementSuffix).value;
+    dimension = document.getElementById('inpDimensionKernel' + elementSuffix).value;
+}
+
+function checkIfReadyAndUpload(event, isConstructorPage)
 {
     event.preventDefault();
+
+    parseInputFields(isConstructorPage);
+
     if (model && weights)
     {
         json = {"model": model,
