@@ -8,7 +8,6 @@ var json;
 var price;
 var sampleCount;
 var dimension;
-var batchCount;
 
 document.addEventListener('DOMContentLoaded', function()
 {
@@ -22,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function()
     jsonFileChooser.addEventListener("change", captureJson, false);
 
     var datasetForm = document.getElementById("datasetForm");
-    datasetForm.addEventListener("submit", checkIfReadyAndUpload);
+    datasetForm.addEventListener("submit", (event) => checkIfReadyAndUpload(event, false));
     
     var datasetContructor = document.getElementById("datasetContructor");
-    datasetContructor.addEventListener("submit", checkIfReadyAndUpload);
+    datasetContructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event, true));
 });
 
 function captureJson(event)
@@ -35,9 +34,26 @@ function captureJson(event)
     json = event.target.files[0]
 }
 
-function checkIfReadyAndUpload(event)
+function parseInputFields(isConstructorPage)
+{
+    var elementSuffix = isConstructorPage ? "Constructor" : "";
+
+    price = document.getElementById('inpPriceDataset' + elementSuffix).value;
+    sampleCount = document.getElementById('inpSamplesCountDataset' + elementSuffix).value;
+    dimension = document.getElementById('inpDataDimensionDataset' + elementSuffix).value;
+}
+
+function checkIfReadyAndUpload(event, isConstructorPage)
 {
     event.preventDefault();
+
+    parseInputFields(isConstructorPage);
+
+    console.log("check if ready and upload");
+    console.log(price)
+    console.log(sampleCount)
+    console.log(dimension)
+
     if (json)
     {
         uploadJson();
