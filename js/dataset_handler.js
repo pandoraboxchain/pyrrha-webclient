@@ -9,6 +9,14 @@ var price;
 var sampleCount;
 var dimension;
 
+var datasetConstructor;
+
+function isConstructorPage()
+{
+    //if contructor page is not hidden
+    return !datasetConstructor.parentNode.classList.contains("d-none");
+}
+
 document.addEventListener('DOMContentLoaded', function()
 {
     if (typeof web3 === 'undefined')
@@ -23,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function()
     var datasetForm = document.getElementById("datasetForm");
     datasetForm.addEventListener("submit", (event) => checkIfReadyAndUpload(event, false));
     
-    var datasetContructor = document.getElementById("datasetContructor");
-    datasetContructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event, true));
+    datasetConstructor = document.getElementById("datasetContructor");
+    datasetConstructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event, true));
 });
 
 function captureJson(event)
@@ -120,8 +128,20 @@ function saveToBlockchain(ipfsId)
         pandoraMarket.addDataset(address, function (err, result)
         {
             if (err)
+            {
                 console.log("Smart contract call failed: " + err);
+                return;
+            }
             console.log("Dataset with address " + address + " added to the registry.");
+            setDatasetAddress(address);
         });
     });
+}
+
+function setDatasetAddress(address)
+{
+    let resultId = isConstructorPage() ? "datasetConstructorResultAlert" : "datasetResultAlert";
+    let resultLabelId =  isConstructorPage() ? "datasetConstructorResultLabel" : "datasetResultLabel";
+    document.getElementById(resultId).hidden = false;
+    document.getElementById(resultLabelId).innerHTML = address;
 }

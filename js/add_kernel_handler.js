@@ -11,6 +11,14 @@ var dimension
 var complexity
 var price
 
+var kernelConstructor;
+
+function isConstructorPage()
+{
+    //if contructor page is not hidden
+    return !kernelConstructor.parentNode.classList.contains("d-none");
+}
+
 document.addEventListener('DOMContentLoaded', function()
 {
     if (typeof web3 === 'undefined')
@@ -25,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function()
     var weightsFileChooser = document.getElementById("weightsInputFile");
     weightsFileChooser.addEventListener("change", captureWeights, false);
 
-    var kernelContructor = document.getElementById("kernelContructor");
-    kernelContructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event, true));
+    kernelConstructor = document.getElementById("kernelContructor");
+    kernelConstructor.addEventListener("submit", (event) => checkIfReadyAndUpload(event));
 
     var jsonFileChooser = document.getElementById("jsonInputFile");
     jsonFileChooser.addEventListener("change", captureJson, false);
 
     var kernelForm = document.getElementById("kernelForm");
-    kernelForm.addEventListener("submit", (event) => checkIfReadyAndUpload(event, false));
+    kernelForm.addEventListener("submit", (event) => checkIfReadyAndUpload(event));
 });
 
 function captureJson(event)
@@ -73,11 +81,11 @@ function parseInputFields(isConstructorPage)
     dimension = document.getElementById('inpDimensionKernel' + elementSuffix).value;
 }
 
-function checkIfReadyAndUpload(event, isConstructorPage)
+function checkIfReadyAndUpload(event)
 {
     event.preventDefault();
 
-    parseInputFields(isConstructorPage);
+    parseInputFields(isConstructorPage());
 
     if (model && weights)
     {
@@ -113,8 +121,20 @@ function saveToBlockchain(ipfsId)
         pandoraMarket.addKernel(address, function (err, result)
         {
             if (err)
+            {
                 console.log("Smart contract call failed: " + err);
+                return;
+            }
             console.log("Kernel with address " + address + " added to the registry.");
+            setKernelAddress(address);
         });
     });
+}
+
+function setKernelAddress(address)
+{
+    let resultId = isConstructorPage() ? "kernelConstructorResultAlert" : "kernelResultAlert";
+    let resultLabelId =  isConstructorPage() ? "kernelConstructorResultLabel" : "kernelResultLabel";
+    document.getElementById(resultId).hidden = false;
+    document.getElementById(resultLabelId).innerHTML = address;
 }
