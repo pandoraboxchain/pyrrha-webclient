@@ -11,4 +11,5 @@ npm-debug.log
 package-lock.json
 /browserified/bundle.js
 /.vscode/
-
+.vscode
+.data

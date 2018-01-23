@@ -1,0 +1,39 @@
+version: "2"
+services:
+
+  pyrrha_ipfs:
+    image: jbenet/go-ipfs
+    container_name: "pyrrha_ipfs"
+    volumes:
+      - ./.data/ipfs:/data/ipfs
+    ports:
+      - "5001:5001"
+      - "4001:4001"
+      - "8080:8080"
+    networks: 
+      main:
+        aliases:
+          - pyrrha_ipfs
+
+  pyrrha_webclient:
+    container_name: "pyrrha_webclient"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./backend:/backend
+      - ./browserified:/browserified
+      - ./config:/config
+      - ./html:/html
+      - ./pyrrha-abi:/pyrrha-abi
+    ports:
+      - "8081:8081"
+    networks: 
+      main:
+        aliases:
+          - pyrrha_webclient
+    depends_on:
+      - pyrrha_ipfs
+
+networks: 
+  main:
