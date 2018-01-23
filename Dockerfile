@@ -1,5 +1,7 @@
 FROM node:8.9.4
 
+VOLUME [ "/backend", "/browserified", "/config", "/html", "/pyrrha-abi" ]
+
 COPY ./package.json /package.json
 
 WORKDIR /
