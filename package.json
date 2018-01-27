@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
-    "bundle": "browserify js/main.js > browserified/bundle.js"
+    "bundle": "browserify ./js/main.js > browserified/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "connect": "^3.6.5",
     "ipfs-api": "^17.2.6",
-    "serve-static": "^1.13.1"
+    "serve-static": "^1.13.1",
+    "web3": "https://github.com/ethereum/web3.js.git"
   }
 }
