@@ -17,4 +17,4 @@ Refer to https://github.com/ipfs/js-ipfs-api#cors if you got CORS error when upl
 
 1. launch `npm run bundle`
 2. launch `git submodule update --init --recursive`
-3. launch `docker-compose up --build` (it also starts ipfs server)
+3. launch `docker-compose up --build` 
