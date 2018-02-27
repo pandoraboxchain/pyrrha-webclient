@@ -1,4 +1,4 @@
-FROM node:8.9.4
+FROM node:9
 
 COPY ./package.json /package.json
 COPY ./js /js
