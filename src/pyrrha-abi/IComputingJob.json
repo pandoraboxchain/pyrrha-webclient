@@ -1,0 +1,1768 @@
+{
+  "contractName": "IComputingJob",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "PartialResult",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "dataset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentState",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "ipfsResults",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Cognition",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "pandora",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Uninitialized",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "GatheringWorkers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "activeWorkersCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "ipfs",
+          "type": "bytes"
+        }
+      ],
+      "name": "completeWork",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "progress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "activeWorkers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "InvalidData",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "workersPool",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "acceptanceFlag",
+          "type": "bool"
+        }
+      ],
+      "name": "gatheringWorkersResponse",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "percent",
+          "type": "uint8"
+        }
+      ],
+      "name": "commitProgress",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "initialize",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "destroy",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "response",
+          "type": "uint8"
+        }
+      ],
+      "name": "dataValidationResponse",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "InsufficientWorkers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "DataValidation",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Destroyed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "batches",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "kernel",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "no",
+          "type": "uint256"
+        }
+      ],
+      "name": "didWorkerCompute",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "reported",
+          "type": "address"
+        }
+      ],
+      "name": "reportOfflineWorker",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "Completed",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "destroyAndSend",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "WorkersUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "WorkersNotFound",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "DataValidationStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "DataValidationFailed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "CognitionStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "precent",
+          "type": "uint8"
+        }
+      ],
+      "name": "CognitionProgressed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "partialResult",
+          "type": "bool"
+        }
+      ],
+      "name": "CognitionCompleted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "oldState",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "StateChanged",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.4.18;\n\nimport 'zeppelin-solidity/contracts/lifecycle/Destructible.sol';\nimport '../libraries/IStateMachine.sol';\nimport '../entities/IDataEntity.sol';\nimport '../pandora/IPandora.sol';\nimport '../nodes/IWorkerNode.sol';\nimport './JobStates.sol';\n\ncontract IComputingJob is IStateMachine, Destructible, JobStates {\n    enum DataValidationResponse {\n        Accept, Decline, Invalid\n    }\n\n    function initialize() external;\n\n    IPandora public pandora;\n    IKernel public kernel;\n    IDataset public dataset;\n    uint8 public batches;\n    IWorkerNode[] public activeWorkers;\n    IWorkerNode[] public workersPool;\n\n    uint8 public progress;\n    bytes[] public ipfsResults;\n\n    function activeWorkersCount() view external returns(uint256);\n    function didWorkerCompute(uint no) view external returns(bool);\n\n    function reportOfflineWorker(IWorkerNode reported) payable external;\n    function gatheringWorkersResponse(bool acceptanceFlag) external;\n    function dataValidationResponse(DataValidationResponse response) external;\n    function commitProgress(uint8 percent) external;\n    function completeWork(bytes ipfs) external;\n\n    event WorkersUpdated();\n    event WorkersNotFound();\n    event DataValidationStarted();\n    event DataValidationFailed();\n    event CognitionStarted();\n    event CognitionProgressed(uint8 precent);\n    event CognitionCompleted(bool partialResult);\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/IComputingJob.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/IComputingJob.sol",
+      "exportedSymbols": {
+        "IComputingJob": [
+          1154
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 1060,
+        "name": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 3485,
+          "absolutePath": "zeppelin-solidity/contracts/lifecycle/Destructible.sol",
+          "file": "zeppelin-solidity/contracts/lifecycle/Destructible.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1061,
+        "name": "ImportDirective",
+        "src": "26:64:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1199,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
+          "file": "../libraries/IStateMachine.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1062,
+        "name": "ImportDirective",
+        "src": "91:40:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 26,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataEntity.sol",
+          "file": "../entities/IDataEntity.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1063,
+        "name": "ImportDirective",
+        "src": "132:37:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2393,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/pandora/IPandora.sol",
+          "file": "../pandora/IPandora.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1064,
+        "name": "ImportDirective",
+        "src": "170:33:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1758,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/nodes/IWorkerNode.sol",
+          "file": "../nodes/IWorkerNode.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1065,
+        "name": "ImportDirective",
+        "src": "204:34:4"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1185,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/jobs/JobStates.sol",
+          "file": "./JobStates.sol",
+          "scope": 1155,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 1066,
+        "name": "ImportDirective",
+        "src": "239:25:4"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            1184,
+            1198,
+            3484,
+            3638
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            1154,
+            1184,
+            3484,
+            3638,
+            1198
+          ],
+          "name": "IComputingJob",
+          "scope": 1155
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IStateMachine",
+                  "referencedDeclaration": 1198,
+                  "type": "contract IStateMachine"
+                },
+                "id": 1067,
+                "name": "UserDefinedTypeName",
+                "src": "292:13:4"
+              }
+            ],
+            "id": 1068,
+            "name": "InheritanceSpecifier",
+            "src": "292:13:4"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Destructible",
+                  "referencedDeclaration": 3484,
+                  "type": "contract Destructible"
+                },
+                "id": 1069,
+                "name": "UserDefinedTypeName",
+                "src": "307:12:4"
+              }
+            ],
+            "id": 1070,
+            "name": "InheritanceSpecifier",
+            "src": "307:12:4"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "JobStates",
+                  "referencedDeclaration": 1184,
+                  "type": "contract JobStates"
+                },
+                "id": 1071,
+                "name": "UserDefinedTypeName",
+                "src": "321:9:4"
+              }
+            ],
+            "id": 1072,
+            "name": "InheritanceSpecifier",
+            "src": "321:9:4"
+          },
+          {
+            "attributes": {
+              "canonicalName": "IComputingJob.DataValidationResponse",
+              "name": "DataValidationResponse"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "Accept"
+                },
+                "id": 1073,
+                "name": "EnumValue",
+                "src": "375:6:4"
+              },
+              {
+                "attributes": {
+                  "name": "Decline"
+                },
+                "id": 1074,
+                "name": "EnumValue",
+                "src": "383:7:4"
+              },
+              {
+                "attributes": {
+                  "name": "Invalid"
+                },
+                "id": 1075,
+                "name": "EnumValue",
+                "src": "392:7:4"
+              }
+            ],
+            "id": 1076,
+            "name": "EnumDefinition",
+            "src": "337:68:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "initialize",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1077,
+                "name": "ParameterList",
+                "src": "430:2:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1078,
+                "name": "ParameterList",
+                "src": "441:0:4"
+              }
+            ],
+            "id": 1079,
+            "name": "FunctionDefinition",
+            "src": "411:31:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "pandora",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IPandora",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IPandora",
+                  "referencedDeclaration": 2392,
+                  "type": "contract IPandora"
+                },
+                "id": 1080,
+                "name": "UserDefinedTypeName",
+                "src": "448:8:4"
+              }
+            ],
+            "id": 1081,
+            "name": "VariableDeclaration",
+            "src": "448:23:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "kernel",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IKernel",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IKernel",
+                  "referencedDeclaration": 43,
+                  "type": "contract IKernel"
+                },
+                "id": 1082,
+                "name": "UserDefinedTypeName",
+                "src": "477:7:4"
+              }
+            ],
+            "id": 1083,
+            "name": "VariableDeclaration",
+            "src": "477:21:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "dataset",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IDataset",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IDataset",
+                  "referencedDeclaration": 35,
+                  "type": "contract IDataset"
+                },
+                "id": 1084,
+                "name": "UserDefinedTypeName",
+                "src": "504:8:4"
+              }
+            ],
+            "id": 1085,
+            "name": "VariableDeclaration",
+            "src": "504:23:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "batches",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint8",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint8",
+                  "type": "uint8"
+                },
+                "id": 1086,
+                "name": "ElementaryTypeName",
+                "src": "533:5:4"
+              }
+            ],
+            "id": 1087,
+            "name": "VariableDeclaration",
+            "src": "533:20:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "activeWorkers",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IWorkerNode[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IWorkerNode[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IWorkerNode",
+                      "referencedDeclaration": 1757,
+                      "type": "contract IWorkerNode"
+                    },
+                    "id": 1088,
+                    "name": "UserDefinedTypeName",
+                    "src": "559:11:4"
+                  }
+                ],
+                "id": 1089,
+                "name": "ArrayTypeName",
+                "src": "559:13:4"
+              }
+            ],
+            "id": 1090,
+            "name": "VariableDeclaration",
+            "src": "559:34:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "workersPool",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract IWorkerNode[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "contract IWorkerNode[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "IWorkerNode",
+                      "referencedDeclaration": 1757,
+                      "type": "contract IWorkerNode"
+                    },
+                    "id": 1091,
+                    "name": "UserDefinedTypeName",
+                    "src": "599:11:4"
+                  }
+                ],
+                "id": 1092,
+                "name": "ArrayTypeName",
+                "src": "599:13:4"
+              }
+            ],
+            "id": 1093,
+            "name": "VariableDeclaration",
+            "src": "599:32:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "progress",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint8",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint8",
+                  "type": "uint8"
+                },
+                "id": 1094,
+                "name": "ElementaryTypeName",
+                "src": "638:5:4"
+              }
+            ],
+            "id": 1095,
+            "name": "VariableDeclaration",
+            "src": "638:21:4"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "ipfsResults",
+              "scope": 1154,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "bytes storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes",
+                      "type": "bytes storage pointer"
+                    },
+                    "id": 1096,
+                    "name": "ElementaryTypeName",
+                    "src": "665:5:4"
+                  }
+                ],
+                "id": 1097,
+                "name": "ArrayTypeName",
+                "src": "665:7:4"
+              }
+            ],
+            "id": 1098,
+            "name": "VariableDeclaration",
+            "src": "665:26:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "activeWorkersCount",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1099,
+                "name": "ParameterList",
+                "src": "725:2:4"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 1103,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1100,
+                        "name": "ElementaryTypeName",
+                        "src": "750:7:4"
+                      }
+                    ],
+                    "id": 1101,
+                    "name": "VariableDeclaration",
+                    "src": "750:7:4"
+                  }
+                ],
+                "id": 1102,
+                "name": "ParameterList",
+                "src": "749:9:4"
+              }
+            ],
+            "id": 1103,
+            "name": "FunctionDefinition",
+            "src": "698:61:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": true,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "didWorkerCompute",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "no",
+                      "scope": 1110,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 1104,
+                        "name": "ElementaryTypeName",
+                        "src": "790:4:4"
+                      }
+                    ],
+                    "id": 1105,
+                    "name": "VariableDeclaration",
+                    "src": "790:7:4"
+                  }
+                ],
+                "id": 1106,
+                "name": "ParameterList",
+                "src": "789:9:4"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 1110,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 1107,
+                        "name": "ElementaryTypeName",
+                        "src": "821:4:4"
+                      }
+                    ],
+                    "id": 1108,
+                    "name": "VariableDeclaration",
+                    "src": "821:4:4"
+                  }
+                ],
+                "id": 1109,
+                "name": "ParameterList",
+                "src": "820:6:4"
+              }
+            ],
+            "id": 1110,
+            "name": "FunctionDefinition",
+            "src": "764:63:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "reportOfflineWorker",
+              "payable": true,
+              "scope": 1154,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "reported",
+                      "scope": 1115,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract IWorkerNode",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "IWorkerNode",
+                          "referencedDeclaration": 1757,
+                          "type": "contract IWorkerNode"
+                        },
+                        "id": 1111,
+                        "name": "UserDefinedTypeName",
+                        "src": "862:11:4"
+                      }
+                    ],
+                    "id": 1112,
+                    "name": "VariableDeclaration",
+                    "src": "862:20:4"
+                  }
+                ],
+                "id": 1113,
+                "name": "ParameterList",
+                "src": "861:22:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1114,
+                "name": "ParameterList",
+                "src": "900:0:4"
+              }
+            ],
+            "id": 1115,
+            "name": "FunctionDefinition",
+            "src": "833:68:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "gatheringWorkersResponse",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "acceptanceFlag",
+                      "scope": 1120,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 1116,
+                        "name": "ElementaryTypeName",
+                        "src": "940:4:4"
+                      }
+                    ],
+                    "id": 1117,
+                    "name": "VariableDeclaration",
+                    "src": "940:19:4"
+                  }
+                ],
+                "id": 1118,
+                "name": "ParameterList",
+                "src": "939:21:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1119,
+                "name": "ParameterList",
+                "src": "969:0:4"
+              }
+            ],
+            "id": 1120,
+            "name": "FunctionDefinition",
+            "src": "906:64:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "dataValidationResponse",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "response",
+                      "scope": 1125,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum IComputingJob.DataValidationResponse",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "DataValidationResponse",
+                          "referencedDeclaration": 1076,
+                          "type": "enum IComputingJob.DataValidationResponse"
+                        },
+                        "id": 1121,
+                        "name": "UserDefinedTypeName",
+                        "src": "1007:22:4"
+                      }
+                    ],
+                    "id": 1122,
+                    "name": "VariableDeclaration",
+                    "src": "1007:31:4"
+                  }
+                ],
+                "id": 1123,
+                "name": "ParameterList",
+                "src": "1006:33:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1124,
+                "name": "ParameterList",
+                "src": "1048:0:4"
+              }
+            ],
+            "id": 1125,
+            "name": "FunctionDefinition",
+            "src": "975:74:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "commitProgress",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "percent",
+                      "scope": 1130,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 1126,
+                        "name": "ElementaryTypeName",
+                        "src": "1078:5:4"
+                      }
+                    ],
+                    "id": 1127,
+                    "name": "VariableDeclaration",
+                    "src": "1078:13:4"
+                  }
+                ],
+                "id": 1128,
+                "name": "ParameterList",
+                "src": "1077:15:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1129,
+                "name": "ParameterList",
+                "src": "1101:0:4"
+              }
+            ],
+            "id": 1130,
+            "name": "FunctionDefinition",
+            "src": "1054:48:4"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "constant": false,
+              "implemented": false,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "completeWork",
+              "payable": false,
+              "scope": 1154,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ipfs",
+                      "scope": 1135,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes calldata",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 1131,
+                        "name": "ElementaryTypeName",
+                        "src": "1129:5:4"
+                      }
+                    ],
+                    "id": 1132,
+                    "name": "VariableDeclaration",
+                    "src": "1129:10:4"
+                  }
+                ],
+                "id": 1133,
+                "name": "ParameterList",
+                "src": "1128:12:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1134,
+                "name": "ParameterList",
+                "src": "1149:0:4"
+              }
+            ],
+            "id": 1135,
+            "name": "FunctionDefinition",
+            "src": "1107:43:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "WorkersUpdated"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1136,
+                "name": "ParameterList",
+                "src": "1176:2:4"
+              }
+            ],
+            "id": 1137,
+            "name": "EventDefinition",
+            "src": "1156:23:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "WorkersNotFound"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1138,
+                "name": "ParameterList",
+                "src": "1205:2:4"
+              }
+            ],
+            "id": 1139,
+            "name": "EventDefinition",
+            "src": "1184:24:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "DataValidationStarted"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1140,
+                "name": "ParameterList",
+                "src": "1240:2:4"
+              }
+            ],
+            "id": 1141,
+            "name": "EventDefinition",
+            "src": "1213:30:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "DataValidationFailed"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1142,
+                "name": "ParameterList",
+                "src": "1274:2:4"
+              }
+            ],
+            "id": 1143,
+            "name": "EventDefinition",
+            "src": "1248:29:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "CognitionStarted"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1144,
+                "name": "ParameterList",
+                "src": "1304:2:4"
+              }
+            ],
+            "id": 1145,
+            "name": "EventDefinition",
+            "src": "1282:25:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "CognitionProgressed"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "precent",
+                      "scope": 1149,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 1146,
+                        "name": "ElementaryTypeName",
+                        "src": "1338:5:4"
+                      }
+                    ],
+                    "id": 1147,
+                    "name": "VariableDeclaration",
+                    "src": "1338:13:4"
+                  }
+                ],
+                "id": 1148,
+                "name": "ParameterList",
+                "src": "1337:15:4"
+              }
+            ],
+            "id": 1149,
+            "name": "EventDefinition",
+            "src": "1312:41:4"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "CognitionCompleted"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "name": "partialResult",
+                      "scope": 1153,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 1150,
+                        "name": "ElementaryTypeName",
+                        "src": "1383:4:4"
+                      }
+                    ],
+                    "id": 1151,
+                    "name": "VariableDeclaration",
+                    "src": "1383:18:4"
+                  }
+                ],
+                "id": 1152,
+                "name": "ParameterList",
+                "src": "1382:20:4"
+              }
+            ],
+            "id": 1153,
+            "name": "EventDefinition",
+            "src": "1358:45:4"
+          }
+        ],
+        "id": 1154,
+        "name": "ContractDefinition",
+        "src": "266:1139:4"
+      }
+    ],
+    "id": 1155,
+    "name": "SourceUnit",
+    "src": "0:1406:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-19T15:26:39.747Z"
+}

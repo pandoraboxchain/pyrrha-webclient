@@ -1,0 +1,17 @@
+@import '../../theme/variables.scss';
+
+body {
+    background-color: #272727;
+    color: $main-text-color;
+}
+
+.ui.form .field {
+    
+    label {
+        color: $main-text-color;
+    }
+}
+
+.pn-content-panel {
+    padding: 6em 0 3em 0;
+}

@@ -1,0 +1,23 @@
+.ui .menu {
+    &.pn-header {
+        background-color: #333333;
+    }    
+}
+
+.pn-head-title {
+    color: white;
+    font-size: 1.4em;
+}
+
+.pn-nav {
+    color: whitesmoke;
+
+    &:hover {
+        color: grey;
+    }
+
+    &.selected {
+        color: white;
+        font-weight: bold;
+    }
+}
