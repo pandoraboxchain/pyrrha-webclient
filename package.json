@@ -2,26 +2,50 @@
   "name": "pyrrha-webclient",
   "version": "1.0.0",
   "description": "Webclient for Pyrrha",
-  "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
-    "bundle": "browserify ./js/main.js > browserified/bundle.js"
+    "sync:abis": "npx rimraf ./src/abis && cp -R ./pyrrha-abi ./src",
+    "start": "npm run sync:abis && BROWSER=none npx react-app-rewired start",
+    "build": "npx react-app-rewired build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pandoraboxchain/pyrrha-webclient.git"
   },
-  "author": "",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pandoraboxchain/pyrrha-webclient/issues"
   },
   "homepage": "https://github.com/pandoraboxchain/pyrrha-webclient#readme",
   "dependencies": {
-    "connect": "^3.6.5",
-    "ipfs-api": "^17.2.6",
-    "serve-static": "^1.13.1",
-    "web3": "https://github.com/ethereum/web3.js.git"
-  }
+    "babel-polyfill": "^6.26.0",
+    "history": "^4.7.2",
+    "ipfs-api": "^18.1.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-loadable": "^5.3.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.7.2",
+    "redux-persist": "^5.9.1",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "semantic-ui-css": "^2.3.0",
+    "semantic-ui-react": "^0.78.3",
+    "web3": "^1.0.0-beta.30"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "eslint": "^4.18.1",
+    "node-sass-chokidar": "^0.0.3",
+    "react-app-rewired": "^1.4.1",
+    "react-scripts": "^1.1.0",
+    "rimraf": "^2.6.2",
+    "solhint": "^1.1.10"
+  },
+  "author": "Kostiantyn Smyrnov <kostysh@gmail.com>",
+  "license": "MIT"
 }

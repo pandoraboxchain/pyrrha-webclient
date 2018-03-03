@@ -1,0 +1,1155 @@
+{
+  "contractName": "Dataset",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "withdrawBalance",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "samplesCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "batchesCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "updatePrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "currentPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "dataDim",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ipfsAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_ipfsAddress",
+          "type": "bytes"
+        },
+        {
+          "name": "_dataDim",
+          "type": "uint256"
+        },
+        {
+          "name": "_samplesCount",
+          "type": "uint256"
+        },
+        {
+          "name": "_batchesCount",
+          "type": "uint8"
+        },
+        {
+          "name": "_initialPrice",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "oldPrice",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "newPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "PriceUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b60405161082338038061082383398101604052808051820191906020018051906020019091908051906020019091908051906020019091908051906020019091905050848482336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508160058190555082600490805190602001906100b29291906100e9565b50806006819055505050508260098190555081600a60006101000a81548160ff021916908360ff160217905550505050505061018e565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061012a57805160ff1916838001178555610158565b82800160010185558215610158579182015b8281111561015757825182559160200191906001019061013c565b5b5090506101659190610169565b5090565b61018b91905b8082111561018757600081600090555060010161016f565b5090565b90565b6106868061019d6000396000f300606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60095481565b600a60009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6006549050816006819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60055481565b60048054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820e7cc17c1e4b68595a5e3dd29a3ca740df9b2f4a9d6f712ee10cc360e38027ec30029",
+  "deployedBytecode": "0x606060405260043610610099576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635fd8c7101461009e5780637a507aa2146100b357806387ea0961146100dc5780638d6cc56d1461010b5780638da5cb5b1461012e5780639d1b464a14610183578063b1f8d9ba146101ac578063e1b40a76146101d5578063f2fde38b14610263575b600080fd5b34156100a957600080fd5b6100b161029c565b005b34156100be57600080fd5b6100c6610371565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610377565b604051808260ff1660ff16815260200191505060405180910390f35b341561011657600080fd5b61012c600480803590602001909190505061038a565b005b341561013957600080fd5b610141610436565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561018e57600080fd5b61019661045b565b6040518082815260200191505060405180910390f35b34156101b757600080fd5b6101bf610461565b6040518082815260200191505060405180910390f35b34156101e057600080fd5b6101e8610467565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561022857808201518184015260208101905061020d565b50505050905090810190601f1680156102555780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561026e57600080fd5b61029a600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610505565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102f757600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561036f57600080fd5b565b60095481565b600a60009054906101000a900460ff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103e757600080fd5b6006549050816006819055507f945c1c4e99aa89f648fbfe3df471b916f719e16d960fcec0737d4d56bd6968388183604051808381526020018281526020019250505060405180910390a15050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60065481565b60055481565b60048054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104fd5780601f106104d2576101008083540402835291602001916104fd565b820191906000526020600020905b8154815290600101906020018083116104e057829003601f168201915b505050505081565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561056057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561059c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a72305820e7cc17c1e4b68595a5e3dd29a3ca740df9b2f4a9d6f712ee10cc360e38027ec30029",
+  "sourceMap": "87:431:2:-;;;199:317;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;383:12;397:8;407:13;509:10:32;501:5;;:18;;;;;;;;;;;;;;;;;;1402:8:1;1392:7;:18;;;;1434:12;1420:11;:26;;;;;;;;;;;;:::i;:::-;;1471:13;1456:12;:28;;;;1259:232;;;458:13:2;443:12;:28;;;;496:13;481:12;;:28;;;;;;;;;;;;;;;;;;199:317;;;;;87:431;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "87:431:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167:1;;;;;;;;;;;;;;134:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;167:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1497:212:1;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1118:27:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1008:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;672:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;834:169:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167:1;654:5:32;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1957:5:1;;;;;;;;;;;:14;;:28;1972:4;:12;;;1957:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1825:167::o;134:27:2:-;;;;:::o;167:25::-;;;;;;;;;;;;;:::o;1497:212:1:-;1593:16;654:5:32;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;1612:12:1;;1593:31;;1649:9;1634:12;:24;;;;1669:33;1682:8;1692:9;1669:33;;;;;;;;;;;;;;;;;;;;;;;;1497:212;;:::o;238:20:32:-;;;;;;;;;;;;;:::o;1118:27:1:-;;;;:::o;1008:22::-;;;;:::o;672:24::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;834:169:32:-;654:5;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;930:1;910:22;;:8;:22;;;;902:31;;;;;;;;967:8;939:37;;960:5;;;;;;;;;;;939:37;;;;;;;;;;;;990:8;982:5;;:16;;;;;;;;;;;;;;;;;;834:169;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport './DataEntity.sol';\nimport './IDataset.sol';\n\n/*\n */\n\ncontract Dataset is DataEntity, IDataset {\n    uint256 public samplesCount;\n    uint8 public batchesCount;\n\n    function Dataset (\n        bytes _ipfsAddress,\n        uint256 _dataDim,\n        uint256 _samplesCount,\n        uint8 _batchesCount,\n        uint256 _initialPrice\n    )\n    DataEntity(_ipfsAddress, _dataDim, _initialPrice)\n    public {\n        samplesCount = _samplesCount;\n        batchesCount = _batchesCount;\n    }\n}\n",
+  "sourcePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/Dataset.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/Dataset.sol",
+      "exportedSymbols": {
+        "Dataset": [
+          170
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 132,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 131,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/DataEntity.sol",
+          "file": "./DataEntity.sol",
+          "scope": 171,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 133,
+        "name": "ImportDirective",
+        "src": "26:26:2"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            1186,
+            3232
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1223,
+            1186,
+            3232
+          ],
+          "name": "Dataset",
+          "scope": 171,
+          "SourceUnit": 207,
+          "absolutePath": "/Users/orlovsky/Repositories/pandora/pyrrha-consensus/contracts/entities/IDataset.sol",
+          "file": "./IDataset.sol",
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "DataEntity",
+                  "referencedDeclaration": 1186,
+                  "type": "contract DataEntity"
+                },
+                "id": 1190,
+                "name": "UserDefinedTypeName",
+                "src": "82:10:2"
+              }
+            ],
+            "id": 1191,
+            "name": "InheritanceSpecifier",
+            "src": "82:10:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "samplesCount",
+              "scope": 1223,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 1192,
+                "name": "ElementaryTypeName",
+                "src": "99:7:2"
+              }
+            ],
+            "id": 1193,
+            "name": "VariableDeclaration",
+            "src": "99:27:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "batchesCount",
+              "scope": 1223,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint8",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint8",
+                  "type": "uint8"
+                },
+                "id": 1194,
+                "name": "ElementaryTypeName",
+                "src": "132:5:2"
+              }
+            ],
+            "id": 1195,
+            "name": "VariableDeclaration",
+            "src": "132:25:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "name": "Dataset",
+              "payable": false,
+              "scope": 1223,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsAddress",
+                      "scope": 1222,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 1196,
+                        "name": "ElementaryTypeName",
+                        "src": "191:5:2"
+                      }
+                    ],
+                    "id": 1197,
+                    "name": "VariableDeclaration",
+                    "src": "191:18:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_dataDim",
+                      "scope": 1222,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1198,
+                        "name": "ElementaryTypeName",
+                        "src": "219:7:2"
+                      }
+                    ],
+                    "id": 1199,
+                    "name": "VariableDeclaration",
+                    "src": "219:16:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_samplesCount",
+                      "scope": 1222,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1200,
+                        "name": "ElementaryTypeName",
+                        "src": "245:7:2"
+                      }
+                    ],
+                    "id": 1201,
+                    "name": "VariableDeclaration",
+                    "src": "245:21:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_batchesCount",
+                      "scope": 1222,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 1202,
+                        "name": "ElementaryTypeName",
+                        "src": "276:5:2"
+                      }
+                    ],
+                    "id": 1203,
+                    "name": "VariableDeclaration",
+                    "src": "276:19:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_initialPrice",
+                      "scope": 1222,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 1204,
+                        "name": "ElementaryTypeName",
+                        "src": "305:7:2"
+                      }
+                    ],
+                    "id": 1205,
+                    "name": "VariableDeclaration",
+                    "src": "305:21:2"
+                  }
+                ],
+                "id": 1206,
+                "name": "ParameterList",
+                "src": "181:151:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1212,
+                "name": "ParameterList",
+                "src": "383:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1186,
+                      "type": "type(contract DataEntity)",
+                      "value": "DataEntity"
+                    },
+                    "id": 1207,
+                    "name": "Identifier",
+                    "src": "333:10:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1197,
+                      "type": "bytes memory",
+                      "value": "_ipfsAddress"
+                    },
+                    "id": 1208,
+                    "name": "Identifier",
+                    "src": "344:12:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1199,
+                      "type": "uint256",
+                      "value": "_dataDim"
+                    },
+                    "id": 1209,
+                    "name": "Identifier",
+                    "src": "358:8:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 1205,
+                      "type": "uint256",
+                      "value": "_initialPrice"
+                    },
+                    "id": 1210,
+                    "name": "Identifier",
+                    "src": "368:13:2"
+                  }
+                ],
+                "id": 1211,
+                "name": "ModifierInvocation",
+                "src": "333:49:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1193,
+                              "type": "uint256",
+                              "value": "samplesCount"
+                            },
+                            "id": 1213,
+                            "name": "Identifier",
+                            "src": "393:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1201,
+                              "type": "uint256",
+                              "value": "_samplesCount"
+                            },
+                            "id": 1214,
+                            "name": "Identifier",
+                            "src": "408:13:2"
+                          }
+                        ],
+                        "id": 1215,
+                        "name": "Assignment",
+                        "src": "393:28:2"
+                      }
+                    ],
+                    "id": 1216,
+                    "name": "ExpressionStatement",
+                    "src": "393:28:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1195,
+                              "type": "uint8",
+                              "value": "batchesCount"
+                            },
+                            "id": 1217,
+                            "name": "Identifier",
+                            "src": "431:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 1203,
+                              "type": "uint8",
+                              "value": "_batchesCount"
+                            },
+                            "id": 1218,
+                            "name": "Identifier",
+                            "src": "446:13:2"
+                          }
+                        ],
+                        "id": 1219,
+                        "name": "Assignment",
+                        "src": "431:28:2"
+                      }
+                    ],
+                    "id": 1220,
+                    "name": "ExpressionStatement",
+                    "src": "431:28:2"
+                  }
+                ],
+                "id": 1221,
+                "name": "Block",
+                "src": "383:83:2"
+              }
+            ],
+            "id": 1222,
+            "name": "FunctionDefinition",
+            "src": "164:302:2"
+          }
+        ],
+        "id": 134,
+        "name": "ImportDirective",
+        "src": "53:24:2"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            130,
+            196,
+            206,
+            3948
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            170,
+            206,
+            130,
+            196,
+            3948
+          ],
+          "name": "Dataset",
+          "scope": 171
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "DataEntity",
+                  "referencedDeclaration": 130,
+                  "type": "contract DataEntity"
+                },
+                "id": 135,
+                "name": "UserDefinedTypeName",
+                "src": "107:10:2"
+              }
+            ],
+            "id": 136,
+            "name": "InheritanceSpecifier",
+            "src": "107:10:2"
+          },
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "IDataset",
+                  "referencedDeclaration": 206,
+                  "type": "contract IDataset"
+                },
+                "id": 137,
+                "name": "UserDefinedTypeName",
+                "src": "119:8:2"
+              }
+            ],
+            "id": 138,
+            "name": "InheritanceSpecifier",
+            "src": "119:8:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "samplesCount",
+              "scope": 170,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 139,
+                "name": "ElementaryTypeName",
+                "src": "134:7:2"
+              }
+            ],
+            "id": 140,
+            "name": "VariableDeclaration",
+            "src": "134:27:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "batchesCount",
+              "scope": 170,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint8",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint8",
+                  "type": "uint8"
+                },
+                "id": 141,
+                "name": "ElementaryTypeName",
+                "src": "167:5:2"
+              }
+            ],
+            "id": 142,
+            "name": "VariableDeclaration",
+            "src": "167:25:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "name": "Dataset",
+              "payable": false,
+              "scope": 170,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_ipfsAddress",
+                      "scope": 169,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes",
+                          "type": "bytes storage pointer"
+                        },
+                        "id": 143,
+                        "name": "ElementaryTypeName",
+                        "src": "226:5:2"
+                      }
+                    ],
+                    "id": 144,
+                    "name": "VariableDeclaration",
+                    "src": "226:18:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_dataDim",
+                      "scope": 169,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 145,
+                        "name": "ElementaryTypeName",
+                        "src": "254:7:2"
+                      }
+                    ],
+                    "id": 146,
+                    "name": "VariableDeclaration",
+                    "src": "254:16:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_samplesCount",
+                      "scope": 169,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 147,
+                        "name": "ElementaryTypeName",
+                        "src": "280:7:2"
+                      }
+                    ],
+                    "id": 148,
+                    "name": "VariableDeclaration",
+                    "src": "280:21:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_batchesCount",
+                      "scope": 169,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 149,
+                        "name": "ElementaryTypeName",
+                        "src": "311:5:2"
+                      }
+                    ],
+                    "id": 150,
+                    "name": "VariableDeclaration",
+                    "src": "311:19:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_initialPrice",
+                      "scope": 169,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 151,
+                        "name": "ElementaryTypeName",
+                        "src": "340:7:2"
+                      }
+                    ],
+                    "id": 152,
+                    "name": "VariableDeclaration",
+                    "src": "340:21:2"
+                  }
+                ],
+                "id": 153,
+                "name": "ParameterList",
+                "src": "216:151:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 159,
+                "name": "ParameterList",
+                "src": "433:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 130,
+                      "type": "type(contract DataEntity)",
+                      "value": "DataEntity"
+                    },
+                    "id": 154,
+                    "name": "Identifier",
+                    "src": "372:10:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 144,
+                      "type": "bytes memory",
+                      "value": "_ipfsAddress"
+                    },
+                    "id": 155,
+                    "name": "Identifier",
+                    "src": "383:12:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 146,
+                      "type": "uint256",
+                      "value": "_dataDim"
+                    },
+                    "id": 156,
+                    "name": "Identifier",
+                    "src": "397:8:2"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 152,
+                      "type": "uint256",
+                      "value": "_initialPrice"
+                    },
+                    "id": 157,
+                    "name": "Identifier",
+                    "src": "407:13:2"
+                  }
+                ],
+                "id": 158,
+                "name": "ModifierInvocation",
+                "src": "372:49:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 140,
+                              "type": "uint256",
+                              "value": "samplesCount"
+                            },
+                            "id": 160,
+                            "name": "Identifier",
+                            "src": "443:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 148,
+                              "type": "uint256",
+                              "value": "_samplesCount"
+                            },
+                            "id": 161,
+                            "name": "Identifier",
+                            "src": "458:13:2"
+                          }
+                        ],
+                        "id": 162,
+                        "name": "Assignment",
+                        "src": "443:28:2"
+                      }
+                    ],
+                    "id": 163,
+                    "name": "ExpressionStatement",
+                    "src": "443:28:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint8"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 142,
+                              "type": "uint8",
+                              "value": "batchesCount"
+                            },
+                            "id": 164,
+                            "name": "Identifier",
+                            "src": "481:12:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 150,
+                              "type": "uint8",
+                              "value": "_batchesCount"
+                            },
+                            "id": 165,
+                            "name": "Identifier",
+                            "src": "496:13:2"
+                          }
+                        ],
+                        "id": 166,
+                        "name": "Assignment",
+                        "src": "481:28:2"
+                      }
+                    ],
+                    "id": 167,
+                    "name": "ExpressionStatement",
+                    "src": "481:28:2"
+                  }
+                ],
+                "id": 168,
+                "name": "Block",
+                "src": "433:83:2"
+              }
+            ],
+            "id": 169,
+            "name": "FunctionDefinition",
+            "src": "199:317:2"
+          }
+        ],
+        "id": 170,
+        "name": "ContractDefinition",
+        "src": "87:431:2"
+      }
+    ],
+    "id": 171,
+    "name": "SourceUnit",
+    "src": "0:519:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x8acee021a27779d8e98b9650722676b850b25e11"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-19T15:26:55.396Z"
+}
