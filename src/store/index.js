@@ -11,10 +11,10 @@ import packageConfig from '../../package.json';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
-// Filter persitent state for contract reducer
+// Filter persitent state for connect reducer
 // these states will not been rehydrated after app reloading
 const connectBacklist = createPersistStorageFilter(
-    'contract',
+    'connect',
     [
         'web3',
         'isMetaMask',
@@ -39,6 +39,7 @@ const kernelConstructorBlacklist = createPersistStorageFilter(
         'formErrors.weights',
         'lists',
         'messages',
+        'progress',
         'errorMessages'
     ]
 );

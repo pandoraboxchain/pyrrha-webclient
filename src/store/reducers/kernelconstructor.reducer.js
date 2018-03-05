@@ -113,7 +113,16 @@ export const reduce = (state = initialState, action = {}) => {
         
         case KERNEL_CONSTRUCTOR_IPFS_PROGRESS:
             return {
-                ...state
+                ...state,
+                progress: {
+                    ...state.progress,
+                    [action.progress.file]: {
+                        size: action.progress.size,
+                        type: action.progress.type,
+                        progress: action.progress.progress,
+                        percent: Number.parseInt(action.progress.progress * 100 / action.progress.size, 10)
+                    }
+                }
             };
 
         case WEB3_ACCOUNTS_UPDATE:

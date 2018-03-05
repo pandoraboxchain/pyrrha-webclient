@@ -40,7 +40,7 @@ export const loadFile = (file) => {
  * @param {Buffer} buffer 
  * @param {ArrayBuffer} loadedFile 
  * @param {Function} [progressCb=() => {}] 
- * @returns {string}
+ * @returns {String}
  */
 export const addIpfs = async (buffer, loadedFile, progressCb = () => {}) => {
 
@@ -64,7 +64,7 @@ export const addIpfs = async (buffer, loadedFile, progressCb = () => {}) => {
  * 
  * @param {File} file 
  * @param {Function} [progressCb=() => {}] 
- * @returns {string}
+ * @returns {String}
  */
 export const submitFileToIpfs = async (file, progressCb = () => {}) => {
     
@@ -81,7 +81,7 @@ export const submitFileToIpfs = async (file, progressCb = () => {}) => {
 /**
  * Submit json file to IPFS
  * 
- * @param {any} jsonString 
+ * @param {String} jsonString 
  * @param {any} fileInfo 
  * @param {any} [progressCb=() => {}] 
  * @returns 

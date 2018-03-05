@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Form, Button, Message } from 'semantic-ui-react';
+import { Form, Button, Message, Progress } from 'semantic-ui-react';
 
 import { KernelConstructorFormModel as formModel } from '../../store/models';
 
@@ -47,6 +47,7 @@ class KernelConstructorForm extends PureComponent {
             lists,
             formErrors,
             messages,
+            progress,
             errorMessages 
         } = this.props;
 
@@ -123,6 +124,12 @@ class KernelConstructorForm extends PureComponent {
                         </Message.List>
                     </Message>
                 </Form>
+
+                {Object.keys(progress).length > 0 && 
+                    (Object.keys(progress).map((key, index) => 
+                        <Progress key={index} percent={progress[key].percent}>{key}</Progress>
+                    ))
+                }
                 
                 {messages.length > 0 &&
                     (messages.map((msg, index) => 
@@ -149,6 +156,7 @@ KernelConstructorForm.propTypes = {
     lists: PropTypes.object,
     formErrors: PropTypes.object,
     messages: PropTypes.array,
+    progress: PropTypes.object,
     errorMessages: PropTypes.array
 }
 
@@ -161,7 +169,8 @@ const mapStateToProps = state => {
         lists: selectors.getKernelConLists(state),
         formErrors: selectors.getKernelConFormErrors(state),
         messages: selectors.getKernelConMessages(state),
-        errorMessages: selectors.getKernelConErrorMessages(state)
+        errorMessages: selectors.getKernelConErrorMessages(state),
+        progress: selectors.getKernelConFormProgress(state)
     };
 };
 

@@ -41,6 +41,7 @@ function* refreshAccounts() {
     }
 }
 
+// Sagas listeners
 function* watchActions() {
     yield takeLatest('persist/REHYDRATE', start);// Start if REHYDRATE process done only
     yield takeLatest(actions.WEB3_CONNECT_REQUEST, connectWeb3);
