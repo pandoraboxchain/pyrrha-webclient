@@ -3,6 +3,8 @@ import {
     KERNEL_CONSTRUCTOR_DONE,
     KERNEL_CONSTRUCTOR_FAILURE,
     KERNEL_CONSTRUCTOR_FIELD_UPDATED,
+    WEB3_ACCOUNTS_UPDATE,
+    WEB3_ACCOUNTS_RECEIVED,
     KERNEL_CONSTRUCTOR_ERROR_INVALIDATE,
     KERNEL_CONSTRUCTOR_MESSAGE_DISMISS,
     KERNEL_CONSTRUCTOR_IPFS_PROGRESS
@@ -11,6 +13,12 @@ import {
 const initialState = {
     isSubmitting: false,
     formValues: {},
+    lists: {
+        accounts: {
+            items: [],
+            isRefreshing: false
+        }
+    },
     formErrors: {},
     progress: {},
     messages: [],
@@ -91,7 +99,31 @@ export const reduce = (state = initialState, action = {}) => {
             return {
                 ...state
             };
-            
+
+        case WEB3_ACCOUNTS_UPDATE:
+            return {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    accounts: {
+                        items: [],
+                        isRefreshing: true
+                    }
+                }
+            };
+        
+        case WEB3_ACCOUNTS_RECEIVED:
+            return {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    accounts: {
+                        items: action.accounts,
+                        isRefreshing: false
+                    }
+                }
+            };    
+
         default:
             return state;
     }

@@ -32,8 +32,7 @@ export const estimateGas = async (web3, bytecode, args) => {
  */
 export const addKernelToMarket = async (web3, address) => {
     const market = new web3.eth.Contract(PandoraMarket.abi, config.marketAddress);
-    const deployedAddress = await market.methods
+    return await market.methods
         .addKernel(address)
         .call();
-    return deployedAddress;
 };

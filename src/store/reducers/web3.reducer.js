@@ -2,7 +2,9 @@ import {
     WEB3_CONNECT_REQUEST,
     WEB3_CONNECT_DONE,
     WEB3_CONNECT_FAILURE,
-    WEB3_INVALIDATE_ERROR
+    WEB3_INVALIDATE_ERROR,
+    WEB3_ACCOUNTS_UPDATE,
+    WEB3_ACCOUNTS_RECEIVED
 } from '../actions';
 
 const initialState = {
@@ -12,10 +14,14 @@ const initialState = {
     isConnected: false,
     connectedTo: '',
     connectedAt: null,
+    isAccountsRefreshing: false,
+    accounts: [],
     errorMessage: null
 };
 
 export const reduce = (state = initialState, action = {}) => {
+
+    console.log('Action:', action.type, action);
 
     switch (action.type) {
         
@@ -27,7 +33,9 @@ export const reduce = (state = initialState, action = {}) => {
                 isConnecting: true, 
                 isConnected: false,
                 connectedTo: '',
-                connectedAt: null, 
+                connectedAt: null,
+                isAccountsRefreshing: false,
+                accounts: [] ,
                 errorMessage: null 
             };
 
@@ -52,12 +60,27 @@ export const reduce = (state = initialState, action = {}) => {
                 isConnected: false,
                 connectedTo: '',
                 connectedAt: null, 
+                isAccountsRefreshing: false,
+                accounts: [] ,
                 errorMessage: action.error.message 
             };
 
         case WEB3_INVALIDATE_ERROR:
             return { ...state, errorMessage: null };
         
+        case WEB3_ACCOUNTS_UPDATE:
+            return {
+                ...state,
+                isAccountsRefreshing: true
+            };
+
+        case WEB3_ACCOUNTS_RECEIVED:
+            return {
+                ...state,
+                isAccountsRefreshing: false,
+                accounts: action.accounts
+            };
+
         default:
             return state;
     }

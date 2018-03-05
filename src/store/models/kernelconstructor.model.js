@@ -2,6 +2,10 @@ export const KernelConstructorFormModel = {
     publisher: {
         label: 'Publisher address',
         type: 'text',
+        list: {
+            name: 'accounts',
+            action: 'web3AccountsUpdate'
+        },
         required: true,
         validator: value => {
             return true

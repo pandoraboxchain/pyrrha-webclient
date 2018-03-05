@@ -2,12 +2,13 @@ import { call, put, fork, select, takeLatest } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
-import { connectWeb3Provider } from '../../services';
+import * as services from '../../services';
 import config from '../../config';
 
 function* connectWeb3() {
     try {
-        const web3 = yield call(connectWeb3Provider);
+        const web3 = yield call(services.connectWeb3Provider);
+        window.web4 = web3;//@todo Remove web4 from global scope
         yield put(actions.web3Connected(web3));
     } catch (error) {
         yield put(actions.web3ConnectFailure(error));
@@ -30,10 +31,21 @@ function* autoInvalidateError() {
     }
 }
 
+function* refreshAccounts() {
+    try {
+        const web3 = yield select(selectors.web3);
+        const accounts = yield call(services.getAccounts, web3);
+        yield put(actions.web3AccountsReceived(accounts));
+    } catch(err) {
+        // @todo Handle accounts refresh errors
+    }
+}
+
 function* watchActions() {
     yield takeLatest('persist/REHYDRATE', start);// Start if REHYDRATE process done only
     yield takeLatest(actions.WEB3_CONNECT_REQUEST, connectWeb3);
     yield takeLatest(actions.WEB3_CONNECT_FAILURE, autoInvalidateError);
+    yield takeLatest(actions.WEB3_ACCOUNTS_UPDATE, refreshAccounts);
 }
 
 // Default set of sagas
