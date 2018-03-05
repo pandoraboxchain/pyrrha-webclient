@@ -12,3 +12,4 @@ export const web3Version = createSelector(
     web3,
     web3 => web3 ? web3.version : ''
 );
+export const isWeb3AccountsRefreshing = state => state.connect.isAccountsRefreshing;

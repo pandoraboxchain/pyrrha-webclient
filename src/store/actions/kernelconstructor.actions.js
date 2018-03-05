@@ -28,9 +28,9 @@ export const setKernelConstructorField = (field, value) => action(KERNEL_CONSTRU
     value
 });
 
-export const dismissKernelConstructorMessage = (index) => action(KERNEL_CONSTRUCTOR_MESSAGE_DISMISS, { index });
+export const dismissKernelConstructorMessage = index => action(KERNEL_CONSTRUCTOR_MESSAGE_DISMISS, { index });
 export const invalidateKernelConstructorError = () => action(KERNEL_CONSTRUCTOR_ERROR_INVALIDATE);
 export const submitKernelConstructorForm = () => action(KERNEL_CONSTRUCTOR_START);
-export const kernelConstructorFailure = (error) => action(KERNEL_CONSTRUCTOR_FAILURE, { error });
+export const kernelConstructorFailure = error => action(KERNEL_CONSTRUCTOR_FAILURE, { error });
 export const kernelConstructorSuccess = (message = undefined) => action(KERNEL_CONSTRUCTOR_DONE, { message });
-export const kernelConstructorIpfsProgress = (progress) => action(KERNEL_CONSTRUCTOR_IPFS_PROGRESS, { progress });
+export const kernelConstructorIpfsProgress = progress => action(KERNEL_CONSTRUCTOR_IPFS_PROGRESS, { progress });

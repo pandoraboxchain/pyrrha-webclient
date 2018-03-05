@@ -5,22 +5,10 @@ import { connect } from 'react-redux';
 
 import { Form, Button, Message } from 'semantic-ui-react';
 
-import { KernelConstructorFormModel } from '../../store/models';
+import { KernelConstructorFormModel as formModel } from '../../store/models';
 
-import { 
-    setKernelConstructorField, 
-    invalidateKernelConstructorError,
-    submitKernelConstructorForm,
-    dismissKernelConstructorMessage
-} from '../../store/actions';
-import {
-    isWeb3Connected,
-    isKernelConSubmitting,
-    getKernelConFormErrors,
-    getKernelConFormValues,
-    getKernelConMessages,
-    getKernelConErrorMessages
-} from '../../store/selectors';
+import * as actions from '../../store/actions';
+import * as selectors from '../../store/selectors';
 
 class KernelConstructorForm extends PureComponent {
 
@@ -34,6 +22,11 @@ class KernelConstructorForm extends PureComponent {
     handleMessageDismiss = (e, { index }) => this.props.dismissMessage(index);
 
     handleErrorDismiss = () => this.props.invalidateError();
+
+    handleAccountsRefresh = (e, { refreshaction }) => {
+        e.preventDefault();
+        this.props.updateAccounts(refreshaction);
+    };
 
     onFieldChange = (e, { name, value, type }) => {
 
@@ -51,6 +44,7 @@ class KernelConstructorForm extends PureComponent {
             isConnected, 
             isSubmitting, 
             formValues, 
+            lists,
             formErrors,
             messages,
             errorMessages 
@@ -63,27 +57,53 @@ class KernelConstructorForm extends PureComponent {
                     error={errorMessages.length > 0} 
                     loading={isSubmitting}>
 
-                    {Object.keys(KernelConstructorFormModel).map((field, index) => (
+                    {Object.keys(formModel).map((field, index) => (
                         <Form.Field key={index} required>
-                            <label>{KernelConstructorFormModel[field].label}</label>
-                            {KernelConstructorFormModel[field].type === 'file' &&
+                            <label>{formModel[field].label}</label>
+                            {formModel[field].type === 'file' &&
                                 <Form.Input
                                     key={field+this.fileInputKey}
                                     name={field} 
-                                    type={KernelConstructorFormModel[field].type}
+                                    type={formModel[field].type}
                                     onChange={this.onFieldChange}  
                                     error={formErrors[field]}
                                     tabIndex={index} />
                             }
-                            {KernelConstructorFormModel[field].type !== 'file' &&
+                            {formModel[field].type !== 'file' && !formModel[field].list &&
                                 <Form.Input
                                     name={field} 
                                     value={formValues[field] || ''}
-                                    type={KernelConstructorFormModel[field].type}
+                                    type={formModel[field].type}
                                     onChange={this.onFieldChange}  
                                     error={formErrors[field]}
-                                    tabIndex={index} />
-                            }                            
+                                    tabIndex={index} />                                
+                            }
+                            {(formModel[field].type !== 'file' && formModel[field].list) &&
+                                <Form.Input
+                                    name={field} 
+                                    value={formValues[field] || ''}
+                                    type={formModel[field].type} 
+                                    list={formModel[field].list} 
+                                    onChange={this.onFieldChange}  
+                                    error={formErrors[field]}
+                                    tabIndex={index}>
+                                    <input />
+                                    <Button
+                                        style={{marginLeft: 2}}
+                                        loading={lists[formModel[field].list.name].isRefreshing} 
+                                        refreshaction={formModel[field].list.action}
+                                        onClick={this.handleAccountsRefresh}>Refresh {formModel[field].list.name}</Button>
+                                </Form.Input>
+                            }
+                            {formModel[field].list &&
+                                <datalist id={formModel[field].list.name}>
+                                    {lists[formModel[field].list.name] &&
+                                        (lists[formModel[field].list.name].items.map((item, index) => (
+                                            <option key={index} value={item} />
+                                        )))
+                                    }                                    
+                                </datalist>
+                            }
                         </Form.Field>
                     ))}
 
@@ -123,7 +143,8 @@ class KernelConstructorForm extends PureComponent {
 KernelConstructorForm.propTypes = {
     isConnected: PropTypes.bool,
     isSubmitting: PropTypes.bool, 
-    formValues: PropTypes.object, 
+    formValues: PropTypes.object,
+    lists: PropTypes.object,
     formErrors: PropTypes.object,
     messages: PropTypes.array,
     errorMessages: PropTypes.array
@@ -132,22 +153,24 @@ KernelConstructorForm.propTypes = {
 const mapStateToProps = state => {
 
     return {
-        isConnected: isWeb3Connected(state),
-        isSubmitting: isKernelConSubmitting(state),
-        formValues: getKernelConFormValues(state),
-        formErrors: getKernelConFormErrors(state),
-        messages: getKernelConMessages(state),
-        errorMessages: getKernelConErrorMessages(state)
+        isConnected: selectors.isWeb3Connected(state),
+        isSubmitting: selectors.isKernelConSubmitting(state),
+        formValues: selectors.getKernelConFormValues(state),
+        lists: selectors.getKernelConLists(state),
+        formErrors: selectors.getKernelConFormErrors(state),
+        messages: selectors.getKernelConMessages(state),
+        errorMessages: selectors.getKernelConErrorMessages(state)
     };
 };
 
 const mapDispatchToProps = dispatch => {
 
     return {
-        updateField: (name, value) => dispatch(setKernelConstructorField(name, value)),
-        dismissMessage: index => dispatch(dismissKernelConstructorMessage(index)),
-        invalidateError: () => dispatch(invalidateKernelConstructorError()),
-        submitForm: () => dispatch(submitKernelConstructorForm())
+        updateField: (name, value) => dispatch(actions.setKernelConstructorField(name, value)),
+        dismissMessage: index => dispatch(actions.dismissKernelConstructorMessage(index)),
+        invalidateError: () => dispatch(actions.invalidateKernelConstructorError()),
+        submitForm: () => dispatch(actions.submitKernelConstructorForm()),
+        updateAccounts: (updateAction) => dispatch(actions[updateAction]())
     }
 };
 

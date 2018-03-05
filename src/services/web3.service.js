@@ -13,3 +13,7 @@ export const connectWeb3Provider = () => {
     console.log('Used host:', config.nodeHost);
     return new Web3(`${config.protocol || 'http'}://${config.nodeHost || 'localhost'}:${config.nodePort || ''}`);        
 };
+
+export const getNetwork = async web3 => await web3.eth.net.getId();
+
+export const getAccounts = async web3 => await web3.eth.getAccounts();

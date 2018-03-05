@@ -22,6 +22,7 @@ const connectBacklist = createPersistStorageFilter(
         'isConnected',
         'connectedTo',
         'connectedAt',
+        'isAccountsRefreshing',        
         'errorMessage'
     ]
 );
@@ -36,6 +37,7 @@ const kernelConstructorBlacklist = createPersistStorageFilter(
         'formValues.weights',
         'formErrors.model',
         'formErrors.weights',
+        'lists',
         'messages',
         'errorMessages'
     ]
