@@ -112,6 +112,7 @@ class KernelConstructorForm extends PureComponent {
                         type="submit"
                         tabIndex="5"  
                         size="large">Submit</Button>
+
                     <Message
                         error
                         onDismiss={this.handleErrorDismiss}>
@@ -121,20 +122,21 @@ class KernelConstructorForm extends PureComponent {
                             )}                        
                         </Message.List>
                     </Message>
-                    {messages.length > 0 &&
-                        (messages.map((msg, index) => 
-                            <div className="pn-message-outer" key={index}>
-                                <Message
-                                    index={index}
-                                    success
-                                    visible={messages.length > 0}
-                                    onDismiss={this.handleMessageDismiss}>
-                                    {msg}
-                                </Message>
-                            </div>                            
-                        ))
-                    }
                 </Form>
+                
+                {messages.length > 0 &&
+                    (messages.map((msg, index) => 
+                        <div className="pn-message-outer" key={index}>
+                            <Message
+                                index={index}
+                                success
+                                visible={messages.length > 0}
+                                onDismiss={this.handleMessageDismiss}>
+                                {msg}
+                            </Message>
+                        </div>                            
+                    ))
+                }
             </div>
         );
     }

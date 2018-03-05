@@ -52,6 +52,8 @@ export const uploadModelAndWeightsToIpfs = async (data, progressCb) => {
     }
 };
 
+export const addKernelToMarket = (web3, kernelContractAddress) => utils.addKernelToMarket(web3, kernelContractAddress);
+
 export const deployKernelContract = async (web3, kernelHash, { publisher, dimension, complexity, price }) => {
     
     try {
@@ -61,22 +63,13 @@ export const deployKernelContract = async (web3, kernelHash, { publisher, dimens
         const gas = await utils.estimateGas(web3, Kernel.bytecode, args);
 
         // Create and deploy kernel contract
-        const kernelContract = await new web3.eth.Contract(Kernel.abi)
-            .deploy({
-                data: Kernel.bytecode,
-                arguments: args
-            })
-            .send({
-                from: publisher,
-                gas
-            });
-        
-        const receipt = await web3.eth.getTransactionReceipt(kernelContract.options.address);
-        console.log('Kernel address:', receipt.contractAddress);
+        const kernelContractAddress = await utils.deployContract(web3, Kernel, {
+            args,
+            from: publisher,
+            gas: Number.parseInt(gas * 1.3, 10)
+        });
 
-        // Add deployed kernel address to the market
-        const deployedAddress = await utils.addKernelToMarket(web3, receipt.contractAddress);
-        return deployedAddress;
+        return kernelContractAddress;
     } catch(err) {
         return Promise.reject(err);
     }
