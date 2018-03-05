@@ -55,6 +55,20 @@ const hosts = {
             host: 'localhost',
             port: 5001
         }
+    },
+    rikebyinfura: {
+        protocol: 'https',
+        host: 'rinkeby.infura.io/Llc2pOEtpgzvopBH8dst',
+        port: '',
+        contracts: {
+            pandora: '0x58e66b79928cfb362b53c185a6a1fded882bb07d',
+            market: '0x6142029abb21ef2e0bffde8d43f15c64f3750fe6'
+        },
+        ipfs: {
+            protocol: 'http',
+            host: 'localhost',
+            port: 5001
+        }
     }
 };
 

@@ -12,7 +12,7 @@ import Kernel from '../pyrrha-abi/Kernel.json';
  * Estimate required gas amount
  * 
  * @param {Web3} web3 Web3 instance
- * @param {string} bytecode Contract bytecode
+ * @param {String} bytecode Contract bytecode
  * @param {Array} args Contract arguments
  * @returns {Number} hex
  */
@@ -27,22 +27,20 @@ export const estimateGas = async (web3, bytecode, args) => {
  * Add new Kernel contract to Market
  * 
  * @param {Web3} web3 Web3 instance 
- * @param {string} address 
+ * @param {String} address 
+ * @param {String} from
  * @returns {Promise} Promise object resolved to add status (boolean)
  */
-export const addKernelToMarket = async (web3, address) => {
+export const addKernelToMarket = (web3, address, from) => new Promise((resolve, reject) => {
     const market = new web3.eth.Contract(PandoraMarket.abi, config.marketAddress);
-    const result = await market.methods
+    market.methods
         .addKernel(address)
-        .call();
-    
-        if (!result) {
-
-            return Promise.reject(new Error(`Kernel contract with address "${address}" was not added to Market`));
-        }
-
-    return result;
-};
+        .send({
+            from
+        })
+        .on('error', reject)
+        .on('receipt', receipt => resolve(receipt.contractAddress));;
+});
 
 /**
  * Deploy contract

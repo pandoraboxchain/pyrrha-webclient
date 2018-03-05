@@ -6,3 +6,4 @@ export const getKernelConFormValues = state => state.kernelconstructor.formValue
 export const getKernelConMessages = state => state.kernelconstructor.messages;
 export const getKernelConErrorMessages = state => state.kernelconstructor.errorMessages;
 export const getKernelConFormErrors = state => state.kernelconstructor.formErrors;
+export const getKernelConFormProgress = state => state.kernelconstructor.progress;

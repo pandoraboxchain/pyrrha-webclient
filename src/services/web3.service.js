@@ -14,6 +14,8 @@ export const connectWeb3Provider = () => {
     return new Web3(`${config.protocol || 'http'}://${config.nodeHost || 'localhost'}:${config.nodePort || ''}`);        
 };
 
+// Get ethereum network id
 export const getNetwork = async web3 => await web3.eth.net.getId();
 
+// Get current accounts connected to MetaMask
 export const getAccounts = async web3 => await web3.eth.getAccounts();

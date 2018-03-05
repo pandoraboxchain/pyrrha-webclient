@@ -1,7 +1,13 @@
 import { createTransform } from 'redux-persist';
 
+/**
+ * Delete object property by string path
+ * 
+ * @param {String} path Object path like a.b.c
+ * @param {Object} obj Target object to mutate
+ */
 const deleteOnPath = (path, obj) => {
-    return path.split('.')
+    path.split('.')
         .reduce((acc, part, i, a) => {
             
             if (i === a.length-1) { 
@@ -15,15 +21,19 @@ const deleteOnPath = (path, obj) => {
         }, obj);
 };
 
-const deletePaths = (paths , obj) => {
-    return paths.map(path => deleteOnPath(path, obj));
-};
+/**
+ * Delete unwanted properties from the object
+ * 
+ * @param {Array} paths Array of paths
+ * @param {Object} obj Target object to mutate
+ */
+const deletePaths = (paths , obj) => paths.map(path => deleteOnPath(path, obj));
 
 /**
  * Transformation filter that allow to exclude 
  * some values from the rehydrated state
  * 
- * @param {string} reducer 
+ * @param {String} reducer 
  * @param {array} paths Array of paths like ['a.b', 'c.d.e']
  * @returns {function} 
  */
