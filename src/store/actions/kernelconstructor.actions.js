@@ -1,3 +1,4 @@
+import { reduxAction as action } from '../../utils';
 import { KernelConstructorFormModel } from '../models';
 
 export const KERNEL_CONSTRUCTOR_START = 'KERNEL_CONSTRUCTOR_START';
@@ -7,10 +8,7 @@ export const KERNEL_CONSTRUCTOR_FIELD_UPDATED = 'KERNEL_CONSTRUCTOR_FIELD_UPDATE
 export const KERNEL_CONSTRUCTOR_ERROR_INVALIDATE = 'KERNEL_CONSTRUCTOR_ERROR_INVALIDATE';
 export const KERNEL_CONSTRUCTOR_MESSAGE_DISMISS = 'KERNEL_CONSTRUCTOR_MESSAGE_INVALIDATE';
 export const KERNEL_CONSTRUCTOR_IPFS_PROGRESS = 'KERNEL_CONSTRUCTOR_IPFS_PROGRESS';
-
-function action(type, payload = {}) {
-    return { type, ...payload }
-}
+export const KERNEL_CONSTRUCTOR_MESSAGE = 'KERNEL_CONSTRUCTOR_MESSAGE';
 
 const isFieldValid = (name, value) => {
 
@@ -34,3 +32,4 @@ export const submitKernelConstructorForm = () => action(KERNEL_CONSTRUCTOR_START
 export const kernelConstructorFailure = error => action(KERNEL_CONSTRUCTOR_FAILURE, { error });
 export const kernelConstructorSuccess = (message = undefined) => action(KERNEL_CONSTRUCTOR_DONE, { message });
 export const kernelConstructorIpfsProgress = progress => action(KERNEL_CONSTRUCTOR_IPFS_PROGRESS, { progress });
+export const addKernelConstructorMessage = (message = undefined) => action(KERNEL_CONSTRUCTOR_MESSAGE, { message });

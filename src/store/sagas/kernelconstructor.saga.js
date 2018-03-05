@@ -19,15 +19,19 @@ function* constructKernel() {
 
         const formValues = yield select(selectors.getKernelConFormValues);
         const validatedFormData = yield call(services.validateKernelConstructorForm, formValues);
+        yield put(actions.addKernelConstructorMessage('Constructor form validated successfully'));
 
         const kernelIpfsHash = yield call(services.uploadModelAndWeightsToIpfs, 
             validatedFormData, 
             progress => actions.kernelConstructorIpfsProgress(progress));
+        yield put(actions.addKernelConstructorMessage('Model and weights files successfully uploaded to IPFS'));
 
         const web3 = yield select(selectors.web3);
-        yield call(services.deployKernelContract, web3, kernelIpfsHash, validatedFormData);
-        
-        yield put(actions.kernelConstructorSuccess('Kernel successfully constructed and deployed'));
+        const kernelContractAddress = yield call(services.deployKernelContract, web3, kernelIpfsHash, validatedFormData);
+        yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
+
+        yield call(services.addKernelToMarket, web3, kernelContractAddress);
+        yield put(actions.kernelConstructorSuccess(`Kernel successfully added to Market`));
     } catch(error) {
         yield put(actions.kernelConstructorFailure(error));
     }

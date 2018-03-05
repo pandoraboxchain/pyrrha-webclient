@@ -7,7 +7,8 @@ import {
     WEB3_ACCOUNTS_RECEIVED,
     KERNEL_CONSTRUCTOR_ERROR_INVALIDATE,
     KERNEL_CONSTRUCTOR_MESSAGE_DISMISS,
-    KERNEL_CONSTRUCTOR_IPFS_PROGRESS
+    KERNEL_CONSTRUCTOR_IPFS_PROGRESS,
+    KERNEL_CONSTRUCTOR_MESSAGE
 } from '../actions';
 
 const initialState = {
@@ -33,10 +34,25 @@ export const reduce = (state = initialState, action = {}) => {
             return { 
                 ...state, 
                 isSubmitting: true,
+                messages: [],
                 formErrors: {},
                 errorMessages: [] 
             };
+        
+        case KERNEL_CONSTRUCTOR_MESSAGE:
 
+            if (action.message && !Array.isArray(action.message)) {
+                action.message = [action.message];
+            }
+
+            return {
+                ...state, 
+                messages: [
+                    ...state.messages,
+                    action.message
+                ]
+            };
+            
         case KERNEL_CONSTRUCTOR_DONE:
             
             if (action.message && !Array.isArray(action.message)) {
