@@ -62,11 +62,13 @@ class DatasetConstructorForm extends PureComponent {
         });
     };
 
-    componentWillMount = () => {
-        this.initMultipleFields();
-    };
+    // componentWillMount = () => {
+    //     this.initMultipleFields();
+    // };
 
     render() {
+
+        this.initMultipleFields();
 
         const { 
             isConnected, 

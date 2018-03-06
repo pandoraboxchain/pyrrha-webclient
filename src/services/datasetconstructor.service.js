@@ -9,19 +9,23 @@ import Dataset from '../pyrrha-abi/Dataset.json';
  * 
  * @param {Object} batches Array of File instances
  * @param {Function} progressCb Loading progress callback
- * @returns {Promise} Promise object resolved to hash of the kernel config file 
+ * @returns {Promise} Promise object resolved to object with hash of the dataset json file and count of batches
  */
 export const uploadDatasetBatchesToIpfs = async (batches, progressCb) => {
     
     try {
-        const uploadedBatches = Promise.all(batches.map(batch => services.submitFileToIpfs(batch, progressCb)));
+        const uploadedBatches = await Promise.all(batches.map(batch => services.submitFileToIpfs(batch, progressCb)));
         const batchesIpfs = await services.submitJsonToIpfs(JSON.stringify({
             batches: uploadedBatches
         }), {
             name: 'DatasetBatchesJson',
             type: 'application/json'
         }, progressCb);
-        return batchesIpfs;    
+        
+        return {
+            ipfsHash: batchesIpfs,
+            batchesCount: uploadedBatches.length
+        };    
     } catch(err) {
         return Promise.reject(err);
     }
@@ -42,13 +46,14 @@ export const addDatasetToMarket = (web3, datasetContractAddress, publisherAddres
  * 
  * @param {Object} web3 Web3 instance
  * @param {String} datasetHash 
+ * @param {Number} batchesCount
  * @param {Object} { publisher, dimension, complexity, price } 
  * @returns {Promise} Promise object resolved dataset contract address
  */
-export const deployDatasetContract = async (web3, datasetHash, { publisher, dimension, samples, price }) => {
+export const deployDatasetContract = async (web3, datasetHash, batchesCount, { publisher, dimension, samples, price }) => {
     
     try {
-        const args = [web3.utils.toHex(datasetHash), dimension, samples, price];
+        const args = [web3.utils.toHex(datasetHash), dimension, samples, batchesCount, price];
         
         // Estimate required amount of gas
         const gas = await utils.estimateGas(web3, Dataset.bytecode, args);

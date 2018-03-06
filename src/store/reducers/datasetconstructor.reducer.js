@@ -115,8 +115,7 @@ export const reduce = (state = initialState, action = {}) => {
         
         case DATASET_ADD_NEW_BATCH:
 
-            let numBatches = Object.keys(state.formValues[action.name] || {}).length;
-            let item = `${action.name}-${numBatches}`;
+            let item = `${action.name}-${(Math.random()).toString(16).split('.')[1]}`;
 
             return {
                 ...state,
@@ -137,10 +136,12 @@ export const reduce = (state = initialState, action = {}) => {
             };
         
         case DATASET_REMOVE_BATCH:
+
+            let index = Number.parseInt(String(action.item).split('-')[1], 10);
             
-            if (action.index === 0 || 
-                !state.formValues[action.name] || 
-                !state.formValues[action.name][action.item]) {
+            if (index === 0 || 
+                !state.formValues[action.name] === undefined || 
+                !state.formValues[action.name][action.item] === undefined) {
 
                 return {
                     ...state
