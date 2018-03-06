@@ -64,15 +64,15 @@ export const addDatasetToMarket = (web3, address, from) => new Promise((resolve,
 /**
  * Deploy contract
  * 
- * @param {any} web3 Web3 instance
- * @param {object} contract Contract json
- * @param {object} options { args, from, gas } 
+ * @param {Object} web3 Web3 instance
+ * @param {Object} contract Contract json
+ * @param {Object} options { args, from, gas } 
  * @returns {Promise} Promise object resolved to contract address
  */
 export const deployContract = (web3, contract, { args, from, gas }) => new Promise((resolve, reject) => {    
-    new web3.eth.Contract(Kernel.abi)
+    new web3.eth.Contract(contract.abi)
     .deploy({
-        data: Kernel.bytecode,
+        data: contract.bytecode,
         arguments: args
     })
     .send({

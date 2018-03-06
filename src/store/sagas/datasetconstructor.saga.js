@@ -25,19 +25,19 @@ function* constructDataset() {
         yield put(actions.addDatasetConstructorMessage('Constructor form validated successfully'));
 
         // upload files to the IPFS
-        const datasetIpfsHash = yield call(services.uploadDatasetBatchesToIpfs, 
+        const { ipfsHash, batchesCount } = yield call(services.uploadDatasetBatchesToIpfs, 
             Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]), 
             progress => actions.datasetConstructorIpfsProgress(progress));
-        yield put(actions.addDatasetConstructorMessage('Dataset batches files successfully uploaded to IPFS'));
+        yield put(actions.addDatasetConstructorMessage(`Dataset in count of ${batchesCount} batches has been successfully uploaded to IPFS`));
         
         // deploy dataset contract
         const web3 = yield select(selectors.web3);
-        const datasetContractAddress = yield call(services.deployDatasetContract, web3, datasetIpfsHash, validatedFormData);
-        yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and deployed. Сontract address: ${datasetContractAddress}`));
+        const datasetContractAddress = yield call(services.deployDatasetContract, web3, ipfsHash, batchesCount, validatedFormData);
+        yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market
         yield call(services.addDatasetToMarket, web3, datasetContractAddress, validatedFormData.publisher);
-        yield put(actions.datasetConstructorSuccess(`Dataset successfully added to Market`));
+        yield put(actions.datasetConstructorSuccess(`Dataset has been successfully added to Market`));
     } catch(error) {
         yield put(actions.datasetConstructorFailure(error));
     }
