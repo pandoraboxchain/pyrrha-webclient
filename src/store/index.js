@@ -43,6 +43,20 @@ const kernelConstructorBlacklist = createPersistStorageFilter(
         'errorMessages'
     ]
 );
+const datasetConstructorBlacklist = createPersistStorageFilter(
+    'datasetconstructor',
+    [
+        'isSubmitting',
+        'formValues.model', 
+        'formValues.weights',
+        'formErrors.model',
+        'formErrors.weights',
+        'lists',
+        'messages',
+        'progress',
+        'errorMessages'
+    ]
+);
 
 const persistConfig = {
     debug: process.env.NODE_ENV !== 'production',
@@ -51,7 +65,8 @@ const persistConfig = {
     stateReconciler: autoMergeLevel2,
     transforms: [
         connectBacklist,
-        kernelConstructorBlacklist
+        kernelConstructorBlacklist,
+        datasetConstructorBlacklist
     ],
     blacklist: ['router', 'connect'] // exclude some states
 };

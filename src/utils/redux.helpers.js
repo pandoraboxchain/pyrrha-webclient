@@ -8,3 +8,18 @@
 export const reduxAction = (type, payload = {}) => {
     return { type, ...payload }
 };
+
+/**
+ * Remove key from the state object
+ * 
+ * @param {Object} state 
+ * @param {String} deleteKey 
+ * @returns {Object} New state
+ */
+export const removeObjectKey = (state, deleteKey) => {
+    return Object.assign(
+        {},
+        ...Object.entries(state)
+            .filter(([k]) => k !== deleteKey)
+            .map(([k, v]) => ({ [k]: v })));
+}

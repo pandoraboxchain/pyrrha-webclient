@@ -43,6 +43,25 @@ export const addKernelToMarket = (web3, address, from) => new Promise((resolve, 
 });
 
 /**
+ * Add new Dataset contract to Market
+ * 
+ * @param {Web3} web3 Web3 instance 
+ * @param {String} address 
+ * @param {String} from
+ * @returns {Promise} Promise object resolved to add status (boolean)
+ */
+export const addDatasetToMarket = (web3, address, from) => new Promise((resolve, reject) => {
+    const market = new web3.eth.Contract(PandoraMarket.abi, config.marketAddress);
+    market.methods
+        .addDataset(address)
+        .send({
+            from
+        })
+        .on('error', reject)
+        .on('receipt', receipt => resolve(receipt.contractAddress));;
+});
+
+/**
  * Deploy contract
  * 
  * @param {any} web3 Web3 instance

@@ -1,7 +1,6 @@
 // import config from '../config';
 import * as utils from '../utils';
 import * as services from '../services';
-import { KernelConstructorFormModel as formModel } from '../store/models';
 
 // Contracts APIs
 // import Pandora from '../pyrrha-abi/Pandora.json';
@@ -10,35 +9,6 @@ import { KernelConstructorFormModel as formModel } from '../store/models';
 // import CognitiveJobABI from '../pyrrha-abi/CognitiveJob.json';
 import Kernel from '../pyrrha-abi/Kernel.json';
 // import DatasetABI from '../pyrrha-abi/Dataset.json';
-
-/**
- * Validate kernel constructor form
- * 
- * @param {Object} values Form values
- * @returns {Promise} Promise object resolved to values object
- */
-export const validateKernelConstructorForm = async values => {
-    const errors = [];
-
-    Object.keys(formModel).forEach(field => {
-        
-        if (formModel[field].required && !values[field]) {
-
-            errors.push(new Error(`Field "${formModel[field].label}" is required`));
-        } else if (formModel[field].validator && 
-            !formModel[field].validator(values[field])) {
-
-            errors.push(new Error(`Field "${formModel[field].label}" has wrong value`));
-        }
-    });
-
-    if (errors.length > 0) {
-
-        return Promise.reject(errors);
-    }
-
-    return Promise.resolve(values);
-};
 
 /**
  * Upload model and weights files to IPFS
@@ -72,8 +42,17 @@ export const uploadModelAndWeightsToIpfs = async (data, progressCb) => {
  * @param {String} kernelContractAddress 
  * @param {String} publisherAddress 
  */
-export const addKernelToMarket = (web3, kernelContractAddress, publisherAddress) => utils.addKernelToMarket(web3, kernelContractAddress, publisherAddress);
+export const addKernelToMarket = (web3, kernelContractAddress, publisherAddress) => 
+    utils.addKernelToMarket(web3, kernelContractAddress, publisherAddress);
 
+/**
+ * Deploy Kernel contract to the netowork
+ * 
+ * @param {Object} web3 Web3 instance
+ * @param {String} kernelHash 
+ * @param {Object} { publisher, dimension, complexity, price } 
+ * @returns {Promise} Promise object resolved kernel contract address
+ */
 export const deployKernelContract = async (web3, kernelHash, { publisher, dimension, complexity, price }) => {
     
     try {
