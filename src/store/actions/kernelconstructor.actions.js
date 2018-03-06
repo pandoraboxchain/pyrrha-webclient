@@ -17,7 +17,7 @@ const isFieldValid = (name, value) => {
         return KernelConstructorFormModel[name].validator(value);
     }
 
-    throw new Error('Field name not found in the model');
+    throw new Error(`Field "${name}" not found in the model`);
 };
 
 export const setKernelConstructorField = (field, value) => action(KERNEL_CONSTRUCTOR_FIELD_UPDATED, {

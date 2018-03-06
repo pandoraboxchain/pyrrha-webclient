@@ -1,5 +1,7 @@
 import { call, put, fork, select, takeLatest } from 'redux-saga/effects';
 
+import * as utils from '../../utils';
+import * as models from '../models';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 import * as services from '../../services';
@@ -19,7 +21,7 @@ function* constructKernel() {
 
         // form validation
         const formValues = yield select(selectors.getKernelConFormValues);
-        const validatedFormData = yield call(services.validateKernelConstructorForm, formValues);
+        const validatedFormData = yield call(utils.validateConstructorForm, models.KernelConstructorFormModel, formValues);
         yield put(actions.addKernelConstructorMessage('Constructor form validated successfully'));
 
         // upload files to the IPFS
