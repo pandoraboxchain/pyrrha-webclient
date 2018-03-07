@@ -1,7 +1,7 @@
 import config from '../config';
 
 // Contracts APIs
-// import Pandora from '../pyrrha-abi/Pandora.json';
+import Pandora from '../pyrrha-abi/Pandora.json';
 import PandoraMarket from '../pyrrha-abi/PandoraMarket.json';
 // import Kernel from '../pyrrha-abi/Kernel.json';
 // import Dataset from '../pyrrha-abi/Dataset.json';
@@ -54,6 +54,26 @@ export const addDatasetToMarket = (web3, address, from) => new Promise((resolve,
     const market = new web3.eth.Contract(PandoraMarket.abi, config.marketAddress);
     market.methods
         .addDataset(address)
+        .send({
+            from
+        })
+        .on('error', reject)
+        .on('receipt', receipt => resolve(receipt.contractAddress));;
+});
+
+/**
+ * Create cognitive job contract
+ * 
+ * @param {Web3} web3 Web3 instance 
+ * @param {String} kernelAddress 
+ * @param {String} datasetAddress 
+ * @param {String} from
+ * @returns {Promise} Promise object resolved to add status (boolean)
+ */
+export const createCognitiveJob = (web3, kernelAddress, datasetAddress, from) => new Promise((resolve, reject) => {
+    const market = new web3.eth.Contract(Pandora.abi, config.pandoraAddress);
+    market.methods
+        .createCognitiveJob(kernelAddress, datasetAddress)
         .send({
             from
         })
