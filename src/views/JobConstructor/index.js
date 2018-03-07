@@ -2,13 +2,13 @@ import Loadable from 'react-loadable';
 import Loading from '../../components/Loading'
 
 const LoadableContract = Loadable({
-    loader: () => import('./KernelConstructor'),
+    loader: () => import('./JobConstructor'),
     loading: Loading,
 });
 
 export const route = {
-    path: '/kernel',
+    path: '/job',
     exact: true,
-    label: 'Kernel Constructor',
+    label: 'Job Constructor',
     component: LoadableContract
 };

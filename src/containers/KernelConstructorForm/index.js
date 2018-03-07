@@ -37,6 +37,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 
     return {
+        willMountTasks: () => {
+            dispatch(actions.web3AccountsUpdate());
+        },
         resetConstructorState: () => dispatch(actions.resetKernelConstructorState()),
         updateField: (name, value) => dispatch(actions.setKernelConstructorField(name, value)),
         dismissMessage: index => dispatch(actions.dismissKernelConstructorMessage(index)),

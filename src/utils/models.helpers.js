@@ -39,3 +39,21 @@ export const validateConstructorForm = (formModel, values) => new Promise((resol
 
     return resolve(values);
 });
+
+/**
+ * Validate form field value using validators defined in the model
+ * 
+ * @param {Object} model
+ * @param {String} name 
+ * @param {any} value 
+ * @returns 
+ */
+export const isFormFieldValid = (model, name, value) => {
+
+    if (model[name]) {
+
+        return model[name].validator ? model[name].validator(value) : true;
+    }
+
+    throw new Error(`Field "${name}" not found in the model`);
+};

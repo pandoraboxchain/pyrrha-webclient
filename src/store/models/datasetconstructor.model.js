@@ -8,9 +8,7 @@ export const DatasetConstructorFormModel = {
             action: 'web3AccountsUpdate'
         },
         required: true,
-        validator: value => {
-            return true
-        }
+        validator: value => RegExp(/^0x[a-fA-F0-9]{40}$/i).test(value)
     },
     batch: {
         multiple: true,
@@ -18,32 +16,24 @@ export const DatasetConstructorFormModel = {
         label: 'Data batch',
         type: 'file',
         required: true,
-        validator: value => {
-            return true
-        }
+        validator: value => true
     },
     price: {
         label: 'Price',
         type: 'number',
         required: true,
-        validator: value => {
-            return value > 0
-        }
+        validator: value => value > 0
     },
     samples: {
         label: 'Samples Count',
         type: 'number',
         required: true,
-        validator: value => {
-            return value > 0
-        }
+        validator: value => value > 0
     },
     dimension: {
         label: 'Dimension',
         type: 'number',
         required: true,
-        validator: value => {
-            return value > 0
-        }
+        validator: value => value > 0
     }
 };

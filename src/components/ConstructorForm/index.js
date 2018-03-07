@@ -58,6 +58,11 @@ class ConstructorForm extends PureComponent {
 
     componentWillMount = () => {
         this.initMultipleFields();
+
+        if (typeof this.props.willMountTasks === 'function') {
+
+            this.props.willMountTasks();
+        }
     };
 
     componentWillUnmount = () => {
@@ -138,34 +143,33 @@ class ConstructorForm extends PureComponent {
                             }
 
                             {(formModel[field].type !== 'file' && formModel[field].list) &&
-                                <Form.Input
-                                    name={field} 
-                                    field={field} 
-                                    placeholder={formModel[field].placeholder} 
-                                    value={formValues[field] || ''}
-                                    type={formModel[field].type} 
-                                    list={formModel[field].list} 
-                                    onChange={this.onFieldChange}  
-                                    error={formErrors[field]}
-                                    tabIndex={index}>
-                                    <input />
-                                    <Button
-                                        style={{marginLeft: 2}}
-                                        loading={lists[formModel[field].list.name].isRefreshing} 
-                                        refreshaction={formModel[field].list.action}
-                                        onClick={this.handleInputButtonAction}>
-                                            Refresh {formModel[field].list.name}</Button>
-                                </Form.Input>
-                            }
-
-                            {formModel[field].list &&
-                                <datalist id={formModel[field].list.name}>
-                                    {lists[formModel[field].list.name] &&
-                                        (lists[formModel[field].list.name].items.map((item, index) => (
-                                            <option key={index} value={item} />
-                                        )))
-                                    }                                    
-                                </datalist>
+                                <div>
+                                    <Form.Input
+                                        name={field} 
+                                        field={field} 
+                                        placeholder={formModel[field].placeholder} 
+                                        value={formValues[field] || ''}
+                                        type={formModel[field].type} 
+                                        list={formModel[field].list.name} 
+                                        onChange={this.onFieldChange}  
+                                        error={formErrors[field]}
+                                        tabIndex={index}>
+                                        <input />
+                                        <Button
+                                            style={{marginLeft: 2}}
+                                            loading={lists[formModel[field].list.name].isRefreshing} 
+                                            refreshaction={formModel[field].list.action}
+                                            onClick={this.handleInputButtonAction}>
+                                                Refresh {formModel[field].list.name}</Button>
+                                    </Form.Input>
+                                    <datalist id={formModel[field].list.name}>
+                                        {lists[formModel[field].list.name] &&
+                                            (lists[formModel[field].list.name].items.map((item, index) => (
+                                                <option key={index} value={item} />
+                                            )))
+                                        }                                    
+                                    </datalist>
+                                </div>
                             }
                         </Form.Field>
                     ))}
