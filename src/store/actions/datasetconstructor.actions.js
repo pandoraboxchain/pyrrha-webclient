@@ -1,6 +1,7 @@
 import { reduxAction as action } from '../../utils';
 import { DatasetConstructorFormModel } from '../models';
 
+export const DATASET_RESET_STATE = 'DATASET_RESET_STATE';
 export const DATASET_CONSTRUCTOR_START = 'DATASET_CONSTRUCTOR_START';
 export const DATASET_CONSTRUCTOR_DONE = 'DATASET_CONSTRUCTOR_DONE';
 export const DATASET_CONSTRUCTOR_FAILURE = 'DATASET_CONSTRUCTOR_FAILURE';
@@ -29,6 +30,7 @@ export const setDatasetConstructorField = (field, value, item) => action(DATASET
     error: !isFieldValid(field, value)    
 });
 
+export const resetDatasetConstructorState = () => action(DATASET_RESET_STATE);
 export const dismissDatasetConstructorMessage = index => action(DATASET_CONSTRUCTOR_MESSAGE_DISMISS, { index });
 export const invalidateDatasetConstructorError = () => action(DATASET_CONSTRUCTOR_ERROR_INVALIDATE);
 export const submitDatasetConstructorForm = () => action(DATASET_CONSTRUCTOR_START);

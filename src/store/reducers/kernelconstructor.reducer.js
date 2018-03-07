@@ -1,4 +1,5 @@
 import {
+    KERNEL_RESET_STATE,
     KERNEL_CONSTRUCTOR_START,
     KERNEL_CONSTRUCTOR_DONE,
     KERNEL_CONSTRUCTOR_FAILURE,
@@ -29,6 +30,11 @@ const initialState = {
 export const reduce = (state = initialState, action = {}) => {
 
     switch (action.type) {
+
+        case KERNEL_RESET_STATE:
+            return { 
+                ...initialState 
+            };
         
         case KERNEL_CONSTRUCTOR_START:
             return { 

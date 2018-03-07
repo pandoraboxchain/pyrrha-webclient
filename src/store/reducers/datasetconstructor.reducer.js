@@ -1,6 +1,7 @@
 import * as utils from '../../utils';
 
 import {
+    DATASET_RESET_STATE,
     DATASET_CONSTRUCTOR_START,
     DATASET_CONSTRUCTOR_DONE,
     DATASET_CONSTRUCTOR_FAILURE,
@@ -33,6 +34,11 @@ const initialState = {
 export const reduce = (state = initialState, action = {}) => {
 
     switch (action.type) {
+
+        case DATASET_RESET_STATE:
+            return { 
+                ...initialState 
+            };
         
         case DATASET_CONSTRUCTOR_START:
             return { 
