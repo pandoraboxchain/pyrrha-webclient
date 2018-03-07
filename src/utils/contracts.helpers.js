@@ -3,7 +3,7 @@ import config from '../config';
 // Contracts APIs
 // import Pandora from '../pyrrha-abi/Pandora.json';
 import PandoraMarket from '../pyrrha-abi/PandoraMarket.json';
-import Kernel from '../pyrrha-abi/Kernel.json';
+// import Kernel from '../pyrrha-abi/Kernel.json';
 // import Dataset from '../pyrrha-abi/Dataset.json';
 // import WorkerNode from '../pyrrha-abi/WorkerNode.json';
 // import CognitiveJob from '../pyrrha-abi/CognitiveJob.json';

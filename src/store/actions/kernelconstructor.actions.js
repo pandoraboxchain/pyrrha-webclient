@@ -1,6 +1,7 @@
 import { reduxAction as action } from '../../utils';
 import { KernelConstructorFormModel } from '../models';
 
+export const KERNEL_RESET_STATE = 'KERNEL_RESET_STATE';
 export const KERNEL_CONSTRUCTOR_START = 'KERNEL_CONSTRUCTOR_START';
 export const KERNEL_CONSTRUCTOR_DONE = 'KERNEL_CONSTRUCTOR_DONE';
 export const KERNEL_CONSTRUCTOR_FAILURE = 'KERNEL_CONSTRUCTOR_FAILURE';
@@ -26,6 +27,7 @@ export const setKernelConstructorField = (field, value) => action(KERNEL_CONSTRU
     value
 });
 
+export const resetKernelConstructorState = () => action(KERNEL_RESET_STATE);
 export const dismissKernelConstructorMessage = index => action(KERNEL_CONSTRUCTOR_MESSAGE_DISMISS, { index });
 export const invalidateKernelConstructorError = () => action(KERNEL_CONSTRUCTOR_ERROR_INVALIDATE);
 export const submitKernelConstructorForm = () => action(KERNEL_CONSTRUCTOR_START);
