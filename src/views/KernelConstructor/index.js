@@ -9,6 +9,6 @@ const LoadableContract = Loadable({
 export const route = {
     path: '/kernel',
     exact: true,
-    label: 'Kernel Constructor',
+    label: 'Kernel',
     component: LoadableContract
 };

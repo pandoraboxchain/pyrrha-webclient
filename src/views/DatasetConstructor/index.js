@@ -9,6 +9,6 @@ const LoadableContract = Loadable({
 export const route = {
     path: '/dataset',
     exact: true,
-    label: 'Dataset Constructor',
+    label: 'Dataset',
     component: LoadableContract
 };

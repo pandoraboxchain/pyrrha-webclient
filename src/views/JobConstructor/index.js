@@ -9,6 +9,6 @@ const LoadableContract = Loadable({
 export const route = {
     path: '/job',
     exact: true,
-    label: 'Job Constructor',
+    label: 'Job',
     component: LoadableContract
 };
