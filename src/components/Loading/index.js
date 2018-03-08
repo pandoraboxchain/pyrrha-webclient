@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Loader } from 'semantic-ui-react';
+
 const Loading = () => (
     <div>
-        <h1>Loading</h1>             
+        <Loader active inline="centered" size="medium" />             
     </div>
 );
 

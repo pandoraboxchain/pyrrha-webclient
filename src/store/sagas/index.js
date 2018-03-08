@@ -4,6 +4,7 @@ import kernelConstructorSagas from './kernelconstructor.saga';
 import datasetConstructorSagas from './datasetconstructor.saga';
 import jobConstructorSagas from './jobconstructor.saga';
 import rootRouterSagas from './router.saga';
+import kernelsTableSagas from './kernelstable.saga';
 
 export default function* rootSaga() {
     yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
         ...rootWeb3Sagas,
         ...kernelConstructorSagas,
         ...datasetConstructorSagas,
-        ...jobConstructorSagas
+        ...jobConstructorSagas,
+        ...kernelsTableSagas
     ]);
 }
