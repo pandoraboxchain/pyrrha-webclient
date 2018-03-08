@@ -80,13 +80,13 @@ const config = {
 };
 
 export default {
-    protocol: process.env.WEB3_PROTOCOL || config.protocol,
-    nodePort: process.env.WEB3_PORT || config.port,
-    nodeHost: process.env.WEB3_HOSTNAME || config.host,
-    pandoraAddress: process.env.PAN_ADDRESS || config.contracts.pandora,
-    marketAddress: process.env.MARKET_ADDRESS || config.contracts.market,
-    ipfsProtocol: process.env.IPFS_PROTOCOL || config.ipfs.protocol,
-    ipfsHost: process.env.IPFS_HOST || config.ipfs.host,
-    ipfsPort: process.env.IPFS_PORT || config.ipfs.port,
-    reconnect: process.env.WEB3_RECONNECT_TIMEOUT || config.reconnect
+    protocol: process.env.REACT_APP_WEB3_PROTOCOL || config.protocol,
+    nodePort: process.env.REACT_APP_WEB3_PORT || config.port,
+    nodeHost: process.env.REACT_APP_WEB3_HOSTNAME || config.host,
+    pandoraAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pandora,
+    marketAddress: process.env.REACT_APP_MARKET_ADDRESS || config.contracts.market,
+    ipfsProtocol: process.env.REACT_APP_IPFS_PROTOCOL || config.ipfs.protocol,
+    ipfsHost: process.env.REACT_APP_IPFS_HOST || config.ipfs.host,
+    ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
+    reconnect: process.env.REACT_APP_WEB3_RECONNECT_TIMEOUT || config.reconnect
 };

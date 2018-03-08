@@ -2,11 +2,11 @@
   "name": "pyrrha-webclient",
   "version": "1.0.0",
   "description": "Webclient for Pyrrha",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync:abis": "npx rimraf ./src/abis && cp -R ./pyrrha-abi ./src",
     "start": "npm run sync:abis && BROWSER=none npx react-app-rewired start",
-    "build": "npx react-app-rewired build",
     "build:docker": "docker-compose build --no-cache",
     "start:docker": "docker-compose up -d --remove-orphans",
     "stop:docker": "docker-compose down"
