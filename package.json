@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync:abis": "npx rimraf ./src/abis && cp -R ./pyrrha-abi ./src",
     "start": "npm run sync:abis && BROWSER=none npx react-app-rewired start",
-    "build": "npx react-app-rewired build"
+    "build": "npx react-app-rewired build",
+    "build:docker": "docker-compose build --no-cache",
+    "start:docker": "docker-compose up -d --remove-orphans",
+    "stop:docker": "docker-compose down"
   },
   "repository": {
     "type": "git",
@@ -15,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/pandoraboxchain/pyrrha-webclient/issues"
   },
-  "homepage": "https://github.com/pandoraboxchain/pyrrha-webclient#readme",
+  "homepage": ".",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "history": "^4.7.2",
@@ -37,15 +40,27 @@
   },
   "devDependencies": {
     "css-loader": "^0.28.10",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.2",
-    "eslint": "^4.18.2",
     "node-sass-chokidar": "^1.1.0",
     "react-app-rewired": "^1.5.0",
-    "react-scripts": "^1.1.1",
+    "react-scripts": "^2.0.0-next.47d2d941",
     "rimraf": "^2.6.2",
-    "solhint": "^1.1.10"
+    "sass-loader": "^6.0.7",
+    "solhint": "^1.1.10",
+    "style-loader": "^0.20.2"
   },
   "author": "Kostiantyn Smyrnov <kostysh@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  }
 }
