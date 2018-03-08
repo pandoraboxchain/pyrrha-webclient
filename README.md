@@ -6,24 +6,20 @@ Web application for working with kernels and datasets
 npm i
 git submodule update --init --recursive
 ```
+MetaMask (https://metamask.io/) browser extension is required:
+- Install extension
+- Connect to apropriate netowork where Pandora contracts are deployed (rinkeby, currently)
+- Create a wallet
+- Get some ETH to your account via Rinkeby faucet (https://faucet.rinkeby.io/)
 
 ## Start 
 ```sh
 npm start
 ```
 
-## Creating of build for production
-```sh
-npm run build
-```
-or without sourcemaps:
-```sh
-GENERATE_SOURCEMAP=false npm run build
-```
-
 ## Docker
 Server's port and other configurations can be changed in the file `./docker-compose.yml`   
-Default environment:
+Default build arguments:
 ```
 args:
     - REACT_APP_WEB3_PROTOCOL=http

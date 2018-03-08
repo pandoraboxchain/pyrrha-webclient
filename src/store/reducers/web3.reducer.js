@@ -21,7 +21,7 @@ const initialState = {
 
 export const reduce = (state = initialState, action = {}) => {
 
-    console.log('Action:', action.type, action);
+    console.log(action.type, action);
 
     switch (action.type) {
         

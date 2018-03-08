@@ -71,6 +71,13 @@ const jobConstructorBlacklist = createPersistStorageFilter(
         'errorMessages'
     ]
 );
+const kernelsTableBlacklist = createPersistStorageFilter(
+    'kernels',
+    [
+        'isFetching',
+        'errorMessage'
+    ]
+);
 
 const persistConfig = {
     debug: process.env.NODE_ENV !== 'production',
@@ -81,7 +88,8 @@ const persistConfig = {
         connectBacklist,
         kernelConstructorBlacklist,
         datasetConstructorBlacklist,
-        jobConstructorBlacklist
+        jobConstructorBlacklist,
+        kernelsTableBlacklist
     ],
     blacklist: ['router', 'connect'] // exclude some states
 };
