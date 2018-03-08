@@ -25,16 +25,16 @@ GENERATE_SOURCEMAP=false npm run build
 Server's port and other configurations can be changed in the file `./docker-compose.yml`   
 Default environment:
 ```
-environment:
-    - WEB3_PROTOCOL=http
-    - WEB3_PORT=8545
-    - WEB3_HOSTNAME=dockstation.pandora.network
-    - PAN_ADDRESS=0x58e66b79928cfb362b53c185a6a1fded882bb07d
-    - MARKET_ADDRESS=0x6142029abb21ef2e0bffde8d43f15c64f3750fe6
-    - IPFS_PROTOCOL=http
-    - IPFS_HOST=52.232.79.62
-    - IPFS_PORT=5001
-    - WEB3_RECONNECT_TIMEOUT=5000
+args:
+    - REACT_APP_WEB3_PROTOCOL=http
+    - REACT_APP_WEB3_PORT=8545
+    - REACT_APP_WEB3_HOSTNAME=dockstation.pandora.network
+    - REACT_APP_PAN_ADDRESS=0x58e66b79928cfb362b53c185a6a1fded882bb07d
+    - REACT_APP_MARKET_ADDRESS=0x6142029abb21ef2e0bffde8d43f15c64f3750fe6
+    - REACT_APP_IPFS_PROTOCOL=http
+    - REACT_APP_IPFS_HOST=ipfs.pandora.network
+    - REACT_APP_IPFS_PORT=5001
+    - REACT_APP_WEB3_RECONNECT_TIMEOUT=5000
 ports:
     - "8080:8080"
 ```
