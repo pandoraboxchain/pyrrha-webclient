@@ -3,3 +3,4 @@ export * from './kernelconstructor.actions';
 export * from './datasetconstructor.actions';
 export * from './jobconstructor.actions';
 export * from './kernelstable.actions';
+export * from './datsetstable.actions';

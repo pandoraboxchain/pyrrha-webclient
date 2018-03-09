@@ -20,7 +20,6 @@
   },
   "homepage": ".",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "history": "^4.7.2",
     "ipfs-api": "^18.1.1",
     "prop-types": "^15.6.1",

@@ -7,30 +7,30 @@ import { Table, Button } from 'semantic-ui-react';
 import * as selectors from '../../store/selectors';
 import * as actions from '../../store/actions';
 
-import './KernelsTable.scss';
+import './DatasetsTable.scss';
 
-class KernelsTable extends PureComponent {
+class DatasetsTable extends PureComponent {
 
-    handleRefreshKernels = (e) => {
+    handleRefreshDatasets = (e) => {
         e.preventDefault();
-        this.props.refreshKernels();        
+        this.props.refreshDatasets();        
     };
 
     handleOpenConstructor = (e) => {
         e.preventDefault();
-        this.props.gotToKernelConstructor();
+        this.props.gotToDatasetConstructor();
     };
 
     componentWillMount = () => {
         
-        if (!this.props.kernels || this.props.kernels.length === 0) {
+        if (!this.props.datasets || this.props.datasets.length === 0) {
 
-            this.props.refreshKernels();        
+            this.props.refreshDatasets();        
         }        
     };
 
     render() {
-        const { isConnecting, isFetching, kernels } = this.props;
+        const { isConnecting, isFetching, datasets } = this.props;
 
         return (
             <div>
@@ -40,19 +40,21 @@ class KernelsTable extends PureComponent {
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>Compl</Table.HeaderCell>
+                            <Table.HeaderCell width={2}>Batches</Table.HeaderCell>
+                            <Table.HeaderCell width={2}>Samples</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Price</Table.HeaderCell>
                         </Table.Row>                            
                     </Table.Header>
                     <Table.Body>
-                        {kernels && kernels.length > 0 &&
-                            kernels.map(kernel => (
-                                <Table.Row key={kernel.id}>
-                                    <Table.Cell>{kernel.id}</Table.Cell>
-                                    <Table.Cell title={kernel.address}>{kernel.address}</Table.Cell>
-                                    <Table.Cell>{kernel.dim}</Table.Cell>
-                                    <Table.Cell>{kernel.complexity}</Table.Cell>
-                                    <Table.Cell>{kernel.price}</Table.Cell>
+                        {datasets && datasets.length > 0 &&
+                            datasets.map(dataset => (
+                                <Table.Row key={dataset.id}>
+                                    <Table.Cell>{dataset.id}</Table.Cell>
+                                    <Table.Cell title={dataset.address}>{dataset.address}</Table.Cell>
+                                    <Table.Cell>{dataset.dataDim}</Table.Cell>
+                                    <Table.Cell>{dataset.batchesCount}</Table.Cell>
+                                    <Table.Cell>{dataset.samplesCount}</Table.Cell>
+                                    <Table.Cell>{dataset.currentPrice}</Table.Cell>
                                 </Table.Row> 
                             ))
                         }               
@@ -62,9 +64,9 @@ class KernelsTable extends PureComponent {
                             <Table.Cell colSpan="5">
                                 <Button 
                                     loading={isConnecting || isFetching}
-                                    onClick={this.handleRefreshKernels}>Refresh</Button>
+                                    onClick={this.handleRefreshDatasets}>Refresh</Button>
                                 {isFetching &&
-                                    <span>Fetching of kernels...</span>
+                                    <span>Fetching of datasets...</span>
                                 }
                                 <Button floated="right"
                                     onClick={this.handleOpenConstructor}>Add</Button>
@@ -81,17 +83,17 @@ const mapStateToProps = state => {
 
     return {
         isConnecting: selectors.isWeb3Connecting(state),
-        isFetching: selectors.isKernelsFetching(state),
-        kernels: selectors.getKernels(state)
+        isFetching: selectors.isDatasetsFetching(state),
+        datasets: selectors.getDatasets(state)
     }
 };
 
 const mapDispatchToProps = dispatch => {
 
     return {
-        gotToKernelConstructor: () => dispatch(push('/kernel')),
-        refreshKernels: () => dispatch(actions.kernelsTableFetch())
+        gotToDatasetConstructor: () => dispatch(push('/dataset')),
+        refreshDatasets: () => dispatch(actions.datasetsTableFetch())
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(KernelsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(DatasetsTable);
