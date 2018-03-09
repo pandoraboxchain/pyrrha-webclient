@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 
-import { Grid } from 'semantic-ui-react';
 import KernelsTable from '../../containers/KernelsTable'
+import DatasetsTable from '../../containers/DatasetsTable'
 
 export default class Home extends Component {
 
     render() {
         return (
             <div>
-                <Grid columns={3}>
-                    <Grid.Column>
-                        <h3>Kernels</h3>
-                        <KernelsTable />
-                    </Grid.Column>
-                    <Grid.Column>
-                        
-                    </Grid.Column>
-                    <Grid.Column>
-                        
-                    </Grid.Column>
-                </Grid>
+                <h3>Kernels</h3>
+                <KernelsTable />
+
+                <h3>Datasets</h3>
+                <DatasetsTable />
+                
             </div>
         );
     }

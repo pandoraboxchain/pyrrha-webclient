@@ -4,7 +4,7 @@ import * as services from '../../services';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 
-function* startKernelsFetch() {
+function* startDatasetsFetch() {
 
     try {
         const isConnected = yield select(selectors.isWeb3Connected);
@@ -17,16 +17,16 @@ function* startKernelsFetch() {
         }
 
         const web3 = yield select(selectors.web3);
-        const kernels = yield call(services.fetchKernels, web3);
-        yield put(actions.kernelsTableReceived(kernels));
+        const datsets = yield call(services.fetchDatasets, web3);
+        yield put(actions.datasetsTableReceived(datsets));
     } catch(err) {
-        yield put(actions.kernelsTableFailure(err));
+        yield put(actions.datasetsTableFailure(err));
     }
 }
 
 
 function* watchRouter() {
-    yield takeLatest('KERNEL_TABLE_FETCH', startKernelsFetch);
+    yield takeLatest('DATASET_TABLE_FETCH', startDatasetsFetch);
 }
 
 // Default set of sagas
