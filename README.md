@@ -1,4 +1,7 @@
 # Pandora Pyrrha Webclient
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a8680e9c4d742f88ac6f5e4eb1d1862)](https://app.codacy.com/app/kostysh/pyrrha-webclient?utm_source=github.com&utm_medium=referral&utm_content=pandoraboxchain/pyrrha-webclient&utm_campaign=badger)
+
 Web application for working with kernels and datasets
 
 ## Initial setup 
