@@ -189,7 +189,7 @@ const getDataDimByDatasetAddress = async (web3, address) => {
     const dataDim = await dat.methods
         .dataDim()
         .call();
-    return Number.parseInt(dataDim);
+    return Number.parseInt(dataDim, 10);
 };
 
 /**
@@ -204,7 +204,7 @@ const getCurrentPriceByDatasetAddress = async (web3, address) => {
     const currentPrice = await dat.methods
         .currentPrice()
         .call();
-    return Number.parseInt(currentPrice);
+    return Number.parseInt(currentPrice, 10);
 };
 
 /**
@@ -219,7 +219,7 @@ const getSamplesCountByDatasetAddress = async (web3, address) => {
     const samplesCount = await dat.methods
         .samplesCount()
         .call();
-    return Number.parseInt(samplesCount);
+    return Number.parseInt(samplesCount, 10);
 };
 
 /**
@@ -234,7 +234,7 @@ const getBatchesCountByDatasetAddress = async (web3, address) => {
     const batchesCount = await dat.methods
         .batchesCount()
         .call();
-    return Number.parseInt(batchesCount);
+    return Number.parseInt(batchesCount, 10);
 };
 
 /**

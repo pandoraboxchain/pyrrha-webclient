@@ -54,7 +54,7 @@ Stop the container:
 ```sh
 npm run stop:docker
 ```
-By default, Pandora Webclient will be available on port `8080`
+By default, Pandora Webclient will be available on port `8080`  
 Server's logs are placed in folder `./.logs`
 
 ## Known issue
