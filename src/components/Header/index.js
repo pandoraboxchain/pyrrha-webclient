@@ -15,7 +15,7 @@ class Header extends Component {
                 <Container>
                     <Menu fixed="top" className="pn-header">
                         <Menu.Item as='a' header>
-                            <h1 className="pn-head-title">Pyrrha DMarket</h1>
+                            <h1 className="pn-head-title">Pyrrha WebClient</h1>
                         </Menu.Item>            
                         {routes.map(route => (
                             <Menu.Item key={route.path.toString()}>

@@ -19,6 +19,15 @@ function* constructJob() {
             return;
         }
 
+        const isMetaMask = yield select(selectors.isMetaMaskConnected);
+
+        if (!isMetaMask) {
+
+            const error = new Error('MetaMask is required but not detected!');
+            yield put(actions.jobConstructorFailure(error));
+            return;
+        }
+
         // form validation
         const formValues = yield select(selectors.getJobConFormValues);
         const validatedFormData = yield call(utils.validateConstructorForm, models.JobConstructorFormModel, formValues);

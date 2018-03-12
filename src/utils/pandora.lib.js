@@ -93,9 +93,9 @@ const getKernelByKernelAddress = async (web3, address) => {
 
     return {
         address: address,
-        ipfs: ipfsAddress,
-        dim: dataDim,
-        price: currentPrice,
+        ipfsAddress: ipfsAddress,
+        dataDim: dataDim,
+        currentPrice: currentPrice,
         complexity: complexity
     };
 };
@@ -109,32 +109,42 @@ const getKernelByKernelAddress = async (web3, address) => {
 export const getKernels = async (web3) => {
 
     let id = 0;
-    let kernels = [];
+    let records = [];
+    let errors = [];
 
-    while (true) {
-        
-        let kernel = '0x0';
+    try {
 
-        try {
-            kernel = await getKernelAddressById(web3, id++);// can be 0x0
-        } catch(err) {
-            // @todo Add method getKernelsCount to the PandoraMarket contract for avoid iterating with "try catch"
+        // @todo Add method getKernelsCount to the PandoraMarket contract for avoid iterating with "try catch"
+        while (true) {
+            
+            const kernelAddress = await getKernelAddressById(web3, id++);// can be 0x0
+            
+            if (+kernelAddress === 0) {
+                break;
+            }
+
+            try {
+
+                const kernelObj = await getKernelByKernelAddress(web3, kernelAddress);
+
+                records.push({
+                    id: id,
+                    ...kernelObj
+                });
+            } catch(err) {
+                
+                errors.push({
+                    address: kernelAddress,
+                    error: err.message
+                });
+            }
         }
-        
-        if (+kernel === 0) {
-            break;
-        }
+    } catch(err) {}
 
-        const kernelAddress = kernel;
-        const kernelObj = await getKernelByKernelAddress(web3, kernelAddress);
-
-        kernels.push({
-            id: id,
-            ...kernelObj
-        });
-    }
-
-    return kernels;
+    return {
+        records,
+        errors
+    };
 };
 
 /**
@@ -266,7 +276,7 @@ const getDatasetByDatasetAddress = async (web3, address) => {
 export const getDatasets = async (web3) => {
 
     let id = 0;
-    let datasets = [];
+    let records = [];
     let errors = [];
 
     try {
@@ -283,7 +293,7 @@ export const getDatasets = async (web3) => {
             try {
 
                 const datasetObj = await getDatasetByDatasetAddress(web3, datasetAddress);
-                datasets.push({
+                records.push({
                     id: id,
                     ...datasetObj
                 });
@@ -298,7 +308,7 @@ export const getDatasets = async (web3) => {
     } catch(err) {}
 
     return {
-        datasets,
+        records,
         errors
     };
 };

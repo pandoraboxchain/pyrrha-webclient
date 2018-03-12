@@ -7,6 +7,7 @@ import { JobConstructorFormModel } from '../../store/models';
 
 import * as actions from '../../store/actions';
 import * as selectors from '../../store/selectors';
+import * as utils from '../../utils';
 
 class JobConstructorForm extends PureComponent {
 
@@ -23,6 +24,7 @@ class JobConstructorForm extends PureComponent {
 const mapStateToProps = state => {
 
     return {
+        ...utils.extractListsPropsFromModel(JobConstructorFormModel, selectors, state),
         isConnected: selectors.isWeb3Connected(state),
         isSubmitting: selectors.isJobConSubmitting(state),
         formValues: selectors.getJobConFormValues(state),
@@ -45,7 +47,7 @@ const mapDispatchToProps = dispatch => {
         dismissMessage: index => dispatch(actions.dismissJobConstructorMessage(index)),
         invalidateError: () => dispatch(actions.invalidateJobConstructorError()),
         submitForm: () => dispatch(actions.submitJobConstructorForm()),
-        updateAccounts: (updateAction) => dispatch(actions[updateAction]())
+        startAction: (actionToStart) => dispatch(actions[actionToStart]())
     }
 };
 
