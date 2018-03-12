@@ -61,7 +61,7 @@ class DatasetsTable extends PureComponent {
                     </Table.Body>
                     <Table.Footer>
                         <Table.Row>
-                            <Table.Cell colSpan="5">
+                            <Table.Cell colSpan="6">
                                 <Button 
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshDatasets}>Refresh</Button>

@@ -25,7 +25,7 @@ export const reduce = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isFetching: false,
-                kernels: action.kernels
+                kernels: action.kernels.records
             };
         
         case KERNEL_TABLE_ERROR:

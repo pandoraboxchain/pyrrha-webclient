@@ -16,6 +16,15 @@ function* startKernelsFetch() {
             return;
         }
 
+        const isMetaMask = yield select(selectors.isMetaMaskConnected);
+
+        if (!isMetaMask) {
+
+            const error = new Error('MetaMask is required but not detected!');
+            yield put(actions.kernelsTableFailure(error));
+            return;
+        }
+
         const web3 = yield select(selectors.web3);
         const kernels = yield call(services.fetchKernels, web3);
         yield put(actions.kernelsTableReceived(kernels));

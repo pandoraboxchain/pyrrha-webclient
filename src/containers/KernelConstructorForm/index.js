@@ -7,6 +7,7 @@ import { KernelConstructorFormModel } from '../../store/models';
 
 import * as actions from '../../store/actions';
 import * as selectors from '../../store/selectors';
+import * as utils from '../../utils';
 
 class KernelConstructorForm extends PureComponent {
 
@@ -23,6 +24,7 @@ class KernelConstructorForm extends PureComponent {
 const mapStateToProps = state => {
 
     return {
+        ...utils.extractListsPropsFromModel(KernelConstructorFormModel, selectors, state),
         isConnected: selectors.isWeb3Connected(state),
         isSubmitting: selectors.isKernelConSubmitting(state),
         formValues: selectors.getKernelConFormValues(state),
@@ -45,7 +47,7 @@ const mapDispatchToProps = dispatch => {
         dismissMessage: index => dispatch(actions.dismissKernelConstructorMessage(index)),
         invalidateError: () => dispatch(actions.invalidateKernelConstructorError()),
         submitForm: () => dispatch(actions.submitKernelConstructorForm()),
-        updateAccounts: (updateAction) => dispatch(actions[updateAction]())
+        startAction: (actionToStart) => dispatch(actions[actionToStart]())
     }
 };
 

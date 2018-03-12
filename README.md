@@ -17,6 +17,14 @@ MetaMask (https://metamask.io/) browser extension is required:
 npm start
 ```
 
+## Local configuration (for development)
+All kinds of development configurations are located in the file `./src/config/index.js`  
+To enable one of the hosts from config you can use environment variable `USE_HOST`.
+This way you can start your local development app instance with, for example:
+```sh
+USE_HOST=rinkeby npm start
+```
+
 ## Docker
 Server's port and other configurations can be changed in the file `./docker-compose.yml`   
 Default build arguments:

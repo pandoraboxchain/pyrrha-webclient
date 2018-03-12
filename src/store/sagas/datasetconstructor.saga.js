@@ -19,6 +19,15 @@ function* constructDataset() {
             return;
         }
 
+        const isMetaMask = yield select(selectors.isMetaMaskConnected);
+
+        if (!isMetaMask) {
+
+            const error = new Error('MetaMask is required but not detected!');
+            yield put(actions.datasetConstructorFailure(error));
+            return;
+        }
+
         // form validation
         const formValues = yield select(selectors.getDatasetConFormValues);
         const validatedFormData = yield call(utils.validateConstructorForm, models.DatasetConstructorFormModel, formValues);

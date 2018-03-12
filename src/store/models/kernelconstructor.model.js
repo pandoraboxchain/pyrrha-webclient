@@ -1,10 +1,13 @@
 export const KernelConstructorFormModel = {
     publisher: {
         label: 'Publisher address',
+        placeholder: 'Refresh accounts and click to add',
         type: 'text',
         list: {
             name: 'accounts',
-            action: 'web3AccountsUpdate'
+            action: 'web3AccountsUpdate',
+            stateSelector: 'isWeb3AccountsRefreshing',
+            recordsSelector: 'web3Accounts'
         },
         required: true,
         validator: value => RegExp(/^0x[a-fA-F0-9]{40}$/i).test(value)

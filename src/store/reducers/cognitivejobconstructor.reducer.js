@@ -15,12 +15,6 @@ import {
 const initialState = {
     isSubmitting: false,
     formValues: {},
-    lists: {
-        accounts: {
-            items: [],
-            isRefreshing: false
-        }
-    },
     formErrors: {},
     progress: {},
     messages: [],
@@ -153,8 +147,8 @@ export const reduce = (state = initialState, action = {}) => {
                         isRefreshing: false
                     }
                 }
-            };    
-
+            };
+        
         default:
             return state;
     }

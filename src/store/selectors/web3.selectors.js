@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 // Web3 connection
 export const isWeb3Connecting = state => !!state.connect.isConnecting;
 export const isWeb3Connected = state => !!state.connect.isConnected;
+export const isMetaMaskConnected = state => !!state.connect.isMetaMask;
 export const web3ConnectedTo = state => state.connect.connectedTo;
 export const web3ConnectedAt = state => state.connect.connectedAt;
 export const web3ErrorMessage = state => state.connect.errorMessage;
@@ -13,3 +14,4 @@ export const web3Version = createSelector(
     web3 => web3 ? web3.version : ''
 );
 export const isWeb3AccountsRefreshing = state => state.connect.isAccountsRefreshing;
+export const web3Accounts = state => state.connect.accounts;

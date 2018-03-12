@@ -11,20 +11,12 @@ import {
     DATASET_CONSTRUCTOR_IPFS_PROGRESS,
     DATASET_CONSTRUCTOR_MESSAGE,
     DATASET_ADD_NEW_BATCH,
-    DATASET_REMOVE_BATCH,
-    WEB3_ACCOUNTS_UPDATE,
-    WEB3_ACCOUNTS_RECEIVED
+    DATASET_REMOVE_BATCH
 } from '../actions';
 
 const initialState = {
     isSubmitting: false,
     formValues: {},
-    lists: {
-        accounts: {
-            items: [],
-            isRefreshing: false
-        }
-    },
     formErrors: {},
     progress: {},
     messages: [],
@@ -184,30 +176,6 @@ export const reduce = (state = initialState, action = {}) => {
                         type: action.progress.type,
                         progress: action.progress.progress,
                         percent: Number.parseInt(action.progress.progress * 100 / action.progress.size, 10)
-                    }
-                }
-            };
-
-        case WEB3_ACCOUNTS_UPDATE:
-            return {
-                ...state,
-                lists: {
-                    ...state.lists,
-                    accounts: {
-                        items: [],
-                        isRefreshing: true
-                    }
-                }
-            };
-        
-        case WEB3_ACCOUNTS_RECEIVED:
-            return {
-                ...state,
-                lists: {
-                    ...state.lists,
-                    accounts: {
-                        items: action.accounts,
-                        isRefreshing: false
                     }
                 }
             };    

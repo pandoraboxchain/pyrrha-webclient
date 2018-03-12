@@ -25,7 +25,7 @@ export const reduce = (state = initialState, action = {}) => {
             return {
                 ...state,
                 isFetching: false,
-                datasets: action.datasets.datasets
+                datasets: action.datasets.records
             };
         
         case DATASET_TABLE_ERROR:

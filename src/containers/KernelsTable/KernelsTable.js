@@ -50,9 +50,9 @@ class KernelsTable extends PureComponent {
                                 <Table.Row key={kernel.id}>
                                     <Table.Cell>{kernel.id}</Table.Cell>
                                     <Table.Cell title={kernel.address}>{kernel.address}</Table.Cell>
-                                    <Table.Cell>{kernel.dim}</Table.Cell>
+                                    <Table.Cell>{kernel.dataDim}</Table.Cell>
                                     <Table.Cell>{kernel.complexity}</Table.Cell>
-                                    <Table.Cell>{kernel.price}</Table.Cell>
+                                    <Table.Cell>{kernel.currentPrice}</Table.Cell>
                                 </Table.Row> 
                             ))
                         }               

@@ -20,7 +20,12 @@ class ConstructorForm extends PureComponent {
 
     handleInputButtonAction = (e, { refreshaction }) => {
         e.preventDefault();
-        this.props.updateAccounts(refreshaction);
+
+        if (this.props.startAction) {
+            this.props.startAction(refreshaction);
+        } else {
+            console.error('startAction handler not defined!');
+        }
     };
 
     handleAddMultipleFieldItem = (e, {name}) => {
@@ -71,12 +76,13 @@ class ConstructorForm extends PureComponent {
 
     render() {
 
+        console.log(this.props)
+
         const {
             formModel,
             isConnected, 
             isSubmitting, 
-            formValues, 
-            lists,
+            formValues,
             formErrors,
             messages,
             progress,
@@ -126,8 +132,7 @@ class ConstructorForm extends PureComponent {
                                     field={field} 
                                     type={formModel[field].type}
                                     onChange={this.onFieldChange}  
-                                    error={formErrors[field]}
-                                    tabIndex={index} />
+                                    error={formErrors[field]} />
                             }
 
                             {formModel[field].type !== 'file' && !formModel[field].list &&
@@ -138,8 +143,7 @@ class ConstructorForm extends PureComponent {
                                     value={formValues[field] || ''}
                                     type={formModel[field].type}
                                     onChange={this.onFieldChange}  
-                                    error={formErrors[field]}
-                                    tabIndex={index} />                                
+                                    error={formErrors[field]} />                                
                             }
 
                             {(formModel[field].type !== 'file' && formModel[field].list) &&
@@ -152,23 +156,22 @@ class ConstructorForm extends PureComponent {
                                         type={formModel[field].type} 
                                         list={formModel[field].list.name} 
                                         onChange={this.onFieldChange}  
-                                        error={formErrors[field]}
-                                        tabIndex={index}>
+                                        error={formErrors[field]}>
                                         <input />
                                         <Button
-                                            style={{marginLeft: 2}}
-                                            loading={lists[formModel[field].list.name].isRefreshing} 
+                                            style={{marginLeft: 2, width: 180}}
+                                            loading={this.props[`lists-${formModel[field].list.name}-isRefreshing`]} 
                                             refreshaction={formModel[field].list.action}
                                             onClick={this.handleInputButtonAction}>
                                                 Refresh {formModel[field].list.name}</Button>
                                     </Form.Input>
-                                    <datalist id={formModel[field].list.name}>
-                                        {lists[formModel[field].list.name] &&
-                                            (lists[formModel[field].list.name].items.map((item, index) => (
-                                                <option key={index} value={item} />
-                                            )))
-                                        }                                    
-                                    </datalist>
+                                    {this.props[`lists-${formModel[field].list.name}-records`] &&
+                                        <datalist id={formModel[field].list.name}>
+                                            {this.props[`lists-${formModel[field].list.name}-records`].map((item, index) => (
+                                                <option key={index} value={formModel[field].list.valueKey ? item[formModel[field].list.valueKey] : item} />
+                                            ))}
+                                        </datalist>
+                                    }                                    
                                 </div>
                             }
                         </Form.Field>
@@ -220,7 +223,6 @@ ConstructorForm.propTypes = {
     isConnected: PropTypes.bool.isRequired,
     isSubmitting: PropTypes.bool.isRequired, 
     formValues: PropTypes.object.isRequired,
-    lists: PropTypes.object.isRequired,
     formErrors: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
     progress: PropTypes.object.isRequired,
@@ -234,7 +236,7 @@ ConstructorForm.propTypes = {
     dismissMessage: PropTypes.func.isRequired,
     invalidateError: PropTypes.func.isRequired,
     submitForm: PropTypes.func.isRequired,
-    updateAccounts: PropTypes.func.isRequired
+    startAction: PropTypes.func.isRequired
 }
 
 export default ConstructorForm;

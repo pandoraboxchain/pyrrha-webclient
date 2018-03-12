@@ -8,6 +8,7 @@ import { DatasetConstructorFormModel } from '../../store/models';
 
 import * as actions from '../../store/actions';
 import * as selectors from '../../store/selectors';
+import * as utils from '../../utils';
 
 class DatasetConstructorForm extends PureComponent {
 
@@ -24,6 +25,7 @@ class DatasetConstructorForm extends PureComponent {
 const mapStateToProps = state => {
 
     return {
+        ...utils.extractListsPropsFromModel(DatasetConstructorFormModel, selectors, state),
         isConnected: selectors.isWeb3Connected(state),
         isSubmitting: selectors.isDatasetConSubmitting(state),
         formValues: selectors.getDatasetConFormValues(state),
@@ -48,7 +50,7 @@ const mapDispatchToProps = dispatch => {
         dismissMessage: index => dispatch(actions.dismissDatasetConstructorMessage(index)),
         invalidateError: () => dispatch(actions.invalidateDatasetConstructorError()),
         submitForm: () => dispatch(actions.submitDatasetConstructorForm()),
-        updateAccounts: (updateAction) => dispatch(actions[updateAction]())
+        startAction: (actionToStart) => dispatch(actions[actionToStart]())
     }
 };
 
