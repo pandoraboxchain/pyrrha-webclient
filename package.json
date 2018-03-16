@@ -38,9 +38,9 @@
     "web3": "1.0.0-beta.30"
   },
   "devDependencies": {
-    "css-loader": "^0.28.10",
+    "css-loader": "^0.28.11",
     "node-sass-chokidar": "^1.1.0",
-    "react-app-rewired": "^1.5.0",
+    "react-app-rewired": "^2.0.0",
     "react-scripts": "^2.0.0-next.47d2d941",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
