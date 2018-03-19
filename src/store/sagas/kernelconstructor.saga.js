@@ -14,8 +14,7 @@ function* constructKernel() {
         if (!isConnected) {
 
             const error = new Error('Web3 not connected!');
-            yield put(actions.kernelConstructorFailure(error));
-            yield put(actions.web3ConnectFailure(error));
+            yield put(actions.pjsInitFailure(error));
             return;
         }
 
@@ -24,19 +23,21 @@ function* constructKernel() {
         const validatedFormData = yield call(utils.validateConstructorForm, models.KernelConstructorFormModel, formValues);
         yield put(actions.addKernelConstructorMessage('Constructor form validated successfully'));
 
+        
+        const pjs = yield select(selectors.pjs);
+
         // upload files to the IPFS
         const kernelIpfsHash = yield call(services.uploadModelAndWeightsToIpfs, 
             validatedFormData, 
-            progress => actions.kernelConstructorIpfsProgress(progress));
+            progress => actions.kernelConstructorIpfsProgress(progress), pjs);
         yield put(actions.addKernelConstructorMessage('Model and weights files successfully uploaded to IPFS'));
         
         // deploy kernel contract
-        const web3 = yield select(selectors.web3);
-        const kernelContractAddress = yield call(services.deployKernelContract, web3, kernelIpfsHash, validatedFormData);
+        const kernelContractAddress = yield call(pjs.kernels.deploy, kernelIpfsHash, validatedFormData);
         yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
         
         // add contract to market
-        yield call(services.addKernelToMarket, web3, kernelContractAddress, validatedFormData.publisher);
+        yield call(pjs.kernels.addToMarket, kernelContractAddress, validatedFormData.publisher);
         yield put(actions.kernelConstructorSuccess(`Kernel successfully added to Market`));
     } catch(error) {
         yield put(actions.kernelConstructorFailure(error));

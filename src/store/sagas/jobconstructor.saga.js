@@ -14,17 +14,7 @@ function* constructJob() {
         if (!isConnected) {
 
             const error = new Error('Web3 not connected!');
-            yield put(actions.jobConstructorFailure(error));
-            yield put(actions.web3ConnectFailure(error));
-            return;
-        }
-
-        const isMetaMask = yield select(selectors.isMetaMaskConnected);
-
-        if (!isMetaMask) {
-
-            const error = new Error('MetaMask is required but not detected!');
-            yield put(actions.jobConstructorFailure(error));
+            yield put(actions.pjsInitFailure(error));
             return;
         }
 
@@ -33,9 +23,10 @@ function* constructJob() {
         const validatedFormData = yield call(utils.validateConstructorForm, models.JobConstructorFormModel, formValues);
         yield put(actions.addJobConstructorMessage('Constructor form validated successfully'));
 
+        const pjs = yield select(selectors.pjs);
+
         // create job
-        const web3 = yield select(selectors.web3);
-        const jobAddress = yield call(services.createCognitiveJob, web3, validatedFormData);
+        const jobAddress = yield call(pjs.jobs.create, validatedFormData);
 
         if (jobAddress) {
 

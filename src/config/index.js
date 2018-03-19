@@ -80,13 +80,13 @@ const config = {
 };
 
 export default {
-    protocol: process.env.REACT_APP_WEB3_PROTOCOL || config.protocol,
-    nodePort: process.env.REACT_APP_WEB3_PORT || config.port,
-    nodeHost: process.env.REACT_APP_WEB3_HOSTNAME || config.host,
-    pandoraAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pandora,
-    marketAddress: process.env.REACT_APP_MARKET_ADDRESS || config.contracts.market,
+    ethProtocol: process.env.REACT_APP_WEB3_PROTOCOL || config.protocol,
+    ethPort: process.env.REACT_APP_WEB3_PORT || config.port,
+    ethHost: process.env.REACT_APP_WEB3_HOSTNAME || config.host,
     ipfsProtocol: process.env.REACT_APP_IPFS_PROTOCOL || config.ipfs.protocol,
     ipfsHost: process.env.REACT_APP_IPFS_HOST || config.ipfs.host,
     ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
+    pandoraAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pandora,
+    marketAddress: process.env.REACT_APP_MARKET_ADDRESS || config.contracts.market,
     reconnect: process.env.REACT_APP_WEB3_RECONNECT_TIMEOUT || config.reconnect
 };

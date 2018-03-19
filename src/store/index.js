@@ -13,10 +13,10 @@ import rootSaga from './sagas';
 
 // Filter persitent state for connect reducer
 // these states will not been rehydrated after app reloading
-const connectBacklist = createPersistStorageFilter(
-    'connect',
+const pjsBacklist = createPersistStorageFilter(
+    'pjs',
     [
-        'web3',
+        'pjs',
         'isMetaMask',
         'isConnecting',
         'isConnected',
@@ -26,9 +26,13 @@ const connectBacklist = createPersistStorageFilter(
         'errorMessage'
     ]
 );
-
-// Filter persitent state for kernel constructor reducer
-// these states will not been rehydrated after app reloading
+const accountsBacklist = createPersistStorageFilter(
+    'accounts',
+    [
+        'isFetching',
+        'errorMessage'
+    ]
+);
 const kernelConstructorBlacklist = createPersistStorageFilter(
     'kernelconstructor',
     [
@@ -92,7 +96,8 @@ const persistConfig = {
     storage,
     stateReconciler: autoMergeLevel2,
     transforms: [
-        connectBacklist,
+        pjsBacklist,
+        accountsBacklist,
         kernelConstructorBlacklist,
         datasetConstructorBlacklist,
         jobConstructorBlacklist,
