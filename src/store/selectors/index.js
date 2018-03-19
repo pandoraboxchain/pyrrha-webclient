@@ -1,4 +1,5 @@
-export * from './web3.selectors';
+export * from './pjs.selectors';
+export * from './accounts.selectors';
 export * from './kernelconstructor.selectors';
 export * from './datasetconstructor.selectors';
 export * from './jobconstructor.selectors';

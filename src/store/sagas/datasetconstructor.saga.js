@@ -14,17 +14,7 @@ function* constructDataset() {
         if (!isConnected) {
 
             const error = new Error('Web3 not connected!');
-            yield put(actions.datasetConstructorFailure(error));
-            yield put(actions.web3ConnectFailure(error));
-            return;
-        }
-
-        const isMetaMask = yield select(selectors.isMetaMaskConnected);
-
-        if (!isMetaMask) {
-
-            const error = new Error('MetaMask is required but not detected!');
-            yield put(actions.datasetConstructorFailure(error));
+            yield put(actions.pjsInitFailure(error));
             return;
         }
 
@@ -33,19 +23,20 @@ function* constructDataset() {
         const validatedFormData = yield call(utils.validateConstructorForm, models.DatasetConstructorFormModel, formValues);
         yield put(actions.addDatasetConstructorMessage('Constructor form validated successfully'));
 
+        const pjs = yield select(selectors.pjs);
+
         // upload files to the IPFS
         const { ipfsHash, batchesCount } = yield call(services.uploadDatasetBatchesToIpfs, 
             Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]), 
-            progress => actions.datasetConstructorIpfsProgress(progress));
+            progress => actions.datasetConstructorIpfsProgress(progress), pjs);
         yield put(actions.addDatasetConstructorMessage(`Dataset in count of ${batchesCount} batches has been successfully uploaded to IPFS`));
         
         // deploy dataset contract
-        const web3 = yield select(selectors.web3);
-        const datasetContractAddress = yield call(services.deployDatasetContract, web3, ipfsHash, batchesCount, validatedFormData);
+        const datasetContractAddress = yield call(pjs.datasets.deploy, ipfsHash, batchesCount, validatedFormData);
         yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market
-        yield call(services.addDatasetToMarket, web3, datasetContractAddress, validatedFormData.publisher);
+        yield call(pjs.datasets.addToMarket, datasetContractAddress, validatedFormData.publisher);
         yield put(actions.datasetConstructorSuccess(`Dataset has been successfully added to Market`));
     } catch(error) {
         yield put(actions.datasetConstructorFailure(error));
