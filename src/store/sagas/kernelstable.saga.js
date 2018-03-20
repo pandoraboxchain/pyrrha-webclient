@@ -1,4 +1,4 @@
-import { fork, put, call, select, takeLatest } from 'redux-saga/effects';
+import { fork, put, select, takeLatest } from 'redux-saga/effects';
 
 import * as actions from '../actions';
 import * as selectors from '../selectors';
@@ -16,7 +16,7 @@ function* startKernelsFetch() {
         }
 
         const pjs = yield select(selectors.pjs);
-        const kernels = yield call(pjs.kernels.fetchAll);
+        const kernels = yield pjs.kernels.fetchAll();
         yield put(actions.kernelsTableReceived(kernels));
     } catch(err) {
         yield put(actions.kernelsTableFailure(err));

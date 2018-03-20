@@ -13,19 +13,6 @@ import rootSaga from './sagas';
 
 // Filter persitent state for connect reducer
 // these states will not been rehydrated after app reloading
-const pjsBacklist = createPersistStorageFilter(
-    'pjs',
-    [
-        'pjs',
-        'isMetaMask',
-        'isConnecting',
-        'isConnected',
-        'connectedTo',
-        'connectedAt',
-        'isAccountsRefreshing',        
-        'errorMessage'
-    ]
-);
 const accountsBacklist = createPersistStorageFilter(
     'accounts',
     [
@@ -96,7 +83,6 @@ const persistConfig = {
     storage,
     stateReconciler: autoMergeLevel2,
     transforms: [
-        pjsBacklist,
         accountsBacklist,
         kernelConstructorBlacklist,
         datasetConstructorBlacklist,
@@ -104,7 +90,7 @@ const persistConfig = {
         kernelsTableBlacklist,
         datsetsTableBlacklist
     ],
-    blacklist: ['router', 'connect'] // exclude some states
+    blacklist: ['router', 'pjs'] // exclude some states
 };
 
 export const history = createHistory();

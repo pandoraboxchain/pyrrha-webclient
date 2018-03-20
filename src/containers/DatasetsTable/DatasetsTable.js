@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
 
-import { Table, Button } from 'semantic-ui-react';
+import { Loader, Table, Button, Icon } from 'semantic-ui-react';
 
 import * as selectors from '../../store/selectors';
 import * as actions from '../../store/actions';
@@ -23,7 +23,8 @@ class DatasetsTable extends PureComponent {
 
     componentWillMount = () => {
         
-        if (!this.props.datasets || this.props.datasets.length === 0) {
+        if (this.props.isConnected && 
+            (!this.props.datasets || this.props.datasets.length === 0)) {
 
             this.props.refreshDatasets();        
         }        
@@ -34,8 +35,15 @@ class DatasetsTable extends PureComponent {
 
         return (
             <div>
-                <Table celled selectable unstackable>
+                <Loader size="large" active={isFetching} />
+                <Table inverted celled selectable unstackable>
                     <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell><Icon name="chevron right" /></Table.HeaderCell>
+                            <Table.HeaderCell colSpan="6">
+                                <h3>Datasets</h3>
+                            </Table.HeaderCell>
+                        </Table.Row>
                         <Table.Row>
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
@@ -82,7 +90,8 @@ class DatasetsTable extends PureComponent {
 const mapStateToProps = state => {
 
     return {
-        isConnecting: selectors.isWeb3Connecting(state),
+        isConnecting: selectors.isPjsInitializing(state),
+        isConnected: selectors.isWeb3Connected(state),
         isFetching: selectors.isDatasetsFetching(state),
         datasets: selectors.getDatasets(state)
     }

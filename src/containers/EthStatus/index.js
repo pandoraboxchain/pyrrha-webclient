@@ -1,21 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { web3ConnectProvider } from '../../store/actions';
+import { pjsInit } from '../../store/actions';
 
-import {
-    isWeb3Connecting,
-    isWeb3Connected,
-    web3ConnectedTo,
-    web3ConnectedAt,
-    web3IsError
-} from '../../store/selectors';
+import * as selectors from '../../store/selectors';
 
 class EthStatus extends PureComponent {
 
     handleReconnectClick = e => {
         e.preventDefault();
-        this.props.dispatch(web3ConnectProvider());
+        this.props.dispatch(pjsInit());
     }
 
     render() {
@@ -50,11 +44,11 @@ EthStatus.propTypes = {
 function mapStateToProps(state) {
 
     return {
-        isConnecting: isWeb3Connecting(state),
-        isConnected: isWeb3Connected(state),
-        connectedTo: web3ConnectedTo(state),
-        connectedAt: web3ConnectedAt(state),
-        isError: web3IsError(state)
+        isConnecting: selectors.isPjsInitializing(state),
+        isConnected: selectors.isWeb3Connected(state),
+        connectedTo: selectors.pjsWeb3ConnectedTo(state),
+        connectedAt: selectors.pjsConnectedAt(state),
+        isError: !!selectors.pjsErrorMessage(state)
     }
 }
 
