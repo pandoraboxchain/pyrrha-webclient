@@ -4,7 +4,6 @@ import * as utils from '../../utils';
 import * as models from '../models';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
-import * as services from '../../services';
 
 function* constructJob() {
     
@@ -26,7 +25,8 @@ function* constructJob() {
         const pjs = yield select(selectors.pjs);
 
         // create job
-        const jobAddress = yield call(pjs.jobs.create, validatedFormData);
+        const { kernel, dataset, publisher } = validatedFormData;
+        const jobAddress = yield pjs.jobs.create(kernel, dataset, publisher);
 
         if (jobAddress) {
 

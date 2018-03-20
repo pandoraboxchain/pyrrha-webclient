@@ -2,7 +2,7 @@ import { fork, call, takeLatest } from 'redux-saga/effects';
 // import * as mainActions from '../actions';
 
 function logPathnames(from, to) {
-    console.log(`Route from: ${from} to: ${to}`);
+    //console.log(`Route from: ${from} to: ${to}`);
 }
 
 function* onLocationChange(e) {

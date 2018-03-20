@@ -30,15 +30,16 @@ function* constructDataset() {
             Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]), 
             progress => actions.datasetConstructorIpfsProgress(progress), pjs);
         yield put(actions.addDatasetConstructorMessage(`Dataset in count of ${batchesCount} batches has been successfully uploaded to IPFS`));
-        
+                
         // deploy dataset contract
-        const datasetContractAddress = yield call(pjs.datasets.deploy, ipfsHash, batchesCount, validatedFormData);
+        const datasetContractAddress = yield pjs.datasets.deploy(ipfsHash, batchesCount, validatedFormData);
         yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market
-        yield call(pjs.datasets.addToMarket, datasetContractAddress, validatedFormData.publisher);
+        yield pjs.datasets.addToMarket(datasetContractAddress, validatedFormData.publisher);
         yield put(actions.datasetConstructorSuccess(`Dataset has been successfully added to Market`));
     } catch(error) {
+        console.error(error)
         yield put(actions.datasetConstructorFailure(error));
     }
 }

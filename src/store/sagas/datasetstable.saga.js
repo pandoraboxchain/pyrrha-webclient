@@ -1,4 +1,4 @@
-import { fork, put, call, select, takeLatest } from 'redux-saga/effects';
+import { fork, put, select, takeLatest } from 'redux-saga/effects';
 
 import * as actions from '../actions';
 import * as selectors from '../selectors';
@@ -16,8 +16,8 @@ function* startDatasetsFetch() {
         }
 
         const pjs = yield select(selectors.pjs);
-        const datsets = yield call(pjs.datasets.fetchAll);
-        yield put(actions.datasetsTableReceived(datsets));
+        const datasets = yield pjs.datasets.fetchAll();
+        yield put(actions.datasetsTableReceived(datasets));
     } catch(err) {
         yield put(actions.datasetsTableFailure(err));
     }

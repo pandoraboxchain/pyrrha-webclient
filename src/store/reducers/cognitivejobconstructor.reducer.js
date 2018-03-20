@@ -7,9 +7,7 @@ import {
     JOB_CONSTRUCTOR_ERROR_INVALIDATE,
     JOB_CONSTRUCTOR_MESSAGE_DISMISS,
     JOB_CONSTRUCTOR_IPFS_PROGRESS,
-    JOB_CONSTRUCTOR_MESSAGE,
-    WEB3_ACCOUNTS_UPDATE,
-    WEB3_ACCOUNTS_RECEIVED
+    JOB_CONSTRUCTOR_MESSAGE
 } from '../actions';
 
 const initialState = {
@@ -121,30 +119,6 @@ export const reduce = (state = initialState, action = {}) => {
                         type: action.progress.type,
                         progress: action.progress.progress,
                         percent: Number.parseInt(action.progress.progress * 100 / action.progress.size, 10)
-                    }
-                }
-            };
-
-        case WEB3_ACCOUNTS_UPDATE:
-            return {
-                ...state,
-                lists: {
-                    ...state.lists,
-                    accounts: {
-                        items: [],
-                        isRefreshing: true
-                    }
-                }
-            };
-        
-        case WEB3_ACCOUNTS_RECEIVED:
-            return {
-                ...state,
-                lists: {
-                    ...state.lists,
-                    accounts: {
-                        items: action.accounts,
-                        isRefreshing: false
                     }
                 }
             };

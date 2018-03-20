@@ -5,7 +5,7 @@ export const JobConstructorFormModel = {
         type: 'text',
         list: {
             name: 'accounts',
-            action: 'web3AccountsUpdate',
+            action: 'web3AccountsFetch',
             stateSelector: 'isWeb3AccountsRefreshing',
             recordsSelector: 'web3Accounts'            
         },

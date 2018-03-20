@@ -2,12 +2,12 @@ import config from '../config';
 import Pjs from 'pyrrha-js';
 
 // Contracts APIs
-const Pandora = require('../pandora-abi/Pandora.json');
-const PandoraMarket = require('../pandora-abi/PandoraMarket.json');
-const WorkerNode = require('../pandora-abi/WorkerNode.json');
-const CognitiveJob = require('../pandora-abi/CognitiveJob.json');
-const Kernel = require('../pandora-abi/Kernel.json');
-const Dataset = require('../pandora-abi/Dataset.json');
+const Pandora = require('../pyrrha-abi/Pandora.json');
+const PandoraMarket = require('../pyrrha-abi/PandoraMarket.json');
+const WorkerNode = require('../pyrrha-abi/WorkerNode.json');
+const CognitiveJob = require('../pyrrha-abi/CognitiveJob.json');
+const Kernel = require('../pyrrha-abi/Kernel.json');
+const Dataset = require('../pyrrha-abi/Dataset.json');
 
 // Create Pjs instance
 export const initPjs = () => {

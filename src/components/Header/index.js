@@ -3,7 +3,7 @@ import './Header.scss';
 import React, { Component } from 'react';
 
 import { Menu, Container } from 'semantic-ui-react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import routes from '../../router';
 
@@ -14,8 +14,8 @@ class Header extends Component {
             <div>
                 <Container>
                     <Menu fixed="top" className="pn-header">
-                        <Menu.Item as='a' header>
-                            <h1 className="pn-head-title">Pyrrha WebClient</h1>
+                        <Menu.Item header>
+                            <Link to="/"><h1 className="pn-head-title">Pyrrha WebClient</h1></Link>
                         </Menu.Item>            
                         {routes.map(route => (
                             <Menu.Item key={route.path.toString()}>

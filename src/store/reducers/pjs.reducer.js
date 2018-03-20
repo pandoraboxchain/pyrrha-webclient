@@ -6,7 +6,7 @@ import {
 } from '../actions';
 
 const initialState = {
-    pjs: null,
+    pjs: {},
     isInitializing: false,
     connectedTo: null,
     connectedAt: null,    
@@ -15,12 +15,14 @@ const initialState = {
 
 export const reduce = (state = initialState, action = {}) => {
 
+    console.log(action);
+
     switch (action.type) {
         
         case PJS_INIT_REQUEST:
             return { 
                 ...state,
-                pjs: null, 
+                pjs: {}, 
                 isMetaMask: false,
                 isInitializing: true,
                 connectedTo: null,
@@ -29,13 +31,13 @@ export const reduce = (state = initialState, action = {}) => {
             };
 
         case PJS_INIT_DONE:
-            let isMetaMask = action.pjs.web3.currentProvider.isMetaMask;
+            let isMetaMask = action.pjs.api.web3.currentProvider.isMetaMask;
 
             return {
                 ...state,
                 pjs: action.pjs,
                 isInitializing: false,
-                connectedTo: isMetaMask ? 'MetaMask' : action.pjs.web3.currentProvider.host,
+                connectedTo: isMetaMask ? 'MetaMask' : action.pjs.api.web3.currentProvider.host,
                 connectedAt: action.connectedAt, 
                 errorMessage: null
             };
@@ -43,7 +45,7 @@ export const reduce = (state = initialState, action = {}) => {
         case PJS_INIT_FAILURE:
             return { 
                 ...state, 
-                pjs: null, 
+                pjs: {}, 
                 isMetaMask: false,
                 isInitializing: true,
                 connectedTo: null,

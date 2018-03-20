@@ -41,7 +41,7 @@ const mapDispatchToProps = dispatch => {
 
     return {
         willMountTasks: () => {
-            dispatch(actions.web3AccountsUpdate());
+            dispatch(actions.web3AccountsFetch());
         },
         resetConstructorState: () => dispatch(actions.resetDatasetConstructorState()),
         addMultipleFieldItem: name => dispatch(actions.addDatasetBatch(name)),

@@ -10,12 +10,16 @@ import config from '../../config';
 function* initPjs() {
 
     try {
-        const pjs = yield call(services.initPjs);
+        const pjs = yield call(services.initPjs);        
         window.pjs = pjs;
         yield put(actions.pjsInitialized(pjs));
     } catch (error) {
         yield put(actions.pjsInitFailure(error));
     }
+}
+
+function* start() {
+    yield put(actions.pjsInit());
 }
 
 // Invalidate error, wait and try to reconnect
@@ -32,7 +36,7 @@ function* autoInvalidateError() {
 
 // Sagas listeners
 function* watchActions() {
-    yield takeLatest('persist/REHYDRATE', initPjs);// Start if REHYDRATE process done only
+    yield takeLatest('persist/REHYDRATE', start);// Start if REHYDRATE process done only
     yield takeLatest(actions.PJS_INIT_REQUEST, initPjs);
     yield takeLatest(actions.PJS_INIT_FAILURE, autoInvalidateError);
 }
