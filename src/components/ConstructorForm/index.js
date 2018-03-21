@@ -76,7 +76,7 @@ class ConstructorForm extends PureComponent {
 
     render() {
 
-        console.log(this.props)
+        // console.log(this.props)
 
         const {
             formModel,

@@ -1,12 +1,13 @@
 {
   "name": "pyrrha-webclient",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Webclient for Pyrrha",
   "author": "Kostiantyn Smyrnov <kostysh@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync:abis": "npx rimraf ./src/abis && cp -R ./pyrrha-abi ./src",
     "start": "npm run sync:abis && BROWSER=none npx react-app-rewired start",
+    "build:app": "npx react-app-rewired build",
     "build:docker": "docker-compose build --no-cache",
     "start:docker": "docker-compose up -d --remove-orphans",
     "stop:docker": "docker-compose down"
@@ -20,6 +21,7 @@
   },
   "homepage": "http://client.pandora.network",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0-beta.42",
     "history": "^4.7.2",
     "ipfs-api": "^18.2.0",
     "prop-types": "^15.6.1",
@@ -35,12 +37,12 @@
     "reselect": "^3.0.1",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.78.3",
-    "pyrrha-js": "git@github.com:pandoraboxchain/pyrrha-js.git#v1.3.4"
+    "pyrrha-js": "https://github.com/pandoraboxchain/pyrrha-js.git#v1.3.10"
   },
   "devDependencies": {
-    "node-sass-chokidar": "^1.1.0",
+    "node-sass-chokidar": "^1.2.0",
     "react-app-rewired": "^2.0.0",
-    "react-scripts": "^1.1.1",
+    "react-scripts": "2.0.0-next.47d2d941",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "solhint": "^1.1.10",
