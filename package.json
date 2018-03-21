@@ -37,7 +37,7 @@
     "reselect": "^3.0.1",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-react": "^0.78.3",
-    "pyrrha-js": "https://github.com/pandoraboxchain/pyrrha-js.git#v1.3.10"
+    "pyrrha-js": "https://github.com/pandoraboxchain/pyrrha-js.git#v1.3.11"
   },
   "devDependencies": {
     "node-sass-chokidar": "^1.2.0",
