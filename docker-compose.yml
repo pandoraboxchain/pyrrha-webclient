@@ -16,6 +16,7 @@ services:
         - REACT_APP_IPFS_HOST=ipfs.pandora.network
         - REACT_APP_IPFS_PORT=5001
         - REACT_APP_WEB3_RECONNECT_TIMEOUT=5000
+        - REACT_APP_WEB3_NET_ID=4
     volumes:
       - "./.logs:/logs"
     ports:
