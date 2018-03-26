@@ -84,7 +84,7 @@ export default {
     ethProtocol: process.env.REACT_APP_WEB3_PROTOCOL || config.protocol,
     ethPort: process.env.REACT_APP_WEB3_PORT || config.port,
     ethHost: process.env.REACT_APP_WEB3_HOSTNAME || config.host,
-    ethId: process.env.REACT_APP_WEB3_NET_ID || config.net,
+    ethId: process.env.REACT_APP_WEB3_NET_ID ? parseInt(process.env.REACT_APP_WEB3_NET_ID, 10) : config.net,
     ipfsProtocol: process.env.REACT_APP_IPFS_PROTOCOL || config.ipfs.protocol,
     ipfsHost: process.env.REACT_APP_IPFS_HOST || config.ipfs.host,
     ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
