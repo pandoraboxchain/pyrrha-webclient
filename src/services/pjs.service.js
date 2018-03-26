@@ -37,5 +37,8 @@ export const initPjs = () => {
     });
 };
 
+// Get network ID
+export const getNetworkId = async web3 => await web3.eth.net.getId();
+
 // Get current accounts connected to MetaMask
 export const getAccounts = async web3 => await web3.eth.getAccounts();

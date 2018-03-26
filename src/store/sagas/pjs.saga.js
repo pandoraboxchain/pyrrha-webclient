@@ -13,6 +13,11 @@ function* initPjs() {
         const pjs = yield call(services.initPjs);        
         window.pjs = pjs;
         yield put(actions.pjsInitialized(pjs));
+        const netId = yield call(services.getNetworkId, pjs.api.web3);
+
+        if (config.ethId && netId !== config.ethId) {
+            yield put(actions.pjsWrongNetwork());
+        }
     } catch (error) {
         yield put(actions.pjsInitFailure(error));
     }

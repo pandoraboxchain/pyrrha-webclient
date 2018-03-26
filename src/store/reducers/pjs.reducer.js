@@ -2,7 +2,8 @@ import {
     PJS_INIT_REQUEST,
     PJS_INIT_DONE,
     PJS_INIT_FAILURE,
-    PJS_INVALIDATE_ERROR
+    PJS_INVALIDATE_ERROR,
+    PJS_WEB3_WRONG_NETWORK
 } from '../actions';
 
 const initialState = {
@@ -10,12 +11,13 @@ const initialState = {
     isInitializing: false,
     connectedTo: null,
     connectedAt: null,    
-    errorMessage: null
+    errorMessage: null,
+    isWrongNetwork: false
 };
 
 export const reduce = (state = initialState, action = {}) => {
 
-    // console.log(action);
+    //console.log(action);
 
     switch (action.type) {
         
@@ -27,7 +29,8 @@ export const reduce = (state = initialState, action = {}) => {
                 isInitializing: true,
                 connectedTo: null,
                 connectedAt: null,
-                errorMessage: null 
+                errorMessage: null,
+                isWrongNetwork: false
             };
 
         case PJS_INIT_DONE:
@@ -51,6 +54,12 @@ export const reduce = (state = initialState, action = {}) => {
                 connectedTo: null,
                 connectedAt: null,
                 errorMessage: action.error.message 
+            };
+        
+        case PJS_WEB3_WRONG_NETWORK:
+            return {
+                ...state,
+                isWrongNetwork: true
             };
 
         case PJS_INVALIDATE_ERROR:

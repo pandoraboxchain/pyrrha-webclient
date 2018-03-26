@@ -46,6 +46,7 @@ const hosts = {
         protocol: 'http',
         host: 'dockstation.pandora.network',
         port: 8545,
+        net: 4,
         contracts: {
             pandora: '0x58e66b79928cfb362b53c185a6a1fded882bb07d',
             market: '0x6142029abb21ef2e0bffde8d43f15c64f3750fe6'
@@ -83,6 +84,7 @@ export default {
     ethProtocol: process.env.REACT_APP_WEB3_PROTOCOL || config.protocol,
     ethPort: process.env.REACT_APP_WEB3_PORT || config.port,
     ethHost: process.env.REACT_APP_WEB3_HOSTNAME || config.host,
+    ethId: process.env.REACT_APP_WEB3_NET_ID || config.net,
     ipfsProtocol: process.env.REACT_APP_IPFS_PROTOCOL || config.ipfs.protocol,
     ipfsHost: process.env.REACT_APP_IPFS_HOST || config.ipfs.host,
     ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
