@@ -3,7 +3,7 @@ FROM node:9
 LABEL maintainer="kostysh@gmail.com"
 
 COPY ./public /public
-COPY ./pyrrha-abi /pyrrha-abi
+COPY ./pyrrha-consensus /pyrrha-consensus
 COPY ./src /src
 COPY ./config-overrides.js /config-overrides.js
 COPY ./package.json /package.json
@@ -13,11 +13,11 @@ WORKDIR /
 RUN npm i pm2 -g --quiet
 RUN npm i --quiet
 
-ARG REACT_APP_WEB3_PROTOCOL=http
-ARG REACT_APP_WEB3_PORT=8545
-ARG REACT_APP_WEB3_HOSTNAME=dockstation.pandora.network
-ARG REACT_APP_PAN_ADDRESS=0x58e66b79928cfb362b53c185a6a1fded882bb07d
-ARG REACT_APP_MARKET_ADDRESS=0x6142029abb21ef2e0bffde8d43f15c64f3750fe6
+ARG REACT_APP_WEB3_PROTOCOL=ws
+ARG REACT_APP_WEB3_PORT=8546
+ARG REACT_APP_WEB3_HOSTNAME=rinkeby.pandora.network
+ARG REACT_APP_PAN_ADDRESS=0x9f301cfd1217fd60e4244a12b1edffe458e8b9bd
+ARG REACT_APP_MARKET_ADDRESS=0xaff19fee75b1443b41f0acbf54c83e2dab57eb82
 ARG REACT_APP_IPFS_PROTOCOL=http
 ARG REACT_APP_IPFS_HOST=ipfs.pandora.network
 ARG REACT_APP_IPFS_PORT=5001

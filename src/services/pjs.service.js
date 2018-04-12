@@ -2,20 +2,26 @@ import config from '../config';
 import Pjs from 'pyrrha-js';
 
 // Contracts APIs
-const Pandora = require('../pyrrha-abi/Pandora.json');
-const PandoraMarket = require('../pyrrha-abi/PandoraMarket.json');
-const WorkerNode = require('../pyrrha-abi/WorkerNode.json');
-const CognitiveJob = require('../pyrrha-abi/CognitiveJob.json');
-const Kernel = require('../pyrrha-abi/Kernel.json');
-const Dataset = require('../pyrrha-abi/Dataset.json');
+const Pandora = require('../pyrrha-consensus/Pandora.json');
+const PandoraMarket = require('../pyrrha-consensus/PandoraMarket.json');
+const WorkerNode = require('../pyrrha-consensus/WorkerNode.json');
+const CognitiveJob = require('../pyrrha-consensus/CognitiveJob.json');
+const Kernel = require('../pyrrha-consensus/Kernel.json');
+const Dataset = require('../pyrrha-consensus/Dataset.json');
+
+const url = `${config.ethProtocol}://${config.ethHost}${config.ethPort ? ':'+config.ethPort : ''}`;
+let provider = new Pjs.Web3.providers.WebsocketProvider(url);
+
+if (typeof window !== 'undefined' && window.web3) {
+
+    provider = window.web3.currentProvider;
+}
 
 // Create Pjs instance
 export const initPjs = () => {
     return new Pjs({
         eth: {
-            protocol: config.ethProtocol,
-            host: config.ethHost,
-            port: config.ethPort
+            provider
         },
         ipfs: {
             protocol: config.ipfsProtocol,
@@ -31,8 +37,8 @@ export const initPjs = () => {
             Dataset
         },
         addresses: {
-            pandora: config.pandoraAddress,
-            market: config.marketAddress
+            Pandora: config.pandoraAddress,
+            PandoraMarket: config.marketAddress
         }
     });
 };
