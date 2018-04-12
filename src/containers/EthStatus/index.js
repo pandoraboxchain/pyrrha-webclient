@@ -29,7 +29,7 @@ class EthStatus extends PureComponent {
                     </div>
                 }
 
-                {isConnected &&
+                {(isConnected && connectedTo) &&
                     <div>Connected to {connectedTo} at {new Date(connectedAt).toLocaleTimeString()}</div>
                 }                
             </div>

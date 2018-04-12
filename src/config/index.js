@@ -43,17 +43,17 @@ const hosts = {
         }
     },
     rinkeby: {
-        protocol: 'http',
-        host: 'dockstation.pandora.network',
-        port: 8545,
+        protocol: 'ws',
+        host: 'rinkeby.pandora.network',
+        port: 8546,
         net: 4,
         contracts: {
-            pandora: '0x58e66b79928cfb362b53c185a6a1fded882bb07d',
-            market: '0x6142029abb21ef2e0bffde8d43f15c64f3750fe6'
+            pandora: '0x9f301cfd1217fd60e4244a12b1edffe458e8b9bd',
+            market: '0xaff19fee75b1443b41f0acbf54c83e2dab57eb82'
         },
         ipfs: {
             protocol: 'http',
-            host: 'localhost',
+            host: 'ipfs.pandora.network',
             port: 5001
         }
     },
@@ -62,8 +62,8 @@ const hosts = {
         host: 'rinkeby.infura.io/Llc2pOEtpgzvopBH8dst',
         port: '',
         contracts: {
-            pandora: '0x58e66b79928cfb362b53c185a6a1fded882bb07d',
-            market: '0x6142029abb21ef2e0bffde8d43f15c64f3750fe6'
+            pandora: '0x9f301cfd1217fd60e4244a12b1edffe458e8b9bd',
+            market: '0xaff19fee75b1443b41f0acbf54c83e2dab57eb82'
         },
         ipfs: {
             protocol: 'http',

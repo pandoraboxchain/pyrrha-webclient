@@ -5,7 +5,7 @@ export const pjsConnectedAt = state => state.pjs.connectedAt;
 export const pjsErrorMessage = state => state.pjs.errorMessage;
 
 export const pjs = state => state.pjs.pjs;
-export const web3 = state => state.pjs.pjs.api.web3;
+export const web3 = state => state.pjs.pjs.api ? state.pjs.pjs.api.web3 : null;
 export const ipfs = state => state.pjs.pjs.api.ipfs;
 export const isWrongNetwork = state => state.pjs.isWrongNetwork;
 export const web3Version = createSelector(
@@ -24,11 +24,11 @@ export const pjsWeb3ConnectedTo = createSelector(
     web3,
     isMetaMaskConnected,
     (web3, isMetaMask) => {
-        
+
         if (!web3) {
             return 'Not connected';
         }
 
-        return isMetaMask ? 'MetaMask' : web3.currentProvider.host;
+        return isMetaMask ? 'MetaMask' : web3.currentProvider.host || (web3.currentProvider.connection ? web3.currentProvider.connection.url : 'Uknown');
     }
 );
