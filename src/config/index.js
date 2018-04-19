@@ -1,16 +1,16 @@
 const hosts = {
     default: {
-        protocol: 'http',
+        protocol: 'ws',
         host: 'localhost',
         port: 8545,
         reconnect: 5000,
         contracts: {
-            pandora: '',
-            market: ''
+            pandora: '0x9561c133dd8580860b6b7e504bc5aa500f0f06a7',
+            market: '0x2612af3a521c2df9eaf28422ca335b04adf3ac66'
         },
         ipfs: {
             protocol: 'http',
-            host: 'localhost',
+            host: 'ipfs.pandora.network',
             port: 5001
         }
     },
@@ -73,7 +73,7 @@ const hosts = {
     }
 };
 
-let defaultHost = process.env.USE_HOST || 'rinkeby';
+let defaultHost = process.env.REACT_APP_USE_HOST || 'rinkeby';
 
 const config = {
     ...hosts.default,
