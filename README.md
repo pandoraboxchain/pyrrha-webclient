@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 # Pandora Pyrrha Webclient
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e195be0b5234b6c98870c504036bff0)](https://www.codacy.com/app/kostysh/pyrrha-webclient?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pandoraboxchain/pyrrha-webclient&amp;utm_campaign=Badge_Grade)  
+=======
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e195be0b5234b6c98870c504036bff0)](https://www.codacy.com/app/kostysh/pyrrha-webclient?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pandoraboxchain/pyrrha-webclient&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/pandoraboxchain/pyrrha-webclient.svg?branch=master)](https://travis-ci.org/pandoraboxchain/pyrrha-webclient)  
+
+# Pandora Pyrrha Webclient
+>>>>>>> master
 Web application for working with kernels and datasets
 
 ## Initial setup 

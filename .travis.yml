@@ -1,0 +1,40 @@
+sudo: required
+language: node_js
+node_js:
+  - '9'
+services:
+  - docker
+branches:
+  only:
+    - master
+    - "/v\\d+\\.\\d+\\.\\d+(-\\w+)?/"
+stages:
+  - build
+  - hub
+  - deploy
+jobs:
+  include:
+    - stage: build
+      if: branch = master
+      install: skip
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build --tag pyrrha_webclient .
+        - docker images
+    - stage: hub
+      if: tag IS present
+      install: skip
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build --tag pyrrha_webclient .
+        - docker images
+        - docker tag pyrrha_webclient pandoraboxchain/pyrrha_webclient:latest
+        - docker push pandoraboxchain/pyrrha_webclient:latest
+    - stage: deploy
+      if: tag IS present
+      install: skip
+      script:
+        - openssl aes-256-cbc -K $encrypted_a6187e8b8d0f_key -iv $encrypted_a6187e8b8d0f_iv -in key.enc -out ./key -d
+        - chmod 600 ./key
+        - ssh -o "StrictHostKeyChecking no" -i ./key kostysh@pandora.network -tt 'bash
+          -s' < ./deploy.sh
