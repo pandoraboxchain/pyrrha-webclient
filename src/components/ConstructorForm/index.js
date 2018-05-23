@@ -38,13 +38,19 @@ class ConstructorForm extends PureComponent {
         this.props.removeMultipleFieldItem(name, item);
     };
 
-    onFieldChange = (e, { field, value, type, item }) => {
+    onInputChange = (e, { field, value, type, item }) => {
 
-        if (type === 'file') {
-
-            value = e.target.files[0]; 
-        } 
-
+        switch (type) {
+            case 'file':
+                value = e.target.files[0];
+                break;
+            case 'number':
+                value = Number(value);// Because of the Sematic UI constantly returns strings
+                break;            
+            default:
+                value = String(value);            
+        }
+        
         this.props.updateField(field, value, item);
     };
 
@@ -109,7 +115,7 @@ class ConstructorForm extends PureComponent {
                                             field={field} 
                                             item={item}
                                             type={formModel[field].type}
-                                            onChange={this.onFieldChange}  
+                                            onChange={this.onInputChange}  
                                             error={formErrors[field] ? formErrors[field][item] : false}
                                             action={fieldIndex > 0 ? {
                                                 icon: 'remove', 
@@ -131,18 +137,18 @@ class ConstructorForm extends PureComponent {
                                     name={field} 
                                     field={field} 
                                     type={formModel[field].type}
-                                    onChange={this.onFieldChange}  
+                                    onChange={this.onInputChange}  
                                     error={formErrors[field]} />
                             }
 
                             {formModel[field].type !== 'file' && !formModel[field].list &&
                                 <Form.Input
-                                    name={field} 
-                                    field={field} 
+                                    name={field}
+                                    field={field}
                                     placeholder={formModel[field].placeholder} 
                                     value={formValues[field] || ''}
                                     type={formModel[field].type}
-                                    onChange={this.onFieldChange}  
+                                    onChange={this.onInputChange}  
                                     error={formErrors[field]} />                                
                             }
 
@@ -155,7 +161,7 @@ class ConstructorForm extends PureComponent {
                                         value={formValues[field] || ''}
                                         type={formModel[field].type} 
                                         list={formModel[field].list.name} 
-                                        onChange={this.onFieldChange}  
+                                        onChange={this.onInputChange}  
                                         error={formErrors[field]}>
                                         <input />
                                         <Button

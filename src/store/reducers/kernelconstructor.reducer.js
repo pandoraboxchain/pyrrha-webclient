@@ -84,7 +84,8 @@ export const reduce = (state = initialState, action = {}) => {
                 errorMessages: action.error.map(err => err.message || err) 
             };
         
-        case KERNEL_CONSTRUCTOR_FIELD_UPDATED:            
+        case KERNEL_CONSTRUCTOR_FIELD_UPDATED:
+            
             return { 
                 ...state,
                 formValues: {

@@ -52,6 +52,11 @@ export const isFormFieldValid = (model, name, value) => {
 
     if (model[name]) {
 
+        if (model[name].type === 'number' && typeof value !== model[name].type) {
+
+            return false;
+        }
+
         return model[name].validator ? model[name].validator(value) : true;
     }
 

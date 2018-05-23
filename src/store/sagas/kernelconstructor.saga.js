@@ -20,6 +20,7 @@ function* constructKernel() {
 
         // form validation
         const formValues = yield select(selectors.getKernelConFormValues);
+
         const validatedFormData = yield call(utils.validateConstructorForm, models.KernelConstructorFormModel, formValues);
         yield put(actions.addKernelConstructorMessage('Constructor form validated successfully'));
 
