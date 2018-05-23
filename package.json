@@ -21,6 +21,7 @@
   },
   "homepage": "http://client.pandora.network",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0-beta.47",
     "history": "4.7.2",
     "prop-types": "15.6.1",
     "react": "16.3.2",
