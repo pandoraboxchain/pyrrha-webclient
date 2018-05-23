@@ -37,25 +37,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.18;\n\n\ncontract IStateMachine {\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
-  "sourcePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
+  "source": "pragma solidity ^0.4.23;\n\n\ncontract IStateMachine {\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
+  "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
   "ast": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
     "exportedSymbols": {
       "IStateMachine": [
-        1827
+        1852
       ]
     },
-    "id": 1828,
+    "id": 1853,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1815,
+        "id": 1840,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:12"
@@ -66,9 +66,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1827,
+        "id": 1852,
         "linearizedBaseContracts": [
-          1827
+          1852
         ],
         "name": "IStateMachine",
         "nodeType": "ContractDefinition",
@@ -76,7 +76,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1820,
+            "id": 1845,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -84,22 +84,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1816,
+              "id": 1841,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "77:2:12"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1819,
+              "id": 1844,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1818,
+                  "id": 1843,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1820,
+                  "scope": 1845,
                   "src": "101:5:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -108,7 +108,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1817,
+                    "id": 1842,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "101:5:12",
@@ -123,7 +123,7 @@
               ],
               "src": "100:7:12"
             },
-            "scope": 1827,
+            "scope": 1852,
             "src": "56:52:12",
             "stateMutability": "view",
             "superFunction": null,
@@ -132,20 +132,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1826,
+            "id": 1851,
             "name": "StateChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1825,
+              "id": 1850,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1822,
+                  "id": 1847,
                   "indexed": false,
                   "name": "oldState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1826,
+                  "scope": 1851,
                   "src": "133:14:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -154,7 +154,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1821,
+                    "id": 1846,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "133:5:12",
@@ -168,11 +168,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1824,
+                  "id": 1849,
                   "indexed": false,
                   "name": "newState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1826,
+                  "scope": 1851,
                   "src": "149:14:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -181,7 +181,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1823,
+                    "id": 1848,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "149:5:12",
@@ -199,29 +199,29 @@
             "src": "114:51:12"
           }
         ],
-        "scope": 1828,
+        "scope": 1853,
         "src": "27:140:12"
       }
     ],
     "src": "0:167:12"
   },
   "legacyAST": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
     "exportedSymbols": {
       "IStateMachine": [
-        1827
+        1852
       ]
     },
-    "id": 1828,
+    "id": 1853,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1815,
+        "id": 1840,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:12"
@@ -232,9 +232,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1827,
+        "id": 1852,
         "linearizedBaseContracts": [
-          1827
+          1852
         ],
         "name": "IStateMachine",
         "nodeType": "ContractDefinition",
@@ -242,7 +242,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 1820,
+            "id": 1845,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -250,22 +250,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1816,
+              "id": 1841,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "77:2:12"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1819,
+              "id": 1844,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1818,
+                  "id": 1843,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1820,
+                  "scope": 1845,
                   "src": "101:5:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -274,7 +274,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1817,
+                    "id": 1842,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "101:5:12",
@@ -289,7 +289,7 @@
               ],
               "src": "100:7:12"
             },
-            "scope": 1827,
+            "scope": 1852,
             "src": "56:52:12",
             "stateMutability": "view",
             "superFunction": null,
@@ -298,20 +298,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1826,
+            "id": 1851,
             "name": "StateChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1825,
+              "id": 1850,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1822,
+                  "id": 1847,
                   "indexed": false,
                   "name": "oldState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1826,
+                  "scope": 1851,
                   "src": "133:14:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -320,7 +320,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1821,
+                    "id": 1846,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "133:5:12",
@@ -334,11 +334,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 1824,
+                  "id": 1849,
                   "indexed": false,
                   "name": "newState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1826,
+                  "scope": 1851,
                   "src": "149:14:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -347,7 +347,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1823,
+                    "id": 1848,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "149:5:12",
@@ -365,7 +365,7 @@
             "src": "114:51:12"
           }
         ],
-        "scope": 1828,
+        "scope": 1853,
         "src": "27:140:12"
       }
     ],
@@ -373,9 +373,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-11T12:12:45.952Z"
+  "updatedAt": "2018-05-21T20:36:00.817Z"
 }

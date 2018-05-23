@@ -6,7 +6,7 @@ Web application for working with kernels and datasets
 ## Initial setup 
 ```sh
 npm i
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 MetaMask (https://metamask.io/) browser extension is required:
 - Install extension

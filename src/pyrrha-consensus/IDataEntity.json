@@ -133,10 +133,10 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.18;\n\nimport 'zeppelin-solidity/contracts/ownership/Ownable.sol';\n\ncontract IDataEntity is Ownable {\n    bytes public ipfsAddress;\n    uint256 public dataDim;\n    uint256 public currentPrice;\n\n    function updatePrice(uint256 newPrice) external;\n    function withdrawBalance() external;\n\n    event PriceUpdated(uint256 oldPrice, uint256 newPrice);\n}\n",
-  "sourcePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/entities/IDataEntity.sol",
+  "source": "pragma solidity ^0.4.23;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract IDataEntity is Ownable {\n    bytes public ipfsAddress;\n    uint256 public dataDim;\n    uint256 public currentPrice;\n\n    function updatePrice(uint256 newPrice) external;\n    function withdrawBalance() external;\n\n    event PriceUpdated(uint256 oldPrice, uint256 newPrice);\n}\n",
+  "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
   "ast": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/entities/IDataEntity.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
     "exportedSymbols": {
       "IDataEntity": [
         620
@@ -151,45 +151,45 @@
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
       },
       {
-        "absolutePath": "zeppelin-solidity/contracts/ownership/Ownable.sol",
-        "file": "zeppelin-solidity/contracts/ownership/Ownable.sol",
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "id": 597,
         "nodeType": "ImportDirective",
         "scope": 621,
-        "sourceUnit": 4888,
-        "src": "26:59:5",
+        "sourceUnit": 4909,
+        "src": "26:63:5",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "baseContracts": [
           {
-            "arguments": [],
+            "arguments": null,
             "baseName": {
               "contractScope": null,
               "id": 598,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4887,
-              "src": "111:7:5",
+              "referencedDeclaration": 4908,
+              "src": "115:7:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$4887",
+                "typeIdentifier": "t_contract$_Ownable_$4908",
                 "typeString": "contract Ownable"
               }
             },
             "id": 599,
             "nodeType": "InheritanceSpecifier",
-            "src": "111:7:5"
+            "src": "115:7:5"
           }
         ],
         "contractDependencies": [
-          4887
+          4908
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -197,7 +197,7 @@
         "id": 620,
         "linearizedBaseContracts": [
           620,
-          4887
+          4908
         ],
         "name": "IDataEntity",
         "nodeType": "ContractDefinition",
@@ -208,21 +208,21 @@
             "name": "ipfsAddress",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "125:24:5",
+            "src": "129:24:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
               "typeIdentifier": "t_bytes_storage",
-              "typeString": "bytes storage ref"
+              "typeString": "bytes"
             },
             "typeName": {
               "id": 600,
               "name": "bytes",
               "nodeType": "ElementaryTypeName",
-              "src": "125:5:5",
+              "src": "129:5:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes_storage_ptr",
-                "typeString": "bytes storage pointer"
+                "typeString": "bytes"
               }
             },
             "value": null,
@@ -234,7 +234,7 @@
             "name": "dataDim",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "155:22:5",
+            "src": "159:22:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -245,7 +245,7 @@
               "id": 602,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "155:7:5",
+              "src": "159:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -260,7 +260,7 @@
             "name": "currentPrice",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "183:27:5",
+            "src": "187:27:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -271,7 +271,7 @@
               "id": 604,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "183:7:5",
+              "src": "187:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -300,7 +300,7 @@
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 610,
-                  "src": "238:16:5",
+                  "src": "242:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -311,7 +311,7 @@
                     "id": 606,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "238:7:5",
+                    "src": "242:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -321,17 +321,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "237:18:5"
+              "src": "241:18:5"
             },
             "payable": false,
             "returnParameters": {
               "id": 609,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "264:0:5"
+              "src": "268:0:5"
             },
             "scope": 620,
-            "src": "217:48:5",
+            "src": "221:48:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -350,17 +350,17 @@
               "id": 611,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "294:2:5"
+              "src": "298:2:5"
             },
             "payable": false,
             "returnParameters": {
               "id": 612,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "305:0:5"
+              "src": "309:0:5"
             },
             "scope": 620,
-            "src": "270:36:5",
+            "src": "274:36:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -382,7 +382,7 @@
                   "name": "oldPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 619,
-                  "src": "331:16:5",
+                  "src": "335:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -393,7 +393,7 @@
                     "id": 614,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "331:7:5",
+                    "src": "335:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -409,7 +409,7 @@
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 619,
-                  "src": "349:16:5",
+                  "src": "353:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -420,7 +420,7 @@
                     "id": 616,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "349:7:5",
+                    "src": "353:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -430,19 +430,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "330:36:5"
+              "src": "334:36:5"
             },
-            "src": "312:55:5"
+            "src": "316:55:5"
           }
         ],
         "scope": 621,
-        "src": "87:282:5"
+        "src": "91:282:5"
       }
     ],
-    "src": "0:370:5"
+    "src": "0:374:5"
   },
   "legacyAST": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/entities/IDataEntity.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
     "exportedSymbols": {
       "IDataEntity": [
         620
@@ -457,45 +457,45 @@
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
       },
       {
-        "absolutePath": "zeppelin-solidity/contracts/ownership/Ownable.sol",
-        "file": "zeppelin-solidity/contracts/ownership/Ownable.sol",
+        "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+        "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "id": 597,
         "nodeType": "ImportDirective",
         "scope": 621,
-        "sourceUnit": 4888,
-        "src": "26:59:5",
+        "sourceUnit": 4909,
+        "src": "26:63:5",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "baseContracts": [
           {
-            "arguments": [],
+            "arguments": null,
             "baseName": {
               "contractScope": null,
               "id": 598,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4887,
-              "src": "111:7:5",
+              "referencedDeclaration": 4908,
+              "src": "115:7:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$4887",
+                "typeIdentifier": "t_contract$_Ownable_$4908",
                 "typeString": "contract Ownable"
               }
             },
             "id": 599,
             "nodeType": "InheritanceSpecifier",
-            "src": "111:7:5"
+            "src": "115:7:5"
           }
         ],
         "contractDependencies": [
-          4887
+          4908
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -503,7 +503,7 @@
         "id": 620,
         "linearizedBaseContracts": [
           620,
-          4887
+          4908
         ],
         "name": "IDataEntity",
         "nodeType": "ContractDefinition",
@@ -514,21 +514,21 @@
             "name": "ipfsAddress",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "125:24:5",
+            "src": "129:24:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
               "typeIdentifier": "t_bytes_storage",
-              "typeString": "bytes storage ref"
+              "typeString": "bytes"
             },
             "typeName": {
               "id": 600,
               "name": "bytes",
               "nodeType": "ElementaryTypeName",
-              "src": "125:5:5",
+              "src": "129:5:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes_storage_ptr",
-                "typeString": "bytes storage pointer"
+                "typeString": "bytes"
               }
             },
             "value": null,
@@ -540,7 +540,7 @@
             "name": "dataDim",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "155:22:5",
+            "src": "159:22:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -551,7 +551,7 @@
               "id": 602,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "155:7:5",
+              "src": "159:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -566,7 +566,7 @@
             "name": "currentPrice",
             "nodeType": "VariableDeclaration",
             "scope": 620,
-            "src": "183:27:5",
+            "src": "187:27:5",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -577,7 +577,7 @@
               "id": 604,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
-              "src": "183:7:5",
+              "src": "187:7:5",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -606,7 +606,7 @@
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 610,
-                  "src": "238:16:5",
+                  "src": "242:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -617,7 +617,7 @@
                     "id": 606,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "238:7:5",
+                    "src": "242:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -627,17 +627,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "237:18:5"
+              "src": "241:18:5"
             },
             "payable": false,
             "returnParameters": {
               "id": 609,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "264:0:5"
+              "src": "268:0:5"
             },
             "scope": 620,
-            "src": "217:48:5",
+            "src": "221:48:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -656,17 +656,17 @@
               "id": 611,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "294:2:5"
+              "src": "298:2:5"
             },
             "payable": false,
             "returnParameters": {
               "id": 612,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "305:0:5"
+              "src": "309:0:5"
             },
             "scope": 620,
-            "src": "270:36:5",
+            "src": "274:36:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -688,7 +688,7 @@
                   "name": "oldPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 619,
-                  "src": "331:16:5",
+                  "src": "335:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -699,7 +699,7 @@
                     "id": 614,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "331:7:5",
+                    "src": "335:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -715,7 +715,7 @@
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
                   "scope": 619,
-                  "src": "349:16:5",
+                  "src": "353:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -726,7 +726,7 @@
                     "id": 616,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "349:7:5",
+                    "src": "353:7:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -736,22 +736,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "330:36:5"
+              "src": "334:36:5"
             },
-            "src": "312:55:5"
+            "src": "316:55:5"
           }
         ],
         "scope": 621,
-        "src": "87:282:5"
+        "src": "91:282:5"
       }
     ],
-    "src": "0:370:5"
+    "src": "0:374:5"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-11T12:12:45.945Z"
+  "updatedAt": "2018-05-21T20:36:00.813Z"
 }

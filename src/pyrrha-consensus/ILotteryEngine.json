@@ -25,25 +25,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.18;\n\n\ncontract ILotteryEngine {\n    function getRandom(uint256 max) public returns (uint256);\n}\n",
-  "sourcePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
+  "source": "pragma solidity ^0.4.23;\n\n\ncontract ILotteryEngine {\n    function getRandom(uint256 max) public returns (uint256);\n}\n",
+  "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
   "ast": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
     "exportedSymbols": {
       "ILotteryEngine": [
-        3444
+        3469
       ]
     },
-    "id": 3445,
+    "id": 3470,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3436,
+        "id": 3461,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:26"
@@ -54,9 +54,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3444,
+        "id": 3469,
         "linearizedBaseContracts": [
-          3444
+          3469
         ],
         "name": "ILotteryEngine",
         "nodeType": "ContractDefinition",
@@ -64,7 +64,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3443,
+            "id": 3468,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -72,15 +72,15 @@
             "name": "getRandom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3439,
+              "id": 3464,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3438,
+                  "id": 3463,
                   "name": "max",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3443,
+                  "scope": 3468,
                   "src": "76:11:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -89,7 +89,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3437,
+                    "id": 3462,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "76:7:26",
@@ -106,15 +106,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3442,
+              "id": 3467,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3441,
+                  "id": 3466,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3443,
+                  "scope": 3468,
                   "src": "105:7:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -123,7 +123,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3440,
+                    "id": 3465,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "105:7:26",
@@ -138,36 +138,36 @@
               ],
               "src": "104:9:26"
             },
-            "scope": 3444,
+            "scope": 3469,
             "src": "57:57:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3445,
+        "scope": 3470,
         "src": "27:89:26"
       }
     ],
     "src": "0:117:26"
   },
   "legacyAST": {
-    "absolutePath": "/home/aleksei/pandora-pyrrha/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
+    "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/lottery/ILotteryEngine.sol",
     "exportedSymbols": {
       "ILotteryEngine": [
-        3444
+        3469
       ]
     },
-    "id": 3445,
+    "id": 3470,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3436,
+        "id": 3461,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".18"
+          ".23"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:26"
@@ -178,9 +178,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3444,
+        "id": 3469,
         "linearizedBaseContracts": [
-          3444
+          3469
         ],
         "name": "ILotteryEngine",
         "nodeType": "ContractDefinition",
@@ -188,7 +188,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 3443,
+            "id": 3468,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -196,15 +196,15 @@
             "name": "getRandom",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3439,
+              "id": 3464,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3438,
+                  "id": 3463,
                   "name": "max",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3443,
+                  "scope": 3468,
                   "src": "76:11:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -213,7 +213,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3437,
+                    "id": 3462,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "76:7:26",
@@ -230,15 +230,15 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 3442,
+              "id": 3467,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3441,
+                  "id": 3466,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3443,
+                  "scope": 3468,
                   "src": "105:7:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -247,7 +247,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3440,
+                    "id": 3465,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "105:7:26",
@@ -262,14 +262,14 @@
               ],
               "src": "104:9:26"
             },
-            "scope": 3444,
+            "scope": 3469,
             "src": "57:57:26",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 3445,
+        "scope": 3470,
         "src": "27:89:26"
       }
     ],
@@ -277,9 +277,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-11T12:12:45.967Z"
+  "updatedAt": "2018-05-21T20:36:00.847Z"
 }
