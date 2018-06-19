@@ -1,3 +1,18 @@
 .pn-message-outer {
     margin: 1em 0 0 0;
 }
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.lowercase {
+
+    input[type=text] {
+        text-transform: lowercase;        
+    }    
+}

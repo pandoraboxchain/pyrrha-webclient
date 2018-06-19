@@ -62,5 +62,5 @@ export default {
     ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
     pandoraAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pandora,
     marketAddress: process.env.REACT_APP_MARKET_ADDRESS || config.contracts.market,
-    reconnect: process.env.REACT_APP_WEB3_RECONNECT_TIMEOUT || config.reconnect
+    reconnect: process.env.REACT_APP_WEB3_RECONNECT_TIMEOUT || config.reconnect    
 };

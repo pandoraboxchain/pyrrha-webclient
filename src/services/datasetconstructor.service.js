@@ -6,12 +6,13 @@
  * @param {Object} pjs pyrrha-js instance
  * @returns {Promise} Promise object resolved to object with hash of the dataset json file and count of batches
  */
-export const uploadDatasetBatchesToIpfs = async (batches, progressCb, pjs) => {
+export const uploadDatasetBatchesToIpfs = async (batches, options, progressCb, pjs) => {
     
     try {
         const uploadedBatches = await Promise.all(batches.map(batch => pjs.ipfs.submitFile(batch, progressCb)));
         const batchesIpfs = await pjs.ipfs.submitJson(JSON.stringify({
-            batches: uploadedBatches
+            batches: uploadedBatches,
+            options
         }), {
             name: 'DatasetBatchesJson',
             type: 'application/json'

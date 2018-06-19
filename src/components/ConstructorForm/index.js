@@ -3,7 +3,9 @@ import './ConstructorForm.scss';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Message, Progress } from 'semantic-ui-react';
+import { Form, Button, Label, Icon, Message, Progress } from 'semantic-ui-react';
+
+const displayNone = { display:'none' };
 
 class ConstructorForm extends PureComponent {
 
@@ -62,7 +64,11 @@ class ConstructorForm extends PureComponent {
                 typeof this.props.formValues[name] !== 'object' && 
                 Object.keys(this.props.formValues[name] || {}).length === 0) {
                 
-                this.props.addMultipleFieldItem(name);
+                if (this.props.formModel[name].relatedTo && 
+                    this.props.formValues[this.props.formModel[name].relatedTo.field] === this.props.formModel[name].relatedTo.value) {
+                    
+                    this.props.addMultipleFieldItem(name);
+                }
             }
         });
     };
@@ -98,31 +104,45 @@ class ConstructorForm extends PureComponent {
         return (
             <div>
                 <Form 
+                    autoComplete="off" 
                     onSubmit={this.handleSubmit} 
                     error={errorMessages.length > 0} 
                     loading={isSubmitting}>
 
-                    {Object.keys(formModel).map((field, index) => (
-                        <Form.Field key={index} required>
-                            <label>{formModel[field].label}</label>
+                    {Object.keys(formModel).map((field, index) => (                        
+                        <Form.Field key={index} required={formModel[field].required}>
+                            {(formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                                <label>{formModel[field].label}</label>
+                            }
 
-                            {formModel[field].type === 'file' && formModel[field].multiple === true &&
+                            {formModel[field].type === 'file' && formModel[field].multiple === true && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) && 
                                 <div>
                                     {Object.keys(formValues[field] || {}).map((item, fieldIndex) => 
-                                        <Form.Input
-                                            key={item+this.fileInputKey+fieldIndex}
-                                            name={item}
-                                            field={field} 
-                                            item={item}
-                                            type={formModel[field].type}
-                                            onChange={this.onInputChange}  
-                                            error={formErrors[field] ? formErrors[field][item] : false}
-                                            action={fieldIndex > 0 ? {
-                                                icon: 'remove', 
-                                                name: field, 
-                                                item: item, 
-                                                onClick: this.handleRemoveMultipleFieldItem 
-                                            } : null} />
+                                        <div 
+                                            key={item+this.fileInputKey+fieldIndex} 
+                                            className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >
+                                            <Label as="label" basic htmlFor={field+this.fileInputKey+item} size="large" color="black">
+                                                <Icon name="file" />{formValues[field] && formValues[field][item] ? formValues[field][item].name : 'Choose a file'}                                                
+                                            </Label>
+                                            {formValues[field] && formValues[field][item] && formValues[field][item].name &&
+                                                <Button icon="delete" name={field} item={item} onClick={this.handleRemoveMultipleFieldItem} size="tiny" />
+                                            }
+                                            <Form.Input
+                                                name={item}
+                                                id={field+this.fileInputKey+item} 
+                                                style={displayNone}
+                                                field={field} 
+                                                item={item}
+                                                type={formModel[field].type}
+                                                onChange={this.onInputChange}  
+                                                error={formErrors[field] ? formErrors[field][item] : false}
+                                                action={fieldIndex > 0 ? {
+                                                    icon: 'remove', 
+                                                    name: field, 
+                                                    item: item, 
+                                                    onClick: this.handleRemoveMultipleFieldItem 
+                                                } : null} />
+                                        </div>                                        
                                     )}                                   
 
                                     <Button 
@@ -131,33 +151,55 @@ class ConstructorForm extends PureComponent {
                                 </div>
                             }
 
-                            {formModel[field].type === 'file' && !formModel[field].multiple &&
-                                <Form.Input
-                                    key={field+this.fileInputKey}
-                                    name={field} 
-                                    field={field} 
-                                    type={formModel[field].type}
-                                    onChange={this.onInputChange}  
-                                    error={formErrors[field]} />
+                            {formModel[field].type === 'file' && !formModel[field].multiple && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                                <div className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >
+                                    <Label as="label" basic htmlFor={field+this.fileInputKey} size="large" color="black">
+                                        <Icon name="file" />{formValues[field] ? formValues[field].name : 'Choose a file'}
+                                    </Label>
+                                    <Form.Input
+                                        key={field+this.fileInputKey} 
+                                        id={field+this.fileInputKey}
+                                        name={field} 
+                                        style={displayNone}
+                                        field={field}
+                                        type={formModel[field].type}
+                                        onChange={this.onInputChange}  
+                                        error={formErrors[field]} />                                    
+                                </div>
                             }
 
-                            {formModel[field].type !== 'file' && !formModel[field].list &&
+                            {formModel[field].type !== 'file' && !formModel[field].list && !formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <Form.Input
                                     name={field}
                                     field={field}
                                     placeholder={formModel[field].placeholder} 
+                                    className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} 
                                     value={formValues[field] || ''}
                                     type={formModel[field].type}
                                     onChange={this.onInputChange}  
                                     error={formErrors[field]} />                                
                             }
 
-                            {(formModel[field].type !== 'file' && formModel[field].list) &&
+                            {formModel[field].type !== 'file' && formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                                <Form.Dropdown selection 
+                                    name={field}
+                                    field={field}
+                                    placeholder={formModel[field].placeholder} 
+                                    className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} 
+                                    options={formModel[field].dropdown}
+                                    value={formValues[field] || ''}
+                                    type={formModel[field].type}
+                                    onChange={this.onInputChange}  
+                                    error={formErrors[field]} />
+                            }
+
+                            {(formModel[field].type !== 'file' && formModel[field].list) && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <div>
                                     <Form.Input
                                         name={field} 
                                         field={field} 
-                                        placeholder={formModel[field].placeholder} 
+                                        placeholder={formModel[field].placeholder}
+                                        className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''}  
                                         value={formValues[field] || ''}
                                         type={formModel[field].type} 
                                         list={formModel[field].list.name} 
@@ -180,7 +222,7 @@ class ConstructorForm extends PureComponent {
                                     }                                    
                                 </div>
                             }
-                        </Form.Field>
+                        </Form.Field>                        
                     ))}
 
                     <Button 

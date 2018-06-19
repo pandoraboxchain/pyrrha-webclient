@@ -20,7 +20,9 @@ function* constructDataset() {
 
         // form validation
         const formValues = yield select(selectors.getDatasetConFormValues);
+        console.log(formValues)
         const validatedFormData = yield call(utils.validateConstructorForm, models.DatasetConstructorFormModel, formValues);
+        const datasetOptions = utils.parseOptionsStr(validatedFormData.options || {});
         yield put(actions.addDatasetConstructorMessage('Constructor form validated successfully'));
 
         const pjs = yield select(selectors.pjs);
@@ -28,11 +30,12 @@ function* constructDataset() {
         // upload files to the IPFS
         const { ipfsHash, batchesCount } = yield call(services.uploadDatasetBatchesToIpfs, 
             Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]), 
+            datasetOptions, 
             progress => actions.datasetConstructorIpfsProgress(progress), pjs);
         yield put(actions.addDatasetConstructorMessage(`Dataset in count of ${batchesCount} batches has been successfully uploaded to IPFS`));
                 
         // deploy dataset contract
-        const datasetContractAddress = yield pjs.datasets.deploy(ipfsHash, batchesCount, validatedFormData);
+        const datasetContractAddress = yield pjs.datasets.deploy(ipfsHash, batchesCount, validatedFormData, validatedFormData.publisher);
         yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market

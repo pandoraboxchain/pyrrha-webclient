@@ -25,8 +25,8 @@ function* constructJob() {
         const pjs = yield select(selectors.pjs);
 
         // create job
-        const { kernel, dataset, publisher } = validatedFormData;
-        const jobAddress = yield pjs.jobs.create(kernel, dataset, publisher);
+        const { jobType, kernel, dataset, publisher, complexity, description } = validatedFormData;
+        const jobAddress = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description }, publisher);
 
         if (jobAddress) {
 

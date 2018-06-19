@@ -25,6 +25,8 @@ const initialState = {
 
 export const reduce = (state = initialState, action = {}) => {
 
+    console.log(action)
+
     switch (action.type) {
 
         case DATASET_RESET_STATE:
@@ -88,7 +90,16 @@ export const reduce = (state = initialState, action = {}) => {
                 errorMessages: action.error.map(err => err.message || err) 
             };
         
-        case DATASET_CONSTRUCTOR_FIELD_UPDATED:             
+        case DATASET_CONSTRUCTOR_FIELD_UPDATED:  
+            console.log('!!!', action.field, action.item, action.error, {
+                ...state.formErrors,
+                [action.field]: !action.item ?
+                    action.error :
+                    {
+                        ...state.formErrors[action.field],
+                        [action.item]: action.error || false
+                    }
+            })           
             return { 
                 ...state,
                 formValues: {

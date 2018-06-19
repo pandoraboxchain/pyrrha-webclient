@@ -34,7 +34,7 @@ function* constructKernel() {
         yield put(actions.addKernelConstructorMessage('Model and weights files successfully uploaded to IPFS'));
         
         // deploy kernel contract
-        const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, validatedFormData);
+        const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, validatedFormData, validatedFormData.publisher);
         yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
         
         // add contract to market

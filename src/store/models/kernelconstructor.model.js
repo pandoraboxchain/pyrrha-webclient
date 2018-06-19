@@ -41,5 +41,24 @@ export const KernelConstructorFormModel = {
         type: 'number',
         required: true,
         validator: value => value > 0
+    },
+    description: {
+        label: 'Description',
+        type: 'text',
+        required: true,
+        validator: value => true
+    },
+    metadata: {
+        label: 'Meta tags',
+        type: 'text',
+        required: false,
+        styles: [
+            'lowercase'
+        ],
+        transform: value => {
+            const delim = /,/gi.test(value) ? ',': ' ';
+            return String(value).split(delim).filter(v => v !== '').join(',');
+        },
+        validator: value => true
     }
 };
