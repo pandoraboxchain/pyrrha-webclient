@@ -5,12 +5,12 @@ const hosts = {
         port: 8545,
         reconnect: 5000,
         contracts: {
-            pandora: '0xafc83389be9d7e423e77bcd9cb5fc54eb6b7efcc',
-            market: '0xab44cc7d8f3a147de5a39c2d42b1bc638b7a195c'
+            pandora: '0x6ed79aa1c71fd7bdbc515efda3bd4e26394435cc',
+            market: '0x4bf749ec68270027c5910220ceab30cc284c7ba2'
         },
         ipfs: {
             protocol: 'http',
-            host: 'ipfs.pandora.network',
+            host: 'localhost',
             port: 5001
         }
     },
@@ -39,7 +39,7 @@ const hosts = {
         },
         ipfs: {
             protocol: 'http',
-            host: 'localhost',
+            host: 'ipfs.pandora.network',
             port: 5001
         }
     }

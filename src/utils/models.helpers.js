@@ -56,7 +56,9 @@ export const validateConstructorForm = (formModel, values) => new Promise((resol
                 values[field] = sanitizeString(values[field]);
             }
 
-            if (formModel[field].required && (values[field] === undefined || values[field] === '')) {
+            if (formModel[field].required && (values[field] === undefined || 
+                                            values[field] === '' || 
+                                            (formModel[field].type === 'file' && typeof values[field] === 'object' && !values[field].name))) {
 
                 errors.push(new Error(`Field "${formModel[field].label}" is required`));
             } else if (formModel[field].validator && 

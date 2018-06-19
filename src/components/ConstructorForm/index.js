@@ -122,7 +122,7 @@ class ConstructorForm extends PureComponent {
                                             key={item+this.fileInputKey+fieldIndex} 
                                             className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >
                                             <Label as="label" basic htmlFor={field+this.fileInputKey+item} size="large" color="black">
-                                                <Icon name="file" />{formValues[field] && formValues[field][item] ? formValues[field][item].name : 'Choose a file'}                                                
+                                                <Icon name="file" />{formValues[field] && formValues[field][item] && formValues[field][item].name ? formValues[field][item].name : 'Choose a file'}                                                
                                             </Label>
                                             {formValues[field] && formValues[field][item] && formValues[field][item].name &&
                                                 <Button icon="delete" name={field} item={item} onClick={this.handleRemoveMultipleFieldItem} size="tiny" />
@@ -153,8 +153,8 @@ class ConstructorForm extends PureComponent {
 
                             {formModel[field].type === 'file' && !formModel[field].multiple && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <div className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >
-                                    <Label as="label" basic htmlFor={field+this.fileInputKey} size="large" color="black">
-                                        <Icon name="file" />{formValues[field] ? formValues[field].name : 'Choose a file'}
+                                    <Label as="label" basic htmlFor={field+this.fileInputKey} size="large" className="file-field">
+                                        <Icon name="file" />{formValues[field] && formValues[field].name ? formValues[field].name : 'Choose a file'}
                                     </Label>
                                     <Form.Input
                                         key={field+this.fileInputKey} 

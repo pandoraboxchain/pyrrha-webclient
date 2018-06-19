@@ -153,14 +153,14 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IKernel.sol",
     "exportedSymbols": {
       "IKernel": [
-        638
+        646
       ]
     },
-    "id": 639,
+    "id": 647,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 632,
+        "id": 640,
         "literals": [
           "solidity",
           "^",
@@ -173,10 +173,10 @@
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
         "file": "./IDataEntity.sol",
-        "id": 633,
+        "id": 641,
         "nodeType": "ImportDirective",
-        "scope": 639,
-        "sourceUnit": 621,
+        "scope": 647,
+        "sourceUnit": 631,
         "src": "26:27:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -187,43 +187,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 634,
+              "id": 642,
               "name": "IDataEntity",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 620,
+              "referencedDeclaration": 630,
               "src": "75:11:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IDataEntity_$620",
+                "typeIdentifier": "t_contract$_IDataEntity_$630",
                 "typeString": "contract IDataEntity"
               }
             },
-            "id": 635,
+            "id": 643,
             "nodeType": "InheritanceSpecifier",
             "src": "75:11:7"
           }
         ],
         "contractDependencies": [
-          620,
-          4908
+          630,
+          4948
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 638,
+        "id": 646,
         "linearizedBaseContracts": [
-          638,
-          620,
-          4908
+          646,
+          630,
+          4948
         ],
         "name": "IKernel",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 637,
+            "id": 645,
             "name": "complexity",
             "nodeType": "VariableDeclaration",
-            "scope": 638,
+            "scope": 646,
             "src": "93:25:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -232,7 +232,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 636,
+              "id": 644,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "93:7:7",
@@ -245,7 +245,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 639,
+        "scope": 647,
         "src": "55:66:7"
       }
     ],
@@ -255,14 +255,14 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IKernel.sol",
     "exportedSymbols": {
       "IKernel": [
-        638
+        646
       ]
     },
-    "id": 639,
+    "id": 647,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 632,
+        "id": 640,
         "literals": [
           "solidity",
           "^",
@@ -275,10 +275,10 @@
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
         "file": "./IDataEntity.sol",
-        "id": 633,
+        "id": 641,
         "nodeType": "ImportDirective",
-        "scope": 639,
-        "sourceUnit": 621,
+        "scope": 647,
+        "sourceUnit": 631,
         "src": "26:27:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -289,43 +289,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 634,
+              "id": 642,
               "name": "IDataEntity",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 620,
+              "referencedDeclaration": 630,
               "src": "75:11:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IDataEntity_$620",
+                "typeIdentifier": "t_contract$_IDataEntity_$630",
                 "typeString": "contract IDataEntity"
               }
             },
-            "id": 635,
+            "id": 643,
             "nodeType": "InheritanceSpecifier",
             "src": "75:11:7"
           }
         ],
         "contractDependencies": [
-          620,
-          4908
+          630,
+          4948
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 638,
+        "id": 646,
         "linearizedBaseContracts": [
-          638,
-          620,
-          4908
+          646,
+          630,
+          4948
         ],
         "name": "IKernel",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 637,
+            "id": 645,
             "name": "complexity",
             "nodeType": "VariableDeclaration",
-            "scope": 638,
+            "scope": 646,
             "src": "93:25:7",
             "stateVariable": true,
             "storageLocation": "default",
@@ -334,7 +334,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 636,
+              "id": 644,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "93:7:7",
@@ -347,7 +347,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 639,
+        "scope": 647,
         "src": "55:66:7"
       }
     ],
@@ -355,9 +355,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-21T20:36:00.813Z"
+  "updatedAt": "2018-06-19T10:02:41.291Z"
 }

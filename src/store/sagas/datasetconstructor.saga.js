@@ -22,20 +22,53 @@ function* constructDataset() {
         const formValues = yield select(selectors.getDatasetConFormValues);
         console.log(formValues)
         const validatedFormData = yield call(utils.validateConstructorForm, models.DatasetConstructorFormModel, formValues);
-        const datasetOptions = utils.parseOptionsStr(validatedFormData.options || {});
+        const datasetOptions = utils.parseOptionsStr(validatedFormData.options || '{}');
         yield put(actions.addDatasetConstructorMessage('Constructor form validated successfully'));
 
         const pjs = yield select(selectors.pjs);
 
-        // upload files to the IPFS
-        const { ipfsHash, batchesCount } = yield call(services.uploadDatasetBatchesToIpfs, 
-            Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]), 
-            datasetOptions, 
-            progress => actions.datasetConstructorIpfsProgress(progress), pjs);
-        yield put(actions.addDatasetConstructorMessage(`Dataset in count of ${batchesCount} batches has been successfully uploaded to IPFS`));
-                
+        let uploadResult;
+        let batchesCount = 0;
+
+        switch (validatedFormData['jobType']) {
+            case '0':
+                uploadResult = yield call(services.uploadTrainingBatches, 
+                    validatedFormData['train_x'],
+                    validatedFormData['train_y'],
+                    progress => actions.datasetConstructorIpfsProgress(progress),
+                    pjs);
+                batchesCount = 1;
+                yield put(actions.addDatasetConstructorMessage(`Batches dedicated to training has been successfully uploaded to IPFS: 
+                    "train_x": "${uploadResult.train['train_x']}", "train_y": "${uploadResult.train['train_y']}"`));
+                break;
+            case '1':
+                uploadResult = yield call(services.uploadPredictionBatches, 
+                    Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]),
+                    progress => actions.datasetConstructorIpfsProgress(progress),
+                    pjs);
+                batchesCount = uploadResult.batches.length;
+                yield put(actions.addDatasetConstructorMessage(`Batches dedicated to prediction has been successfully uploaded to IPFS: 
+                    "batches": ${JSON.stringify(uploadResult.batches)}`));
+                break;
+            default:
+        }
+
+        const datasetConfig = uploadResult;
+        datasetConfig.options = datasetOptions;
+
+        console.log('Datset config:', datasetConfig);
+
+        const uploadedConfigHash = yield call(services.uploadDatasetConfig, 
+            datasetConfig,
+            progress => actions.datasetConstructorIpfsProgress(progress),
+            pjs);
+        yield put(actions.addDatasetConstructorMessage(`Dataset configuration file has been successfully uploaded to IPFS: "${uploadedConfigHash}"`));
+
         // deploy dataset contract
-        const datasetContractAddress = yield pjs.datasets.deploy(ipfsHash, batchesCount, validatedFormData, validatedFormData.publisher);
+        const datasetContractAddress = yield pjs.datasets.deploy(uploadedConfigHash, 
+            batchesCount, 
+            validatedFormData, 
+            validatedFormData.publisher);
         yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market

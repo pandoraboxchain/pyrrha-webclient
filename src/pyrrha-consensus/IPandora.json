@@ -114,25 +114,6 @@
       "type": "function"
     },
     {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "activeJobs",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "constant": false,
       "inputs": [
         {
@@ -195,20 +176,6 @@
         {
           "name": "",
           "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "activeJobsCount",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
         }
       ],
       "payable": false,
@@ -323,6 +290,20 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "cognitiveJobsCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -357,6 +338,25 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "cognitiveJobs",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -415,6 +415,14 @@
         {
           "name": "dataset",
           "type": "address"
+        },
+        {
+          "name": "comlexity",
+          "type": "uint256"
+        },
+        {
+          "name": "description",
+          "type": "bytes32"
         }
       ],
       "name": "createCognitiveJob",
@@ -556,14 +564,14 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/IPandora.sol",
     "exportedSymbols": {
       "IPandora": [
-        3240
+        3206
       ]
     },
-    "id": 3241,
+    "id": 3207,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3230,
+        "id": 3196,
         "literals": [
           "solidity",
           "^",
@@ -571,38 +579,38 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:21"
+        "src": "0:24:20"
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/token/PAN.sol",
         "file": "./token/PAN.sol",
-        "id": 3231,
+        "id": 3197,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4727,
-        "src": "26:25:21",
+        "scope": 3207,
+        "sourceUnit": 4686,
+        "src": "26:25:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/WorkerNodeManager.sol",
         "file": "./managers/WorkerNodeManager.sol",
-        "id": 3232,
+        "id": 3198,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4682,
-        "src": "52:42:21",
+        "scope": 3207,
+        "sourceUnit": 4641,
+        "src": "52:42:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/CognitiveJobManager.sol",
         "file": "./managers/CognitiveJobManager.sol",
-        "id": 3233,
+        "id": 3199,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4302,
-        "src": "95:44:21",
+        "scope": 3207,
+        "sourceUnit": 4257,
+        "src": "95:44:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -612,101 +620,101 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3234,
+              "id": 3200,
               "name": "PAN",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4726,
-              "src": "162:3:21",
+              "referencedDeclaration": 4685,
+              "src": "162:3:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_PAN_$4726",
+                "typeIdentifier": "t_contract$_PAN_$4685",
                 "typeString": "contract PAN"
               }
             },
-            "id": 3235,
+            "id": 3201,
             "nodeType": "InheritanceSpecifier",
-            "src": "162:3:21"
+            "src": "162:3:20"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3236,
+              "id": 3202,
               "name": "ICognitiveJobManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4347,
-              "src": "167:20:21",
+              "referencedDeclaration": 4306,
+              "src": "167:20:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ICognitiveJobManager_$4347",
+                "typeIdentifier": "t_contract$_ICognitiveJobManager_$4306",
                 "typeString": "contract ICognitiveJobManager"
               }
             },
-            "id": 3237,
+            "id": 3203,
             "nodeType": "InheritanceSpecifier",
-            "src": "167:20:21"
+            "src": "167:20:20"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3238,
+              "id": 3204,
               "name": "IWorkerNodeManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4390,
-              "src": "189:18:21",
+              "referencedDeclaration": 4349,
+              "src": "189:18:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IWorkerNodeManager_$4390",
+                "typeIdentifier": "t_contract$_IWorkerNodeManager_$4349",
                 "typeString": "contract IWorkerNodeManager"
               }
             },
-            "id": 3239,
+            "id": 3205,
             "nodeType": "InheritanceSpecifier",
-            "src": "189:18:21"
+            "src": "189:18:20"
           }
         ],
         "contractDependencies": [
-          4347,
-          4390,
-          4726,
-          5004,
-          5047,
-          5079,
-          5325
+          4306,
+          4349,
+          4685,
+          5044,
+          5087,
+          5119,
+          5365
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3240,
+        "id": 3206,
         "linearizedBaseContracts": [
-          3240,
-          4390,
-          4347,
-          4726,
-          5325,
-          5004,
-          5047,
-          5079
+          3206,
+          4349,
+          4306,
+          4685,
+          5365,
+          5044,
+          5087,
+          5119
         ],
         "name": "IPandora",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 3241,
-        "src": "141:69:21"
+        "scope": 3207,
+        "src": "141:69:20"
       }
     ],
-    "src": "0:211:21"
+    "src": "0:211:20"
   },
   "legacyAST": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/IPandora.sol",
     "exportedSymbols": {
       "IPandora": [
-        3240
+        3206
       ]
     },
-    "id": 3241,
+    "id": 3207,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3230,
+        "id": 3196,
         "literals": [
           "solidity",
           "^",
@@ -714,38 +722,38 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:21"
+        "src": "0:24:20"
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/token/PAN.sol",
         "file": "./token/PAN.sol",
-        "id": 3231,
+        "id": 3197,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4727,
-        "src": "26:25:21",
+        "scope": 3207,
+        "sourceUnit": 4686,
+        "src": "26:25:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/WorkerNodeManager.sol",
         "file": "./managers/WorkerNodeManager.sol",
-        "id": 3232,
+        "id": 3198,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4682,
-        "src": "52:42:21",
+        "scope": 3207,
+        "sourceUnit": 4641,
+        "src": "52:42:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/CognitiveJobManager.sol",
         "file": "./managers/CognitiveJobManager.sol",
-        "id": 3233,
+        "id": 3199,
         "nodeType": "ImportDirective",
-        "scope": 3241,
-        "sourceUnit": 4302,
-        "src": "95:44:21",
+        "scope": 3207,
+        "sourceUnit": 4257,
+        "src": "95:44:20",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -755,94 +763,94 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3234,
+              "id": 3200,
               "name": "PAN",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4726,
-              "src": "162:3:21",
+              "referencedDeclaration": 4685,
+              "src": "162:3:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_PAN_$4726",
+                "typeIdentifier": "t_contract$_PAN_$4685",
                 "typeString": "contract PAN"
               }
             },
-            "id": 3235,
+            "id": 3201,
             "nodeType": "InheritanceSpecifier",
-            "src": "162:3:21"
+            "src": "162:3:20"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3236,
+              "id": 3202,
               "name": "ICognitiveJobManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4347,
-              "src": "167:20:21",
+              "referencedDeclaration": 4306,
+              "src": "167:20:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ICognitiveJobManager_$4347",
+                "typeIdentifier": "t_contract$_ICognitiveJobManager_$4306",
                 "typeString": "contract ICognitiveJobManager"
               }
             },
-            "id": 3237,
+            "id": 3203,
             "nodeType": "InheritanceSpecifier",
-            "src": "167:20:21"
+            "src": "167:20:20"
           },
           {
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 3238,
+              "id": 3204,
               "name": "IWorkerNodeManager",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 4390,
-              "src": "189:18:21",
+              "referencedDeclaration": 4349,
+              "src": "189:18:20",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IWorkerNodeManager_$4390",
+                "typeIdentifier": "t_contract$_IWorkerNodeManager_$4349",
                 "typeString": "contract IWorkerNodeManager"
               }
             },
-            "id": 3239,
+            "id": 3205,
             "nodeType": "InheritanceSpecifier",
-            "src": "189:18:21"
+            "src": "189:18:20"
           }
         ],
         "contractDependencies": [
-          4347,
-          4390,
-          4726,
-          5004,
-          5047,
-          5079,
-          5325
+          4306,
+          4349,
+          4685,
+          5044,
+          5087,
+          5119,
+          5365
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 3240,
+        "id": 3206,
         "linearizedBaseContracts": [
-          3240,
-          4390,
-          4347,
-          4726,
-          5325,
-          5004,
-          5047,
-          5079
+          3206,
+          4349,
+          4306,
+          4685,
+          5365,
+          5044,
+          5087,
+          5119
         ],
         "name": "IPandora",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 3241,
-        "src": "141:69:21"
+        "scope": 3207,
+        "src": "141:69:20"
       }
     ],
-    "src": "0:211:21"
+    "src": "0:211:20"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.23+commit.124ca40d.Emscripten.clang"
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-21T20:36:00.830Z"
+  "updatedAt": "2018-06-19T10:02:41.302Z"
 }

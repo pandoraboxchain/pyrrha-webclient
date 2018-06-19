@@ -91,15 +91,6 @@ export const reduce = (state = initialState, action = {}) => {
             };
         
         case DATASET_CONSTRUCTOR_FIELD_UPDATED:  
-            console.log('!!!', action.field, action.item, action.error, {
-                ...state.formErrors,
-                [action.field]: !action.item ?
-                    action.error :
-                    {
-                        ...state.formErrors[action.field],
-                        [action.item]: action.error || false
-                    }
-            })           
             return { 
                 ...state,
                 formValues: {

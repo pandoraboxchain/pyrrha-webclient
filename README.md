@@ -3,10 +3,10 @@
 # Pandora Pyrrha Webclient
 Web application for working with kernels and datasets
 
-## Initial setup 
+## Initial setup/update 
 ```sh
 npm i
-git submodule update --init --recursive --remote
+git submodule update --recursive --remote
 ```
 MetaMask (https://metamask.io/) browser extension is required:
 - Install extension
