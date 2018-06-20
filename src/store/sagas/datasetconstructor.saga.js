@@ -56,19 +56,21 @@ function* constructDataset() {
         const datasetConfig = uploadResult;
         datasetConfig.options = datasetOptions;
 
-        console.log('Datset config:', datasetConfig);
+        console.log('Dataset config:', datasetConfig);
 
         const uploadedConfigHash = yield call(services.uploadDatasetConfig, 
             datasetConfig,
             progress => actions.datasetConstructorIpfsProgress(progress),
             pjs);
         yield put(actions.addDatasetConstructorMessage(`Dataset configuration file has been successfully uploaded to IPFS: "${uploadedConfigHash}"`));
+        
+        const { dimension, price, metadata, description, publisher } = validatedFormData;
 
         // deploy dataset contract
         const datasetContractAddress = yield pjs.datasets.deploy(uploadedConfigHash, 
             batchesCount, 
-            validatedFormData, 
-            validatedFormData.publisher);
+            { dimension, price, metadata, description }, 
+            publisher);
         yield put(actions.addDatasetConstructorMessage(`Dataset successfully constructed and has been deployed. Сontract address: ${datasetContractAddress}`));
         
         // add contract to market

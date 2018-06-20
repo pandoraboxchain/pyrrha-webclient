@@ -73,7 +73,7 @@ class ConstructorForm extends PureComponent {
         });
     };
 
-    componentWillMount = () => {
+    UNSAFE_componentWillMount = () => {
         this.initMultipleFields();
 
         if (typeof this.props.willMountTasks === 'function') {
@@ -121,7 +121,7 @@ class ConstructorForm extends PureComponent {
                                         <div 
                                             key={item+this.fileInputKey+fieldIndex} 
                                             className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >
-                                            <Label as="label" basic htmlFor={field+this.fileInputKey+item} size="large" color="black">
+                                            <Label as="label" basic htmlFor={field+this.fileInputKey+item} size="large" className="file-field">
                                                 <Icon name="file" />{formValues[field] && formValues[field][item] && formValues[field][item].name ? formValues[field][item].name : 'Choose a file'}                                                
                                             </Label>
                                             {formValues[field] && formValues[field][item] && formValues[field][item].name &&

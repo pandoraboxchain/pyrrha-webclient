@@ -1,4 +1,5 @@
 import { call, put, fork, select, takeLatest } from 'redux-saga/effects';
+import { maxBatchesCount, maxJobsCount } from '../../config/constants'
 
 import * as utils from '../../utils';
 import * as models from '../models';
@@ -12,8 +13,7 @@ function* constructJob() {
 
         if (!isConnected) {
 
-            const error = new Error('Web3 not connected!');
-            yield put(actions.pjsInitFailure(error));
+            yield put(actions.pjsInitFailure(new Error('Web3 not connected!')));
             return;
         }
 
@@ -26,6 +26,45 @@ function* constructJob() {
 
         // create job
         const { jobType, kernel, dataset, publisher, complexity, description } = validatedFormData;
+        
+        const datasetObj = yield pjs.datasets.fetchDataset(dataset);        
+        
+        // Maximum batches count should not be more then 10
+        if (datasetObj.batchesCount > maxBatchesCount) {
+
+            yield put(actions.jobConstructorFailure(`Dataset "${datasetObj.description}" 
+                consists of ${datasetObj.batchesCount} data batches. Maximum alowed count of butches is ${maxBatchesCount}`));
+            return;
+        }
+
+        const kernelObj = yield pjs.kernels.fetchKernel(kernel);
+
+        // Data dimension of dataset and kernel should be equal
+        if (datasetObj.dataDim !== kernelObj.dataDim) {
+
+            yield put(actions.jobConstructorFailure(`Data dimension of dataset and kernel are not equal`));
+            return;
+        }
+
+        const idleCount = yield pjs.workers.fetchIdleCount();
+
+        // Job can be created if dataset batchesCount not more then "count" of worker nodes in idle state
+        if (datasetObj.batchesCount > idleCount) {
+
+            yield put(actions.jobConstructorFailure(`Insuficient of currently available worker nodes to start the job. 
+                Dataset consists of ${datasetObj.batchesCount} batches. Available worker nodes count: ${idleCount}`));
+            return;
+        }
+
+        const jobsCount = yield pjs.jobs.fetchCognitiveJobsCount();
+
+        // Current count of jobs should not be more then 2^16-1
+        if (jobsCount >= maxJobsCount) {
+
+            yield put(actions.jobConstructorFailure(`Maximum limit of cognitive jobs is exceeded`));
+            return;
+        }
+
         const jobAddress = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description }, publisher);
 
         if (jobAddress) {

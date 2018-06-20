@@ -21,7 +21,7 @@ class DatasetsTable extends PureComponent {
         this.props.gotToDatasetConstructor();
     };
 
-    componentWillMount = () => {
+    UNSAFE_componentWillMount = () => {
         
         if (this.props.isConnected && 
             (!this.props.datasets || this.props.datasets.length === 0)) {
@@ -47,9 +47,9 @@ class DatasetsTable extends PureComponent {
                         <Table.Row>
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Table.HeaderCell width={4}>Description</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Batches</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>Samples</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Price</Table.HeaderCell>
                         </Table.Row>                            
                     </Table.Header>
@@ -58,10 +58,10 @@ class DatasetsTable extends PureComponent {
                             datasets.map(dataset => (
                                 <Table.Row key={dataset.id}>
                                     <Table.Cell>{dataset.id}</Table.Cell>
-                                    <Table.Cell title={dataset.address}>{dataset.address}</Table.Cell>
+                                    <Table.Cell title={dataset.address}><a href={`https://etherscan.io/address/${dataset.address}`}>{dataset.address}</a></Table.Cell>
+                                    <Table.Cell>{dataset.description}</Table.Cell>
                                     <Table.Cell>{dataset.dataDim}</Table.Cell>
                                     <Table.Cell>{dataset.batchesCount}</Table.Cell>
-                                    <Table.Cell>{dataset.samplesCount}</Table.Cell>
                                     <Table.Cell>{dataset.currentPrice}</Table.Cell>
                                 </Table.Row> 
                             ))

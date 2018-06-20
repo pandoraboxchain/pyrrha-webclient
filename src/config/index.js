@@ -5,8 +5,8 @@ const hosts = {
         port: 8545,
         reconnect: 5000,
         contracts: {
-            pandora: '0x6ed79aa1c71fd7bdbc515efda3bd4e26394435cc',
-            market: '0x4bf749ec68270027c5910220ceab30cc284c7ba2'
+            pandora: '0x9561c133dd8580860b6b7e504bc5aa500f0f06a7',
+            market: '0x2612af3a521c2df9eaf28422ca335b04adf3ac66'
         },
         ipfs: {
             protocol: 'http',

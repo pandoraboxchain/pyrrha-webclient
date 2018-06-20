@@ -21,7 +21,7 @@ class KernelsTable extends PureComponent {
         this.props.gotToKernelConstructor();
     };
 
-    componentWillMount = () => {
+    UNSAFE_componentWillMount = () => {
         
         if (this.props.isConnected && 
             (!this.props.kernels || this.props.kernels.length === 0)) {
@@ -40,13 +40,14 @@ class KernelsTable extends PureComponent {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell><Icon name="chevron right" /></Table.HeaderCell>
-                            <Table.HeaderCell colSpan="5">
+                            <Table.HeaderCell colSpan="6">
                                 <h3>Kernels</h3>
                             </Table.HeaderCell>
                         </Table.Row>
                         <Table.Row>
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Table.HeaderCell width={4}>Description</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Compl</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Price</Table.HeaderCell>
@@ -57,7 +58,8 @@ class KernelsTable extends PureComponent {
                             kernels.map(kernel => (
                                 <Table.Row key={kernel.id}>
                                     <Table.Cell>{kernel.id}</Table.Cell>
-                                    <Table.Cell title={kernel.address}>{kernel.address}</Table.Cell>
+                                    <Table.Cell title={kernel.address}><a href={`https://etherscan.io/address/${kernel.address}`}>{kernel.address}</a></Table.Cell>
+                                    <Table.Cell>{kernel.description}</Table.Cell>
                                     <Table.Cell>{kernel.dataDim}</Table.Cell>
                                     <Table.Cell>{kernel.complexity}</Table.Cell>
                                     <Table.Cell>{kernel.currentPrice}</Table.Cell>
@@ -67,7 +69,7 @@ class KernelsTable extends PureComponent {
                     </Table.Body>
                     <Table.Footer>
                         <Table.Row>
-                            <Table.Cell colSpan="5">
+                            <Table.Cell colSpan="6">
                                 <Button 
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshKernels}>Refresh</Button>
