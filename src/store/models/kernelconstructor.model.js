@@ -14,42 +14,49 @@ export const KernelConstructorFormModel = {
     },
     model: {
         label: 'Model',
-        type: 'file',
+        placeholder: 'Kernel model IPFS hash',
+        type: 'text',
         required: true,
-        validator: value => true
+        validator: value => RegExp(/^Qm[a-zA-Z0-9]{44}$/i).test(value)
     },
     weights: {
         label: 'Weights',
-        type: 'file',
+        placeholder: 'Kernel weights IPFS hash',
+        type: 'text',
         required: true,
-        validator: value => true
+        validator: value => RegExp(/^Qm[a-zA-Z0-9]{44}$/i).test(value)
     },
     dimension: {
         label: 'Dimension',
+        placeholder: 'Kernel data dimension',
         type: 'number',
         required: true,
         validator: value => value > 0
     },
     complexity: {
         label: 'Complexity',
+        placeholder: 'Kernel complexity',
         type: 'number',
         required: true,
         validator: value => value > 0
     },
     price: {
         label: 'Price',
+        placeholder: 'Kernel price',
         type: 'number',
         required: true,
         validator: value => value > 0
     },
     description: {
         label: 'Description',
+        placeholder: 'Kernel short description',
         type: 'text',
         required: true,
         validator: value => true
     },
     metadata: {
         label: 'Meta tags',
+        placeholder: 'Kernel meta tags separated by coma',
         type: 'text',
         required: false,
         styles: [

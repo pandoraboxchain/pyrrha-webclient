@@ -168,7 +168,37 @@ class ConstructorForm extends PureComponent {
                                 </div>
                             }
 
-                            {formModel[field].type !== 'file' && !formModel[field].list && !formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                            {formModel[field].type !== 'file' && formModel[field].multiple === true && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) && 
+                                <div>
+                                    {Object.keys(formValues[field] || {}).map((item, fieldIndex) => 
+                                        <div 
+                                            key={item+this.fileInputKey+fieldIndex} 
+                                            className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} >                                            
+                                            <Form.Input
+                                                name={item}
+                                                id={field+this.fileInputKey+item} 
+                                                placeholder={formModel[field].placeholder} 
+                                                field={field} 
+                                                item={item}
+                                                type={formModel[field].type}
+                                                onChange={this.onInputChange}  
+                                                error={formErrors[field] ? formErrors[field][item] : false}
+                                                action={fieldIndex > 0 ? {
+                                                    icon: 'remove', 
+                                                    name: field, 
+                                                    item: item, 
+                                                    onClick: this.handleRemoveMultipleFieldItem 
+                                                } : null} />
+                                        </div>                                        
+                                    )}
+
+                                    <Button 
+                                        name={field} 
+                                        onClick={this.handleAddMultipleFieldItem}>{formModel[field].addLabel || `Add ${field}`}</Button>
+                                </div>
+                            }
+
+                            {formModel[field].type !== 'file' && !formModel[field].multiple && !formModel[field].list && !formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <Form.Input
                                     name={field}
                                     field={field}
@@ -180,7 +210,7 @@ class ConstructorForm extends PureComponent {
                                     error={formErrors[field]} />                                
                             }
 
-                            {formModel[field].type !== 'file' && formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                            {formModel[field].type !== 'file' && !formModel[field].multiple && formModel[field].dropdown && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <Form.Dropdown selection 
                                     name={field}
                                     field={field}
@@ -193,7 +223,7 @@ class ConstructorForm extends PureComponent {
                                     error={formErrors[field]} />
                             }
 
-                            {(formModel[field].type !== 'file' && formModel[field].list) && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
+                            {(formModel[field].type !== 'file' && !formModel[field].multiple && formModel[field].list) && (formModel[field].relatedTo ? formValues[formModel[field].relatedTo.field] === formModel[field].relatedTo.value : true) &&
                                 <div>
                                     <Form.Input
                                         name={field} 
