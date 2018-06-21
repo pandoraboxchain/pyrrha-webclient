@@ -10,10 +10,10 @@ export const uploadModelAndWeightsToIpfs = async (data, progressCb, pjs) => {
     
     try {
         const model = await pjs.ipfs.submitFile(data.model, progressCb);
-        const weight = await pjs.ipfs.submitFile(data.weights, progressCb);
+        const weights = await pjs.ipfs.submitFile(data.weights, progressCb);
         const kernel = await pjs.ipfs.submitJson(JSON.stringify({
             model,
-            weight
+            weights
         }), {
             name: 'KernelJson',
             type: 'application/json'
