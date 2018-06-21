@@ -20,21 +20,27 @@ function* constructKernel() {
 
         // form validation
         const formValues = yield select(selectors.getKernelConFormValues);
-
         const validatedFormData = yield call(utils.validateConstructorForm, models.KernelConstructorFormModel, formValues);
         yield put(actions.addKernelConstructorMessage('Constructor form validated successfully'));
 
         
         const pjs = yield select(selectors.pjs);
 
-        // upload files to the IPFS
-        const kernelIpfsHash = yield call(services.uploadModelAndWeightsToIpfs, 
-            validatedFormData, 
-            progress => actions.kernelConstructorIpfsProgress(progress), pjs);
-        yield put(actions.addKernelConstructorMessage('Model and weights files successfully uploaded to IPFS'));
+        const { model, weights } = validatedFormData;
         
+        // upload kernel json to the IPFS
+        const kernelIpfsHash = yield call(services.uploadKernelJsonToIpfs, 
+            model, 
+            weights,
+            progress => actions.kernelConstructorIpfsProgress(progress), pjs);
+        yield put(actions.addKernelConstructorMessage('Kernel JSON file has been successfully uploaded to IPFS'));
+        
+        const { dimension, complexity, price, metadata, description } = validatedFormData;
+
         // deploy kernel contract
-        const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, validatedFormData, validatedFormData.publisher);
+        const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, 
+            { dimension, complexity, price, metadata, description }, 
+            validatedFormData.publisher);
         yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
         
         // add contract to market

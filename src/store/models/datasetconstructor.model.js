@@ -31,7 +31,8 @@ export const DatasetConstructorFormModel = {
             value: '0'
         },
         label: 'train_x data batch',
-        type: 'file',
+        placeholder: 'IPFS hash of the batch file',
+        type: 'text',
         required: true,
         validator: value => true
     },
@@ -41,7 +42,8 @@ export const DatasetConstructorFormModel = {
             value: '0'
         },
         label: 'train_y data batch',
-        type: 'file',
+        placeholder: 'IPFS hash of the batch file',
+        type: 'text',
         required: true,
         validator: value => true
     },
@@ -52,8 +54,9 @@ export const DatasetConstructorFormModel = {
         },
         multiple: true,
         addLabel: 'Add batch',
+        placeholder: 'IPFS hash of the batch file',
         label: 'Data batch',
-        type: 'file',
+        type: 'text',
         required: true,
         styles: ['pb-20'],
         validator: value => true

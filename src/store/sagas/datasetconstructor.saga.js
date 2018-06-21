@@ -27,33 +27,28 @@ function* constructDataset() {
 
         const pjs = yield select(selectors.pjs);
 
-        let uploadResult;
+        let datasetConfig = {};
         let batchesCount = 0;
 
         switch (validatedFormData['jobType']) {
             case '0':
-                uploadResult = yield call(services.uploadTrainingBatches, 
-                    validatedFormData['train_x'],
-                    validatedFormData['train_y'],
-                    progress => actions.datasetConstructorIpfsProgress(progress),
-                    pjs);
+                datasetConfig = {
+                    train: {
+                        'train_x': validatedFormData['train_x'],
+                        'train_y': validatedFormData['train_y'], 
+                    }
+                };
                 batchesCount = 1;
-                yield put(actions.addDatasetConstructorMessage(`Batches dedicated to training has been successfully uploaded to IPFS: 
-                    "train_x": "${uploadResult.train['train_x']}", "train_y": "${uploadResult.train['train_y']}"`));
                 break;
             case '1':
-                uploadResult = yield call(services.uploadPredictionBatches, 
-                    Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item]),
-                    progress => actions.datasetConstructorIpfsProgress(progress),
-                    pjs);
-                batchesCount = uploadResult.batches.length;
-                yield put(actions.addDatasetConstructorMessage(`Batches dedicated to prediction has been successfully uploaded to IPFS: 
-                    "batches": ${JSON.stringify(uploadResult.batches)}`));
+                datasetConfig = {
+                    batches: Object.keys(validatedFormData.batch).map(item => validatedFormData.batch[item])
+                };
+                batchesCount = datasetConfig.batches.length;
                 break;
             default:
         }
 
-        const datasetConfig = uploadResult;
         datasetConfig.options = datasetOptions;
 
         console.log('Dataset config:', datasetConfig);

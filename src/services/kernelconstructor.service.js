@@ -10,10 +10,34 @@ export const uploadModelAndWeightsToIpfs = async (data, progressCb, pjs) => {
     
     try {
         const model = await pjs.ipfs.submitFile(data.model, progressCb);
-        const weight = await pjs.ipfs.submitFile(data.weights, progressCb);
+        const weights = await pjs.ipfs.submitFile(data.weights, progressCb);
         const kernel = await pjs.ipfs.submitJson(JSON.stringify({
             model,
-            weight
+            weights
+        }), {
+            name: 'KernelJson',
+            type: 'application/json'
+        }, progressCb);
+        return kernel;    
+    } catch(err) {
+        return Promise.reject(err);
+    }
+};
+
+/**
+ * Upload kernel json to IPFS
+ * 
+ * @param {String} modelHash
+ * @param {String} weightsHash
+ * @param {Object} pjs pyrrha-js instance
+ * @returns {Promise} Promise object resolved to hash of the kernel config file 
+ */
+export const uploadKernelJsonToIpfs = async (modelHash, weightsHash, progressCb, pjs) => {
+    
+    try {
+        const kernel = await pjs.ipfs.submitJson(JSON.stringify({
+            model: modelHash,
+            weights: weightsHash
         }), {
             name: 'KernelJson',
             type: 'application/json'
