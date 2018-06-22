@@ -41,6 +41,7 @@ function* constructKernel() {
         const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, 
             { dimension, complexity, price, metadata, description }, 
             validatedFormData.publisher);
+        yield put(actions.kernelsTableFetch());
         yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
         
         // add contract to market

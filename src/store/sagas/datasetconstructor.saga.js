@@ -70,6 +70,7 @@ function* constructDataset() {
         
         // add contract to market
         yield pjs.datasets.addToMarket(datasetContractAddress, validatedFormData.publisher);
+        yield put(actions.datasetsTableFetch());
         yield put(actions.datasetConstructorSuccess(`Dataset has been successfully added to Market`));
     } catch(error) {
         console.error(error)

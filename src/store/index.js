@@ -76,6 +76,13 @@ const datsetsTableBlacklist = createPersistStorageFilter(
         'errorMessage'
     ]
 );
+const jobsTableBlacklist = createPersistStorageFilter(
+    'jobs',
+    [
+        'isFetching',
+        'errorMessage'
+    ]
+);
 
 const persistConfig = {
     debug: process.env.NODE_ENV !== 'production',
@@ -88,7 +95,8 @@ const persistConfig = {
         datasetConstructorBlacklist,
         jobConstructorBlacklist,
         kernelsTableBlacklist,
-        datsetsTableBlacklist
+        datsetsTableBlacklist,
+        jobsTableBlacklist
     ],
     blacklist: ['router', 'pjs'] // exclude some states
 };

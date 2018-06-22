@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import KernelsTable from '../../containers/KernelsTable';
 import DatasetsTable from '../../containers/DatasetsTable';
+import JobsTable from '../../containers/JobsTable';
 import { Grid } from 'semantic-ui-react';
 
 import WrongNet from '../../containers/WrongNet';
@@ -18,6 +19,9 @@ export default class Home extends Component {
                     </Grid.Column>
                     <Grid.Column>
                         <DatasetsTable />
+                    </Grid.Column>
+                    <Grid.Column>
+                        <JobsTable />
                     </Grid.Column>
                 </Grid>                
             </div>

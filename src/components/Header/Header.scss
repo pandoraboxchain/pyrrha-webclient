@@ -1,12 +1,49 @@
-.ui .menu {
-    &.pn-header {
-        background-color: #333333;
-    }    
+.pn-header {
+    background-color: #333333;
+    position: fixed;
+    z-index: 989898;
+    width: 100%;
+    padding: 10px 0 10px 10px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+
+    .home {
+        float: left;
+        min-width: 230px;
+    }
+
+    .menu {
+        float: left;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline;
+            margin-right: 16px;
+            font-size: 1.2em;
+            line-height: 1.5em;
+        }
+    }
+
+    .logo {
+        float: left;
+        vertical-align: middle;
+        margin: -3px 8px 0 0;
+        width: 32px;
+        height: 32px;
+        background-image: url('./favicon-196x196.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
 }
 
 .pn-head-title {
     color: white;
     font-size: 1.4em;
+    white-space: nowrap;
 }
 
 .pn-nav {

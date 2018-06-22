@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
 
-import { Loader, Table, Button, Icon } from 'semantic-ui-react';
+import { Loader, Table, Button, Icon, Responsive } from 'semantic-ui-react';
 
 import * as selectors from '../../store/selectors';
 import * as actions from '../../store/actions';
@@ -47,10 +47,10 @@ class KernelsTable extends PureComponent {
                         <Table.Row>
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
-                            <Table.HeaderCell width={4}>Description</Table.HeaderCell>
+                            <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
                             <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Compl</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>Price</Table.HeaderCell>
+                            <Responsive as={Table.HeaderCell} width={2} minWidth={600}>Price</Responsive>
                         </Table.Row>                            
                     </Table.Header>
                     <Table.Body>
@@ -58,11 +58,11 @@ class KernelsTable extends PureComponent {
                             kernels.map(kernel => (
                                 <Table.Row key={kernel.id}>
                                     <Table.Cell>{kernel.id}</Table.Cell>
-                                    <Table.Cell title={kernel.address}><a href={`https://etherscan.io/address/${kernel.address}`}>{kernel.address}</a></Table.Cell>
-                                    <Table.Cell>{kernel.description}</Table.Cell>
+                                    <Table.Cell title={kernel.address}><a href={`https://rinkeby.etherscan.io/address/${kernel.address}`}>{kernel.address}</a></Table.Cell>
+                                    <Responsive as={Table.Cell} minWidth={600}>{kernel.description}</Responsive>
                                     <Table.Cell>{kernel.dataDim}</Table.Cell>
                                     <Table.Cell>{kernel.complexity}</Table.Cell>
-                                    <Table.Cell>{kernel.currentPrice}</Table.Cell>
+                                    <Responsive as={Table.Cell} minWidth={600}>{kernel.currentPrice}</Responsive>
                                 </Table.Row> 
                             ))
                         }               

@@ -5,6 +5,7 @@ import { reduce as datasetConReducer } from './datasetconstructor.reducer';
 import { reduce as jobConReducer } from './cognitivejobconstructor.reducer';
 import { reduce as kernelsTableReducer } from './kernelstable.reducer';
 import { reduce as datasetsTableReducer } from './datasetstable.reducer';
+import { reduce as jobsTableReducer } from './jobstable.reducer';
 
 export default {
     pjs: pjsReducer,
@@ -13,5 +14,6 @@ export default {
     datasetconstructor: datasetConReducer,
     jobconstructor: jobConReducer,
     kernels: kernelsTableReducer,
-    datasets: datasetsTableReducer
+    datasets: datasetsTableReducer,
+    jobs: jobsTableReducer
 };

@@ -69,6 +69,7 @@ function* constructJob() {
 
         if (jobAddress) {
 
+            yield put(actions.jobsTableFetch());
             yield put(actions.jobConstructorSuccess(`Cognitive Job successfully created. Сontract address: ${jobAddress}`));
         } else {
 

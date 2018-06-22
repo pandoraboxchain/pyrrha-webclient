@@ -8,6 +8,7 @@ import jobConstructorSagas from './jobconstructor.saga';
 
 import kernelsTableSagas from './kernelstable.saga';
 import datasetsTableSagas from './datasetstable.saga';
+import jobsTableSagas from './jobstable.saga';
 
 export default function* rootSaga() {
     yield all([
@@ -18,6 +19,7 @@ export default function* rootSaga() {
         ...datasetConstructorSagas,
         ...jobConstructorSagas,
         ...kernelsTableSagas,
-        ...datasetsTableSagas
+        ...datasetsTableSagas,
+        ...jobsTableSagas
     ]);
 }
