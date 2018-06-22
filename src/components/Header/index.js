@@ -2,7 +2,6 @@ import './Header.scss';
 
 import React, { Component } from 'react';
 
-import { Sticky, Grid, Menu, Dropdown } from 'semantic-ui-react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import routes from '../../router';
