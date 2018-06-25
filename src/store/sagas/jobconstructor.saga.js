@@ -56,6 +56,13 @@ function* constructJob() {
             return;
         }
 
+        // deposit should be more then 10 finney (0.1 ETH)
+        if (deposit < 0.1) {
+
+            yield put(actions.jobConstructorFailure(`Deposit value should be more then 10 finney (0.1 ETH). Currently set: ${deposit}`));
+            return;
+        }
+
         const jobsCount = yield pjs.jobs.fetchCognitiveJobsCount();
 
         // Current count of jobs should not be more then 2^16-1
