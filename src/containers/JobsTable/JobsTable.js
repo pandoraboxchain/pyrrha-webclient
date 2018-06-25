@@ -6,6 +6,7 @@ import { Loader, Table, Responsive, Button, Icon } from 'semantic-ui-react';
 
 import * as selectors from '../../store/selectors';
 import * as actions from '../../store/actions';
+import { convertJobTypeCode, convertJobStatusCode } from '../../utils';
 
 import './JobsTable.scss';
 
@@ -47,8 +48,9 @@ class JobsTable extends PureComponent {
                         <Table.Row>
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
+                            <Responsive as={Table.HeaderCell} width={1} minWidth={600}>Type</Responsive>
                             <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
-                            <Responsive as={Table.HeaderCell} width={2} minWidth={600}>batches</Responsive>
+                            <Responsive as={Table.HeaderCell} width={1} minWidth={600}>batches</Responsive>
                             <Table.HeaderCell width={2}>status</Table.HeaderCell>
                         </Table.Row>                            
                     </Table.Header>
@@ -57,17 +59,18 @@ class JobsTable extends PureComponent {
                             jobs.map(job => (
                                 <Table.Row key={job.id}>
                                     <Table.Cell>{job.id}</Table.Cell>
-                                    <Table.Cell title={job.address}><a href={`https://rinkeby.etherscan.io/address/${job.address}`}>{job.address}</a></Table.Cell>
+                                    <Table.Cell title={job.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${job.address}`}>{job.address}</a></Table.Cell>
+                                    <Responsive as={Table.Cell} minWidth={600}>{convertJobTypeCode(job.jobType)}</Responsive>
                                     <Responsive as={Table.Cell} minWidth={600}>{job.description}</Responsive>
                                     <Responsive as={Table.Cell} minWidth={600}>{job.batches}</Responsive>
-                                    <Table.Cell>{job.jobStatus}</Table.Cell>
+                                    <Table.Cell>{convertJobStatusCode(job.jobStatus)}</Table.Cell>
                                 </Table.Row> 
                             ))
                         }               
                     </Table.Body>
                     <Table.Footer>
                         <Table.Row>
-                            <Table.Cell colSpan="5">
+                            <Table.Cell colSpan="6">
                                 <Button 
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshJobs}>Refresh</Button>

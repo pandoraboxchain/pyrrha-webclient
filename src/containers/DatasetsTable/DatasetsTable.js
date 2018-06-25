@@ -40,7 +40,7 @@ class DatasetsTable extends PureComponent {
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell><Icon name="chevron right" /></Table.HeaderCell>
-                            <Table.HeaderCell colSpan="6">
+                            <Table.HeaderCell colSpan="5">
                                 <h3>Datasets</h3>
                             </Table.HeaderCell>
                         </Table.Row>
@@ -48,9 +48,9 @@ class DatasetsTable extends PureComponent {
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
                             <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
-                            <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>Batches</Table.HeaderCell>
-                            <Responsive as={Table.HeaderCell} width={2} minWidth={600}>Price</Responsive>
+                            <Table.HeaderCell width={1}>Dim</Table.HeaderCell>
+                            <Table.HeaderCell width={1}>Batches</Table.HeaderCell>
+                            <Responsive as={Table.HeaderCell} width={1} minWidth={600}>Price</Responsive>
                         </Table.Row>                            
                     </Table.Header>
                     <Table.Body>
@@ -58,7 +58,7 @@ class DatasetsTable extends PureComponent {
                             datasets.map(dataset => (
                                 <Table.Row key={dataset.id}>
                                     <Table.Cell>{dataset.id}</Table.Cell>
-                                    <Table.Cell title={dataset.address}><a href={`https://rinkeby.etherscan.io/address/${dataset.address}`}>{dataset.address}</a></Table.Cell>
+                                    <Table.Cell title={dataset.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${dataset.address}`}>{dataset.address}</a></Table.Cell>
                                     <Responsive as={Table.Cell} minWidth={600}>{dataset.description}</Responsive>
                                     <Table.Cell>{dataset.dataDim}</Table.Cell>
                                     <Table.Cell>{dataset.batchesCount}</Table.Cell>

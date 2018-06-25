@@ -48,9 +48,9 @@ class KernelsTable extends PureComponent {
                             <Table.HeaderCell width={1}>Id</Table.HeaderCell>
                             <Table.HeaderCell>Address</Table.HeaderCell>
                             <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
-                            <Table.HeaderCell width={2}>Dim</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>Compl</Table.HeaderCell>
-                            <Responsive as={Table.HeaderCell} width={2} minWidth={600}>Price</Responsive>
+                            <Table.HeaderCell width={1}>Dim</Table.HeaderCell>
+                            <Table.HeaderCell width={1}>Compl</Table.HeaderCell>
+                            <Responsive as={Table.HeaderCell} width={1} minWidth={600}>Price</Responsive>
                         </Table.Row>                            
                     </Table.Header>
                     <Table.Body>
@@ -58,7 +58,7 @@ class KernelsTable extends PureComponent {
                             kernels.map(kernel => (
                                 <Table.Row key={kernel.id}>
                                     <Table.Cell>{kernel.id}</Table.Cell>
-                                    <Table.Cell title={kernel.address}><a href={`https://rinkeby.etherscan.io/address/${kernel.address}`}>{kernel.address}</a></Table.Cell>
+                                    <Table.Cell title={kernel.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${kernel.address}`}>{kernel.address}</a></Table.Cell>
                                     <Responsive as={Table.Cell} minWidth={600}>{kernel.description}</Responsive>
                                     <Table.Cell>{kernel.dataDim}</Table.Cell>
                                     <Table.Cell>{kernel.complexity}</Table.Cell>
