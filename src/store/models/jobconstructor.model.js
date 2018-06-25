@@ -70,6 +70,7 @@ export const JobConstructorFormModel = {
         placeholder: 'Job deposit',
         type: 'number',
         default: 0.5,
+        step: 0.1,
         required: true
     }
 };
