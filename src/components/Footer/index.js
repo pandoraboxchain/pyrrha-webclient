@@ -8,9 +8,9 @@ import EthStatus from '../../containers/EthStatus';
 const Footer = () => (
     <div className="pn-footer">
         <Divider />
-        <Container>            
+        <Container>    
             <EthStatus />
-            <Web3Ver />
+            <Web3Ver />            
         </Container>        
     </div>
 );

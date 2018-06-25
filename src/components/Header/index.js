@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
+import AppVersion from '../AppVersion';
 import routes from '../../router';
 
 class Header extends Component {
@@ -11,6 +12,7 @@ class Header extends Component {
     render() {
         return (
             <div className="pn-header">
+                <AppVersion /> 
                 <div className="home">
                     <div className="logo"></div><Link to="/"><h1 className="pn-head-title">Pyrrha WebClient</h1></Link>
                 </div>
