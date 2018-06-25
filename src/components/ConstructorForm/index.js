@@ -179,7 +179,8 @@ class ConstructorForm extends PureComponent {
                                                 id={field+this.fileInputKey+item} 
                                                 placeholder={formModel[field].placeholder} 
                                                 field={field} 
-                                                item={item}
+                                                item={item} 
+                                                value={formValues[field][item] || formModel[field].default || ''}
                                                 type={formModel[field].type}
                                                 onChange={this.onInputChange}  
                                                 error={formErrors[field] ? formErrors[field][item] : false}
@@ -204,7 +205,7 @@ class ConstructorForm extends PureComponent {
                                     field={field}
                                     placeholder={formModel[field].placeholder} 
                                     className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} 
-                                    value={formValues[field] || ''}
+                                    value={formValues[field] || formModel[field].default || ''}
                                     type={formModel[field].type}
                                     onChange={this.onInputChange}  
                                     error={formErrors[field]} />                                
@@ -217,7 +218,7 @@ class ConstructorForm extends PureComponent {
                                     placeholder={formModel[field].placeholder} 
                                     className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''} 
                                     options={formModel[field].dropdown}
-                                    value={formValues[field] || ''}
+                                    value={formValues[field] || formModel[field].default || ''}
                                     type={formModel[field].type}
                                     onChange={this.onInputChange}  
                                     error={formErrors[field]} />
@@ -230,7 +231,7 @@ class ConstructorForm extends PureComponent {
                                         field={field} 
                                         placeholder={formModel[field].placeholder}
                                         className={formModel[field].styles && Array.isArray(formModel[field].styles) ? formModel[field].styles.join(' ') : ''}  
-                                        value={formValues[field] || ''}
+                                        value={formValues[field] || formModel[field].default || ''}
                                         type={formModel[field].type} 
                                         list={formModel[field].list.name} 
                                         onChange={this.onInputChange}  

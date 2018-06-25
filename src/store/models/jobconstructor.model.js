@@ -64,5 +64,12 @@ export const JobConstructorFormModel = {
         placeholder: 'Job description',
         type: 'text',
         required: true
+    },
+    deposit: {
+        label: 'Deposit',
+        placeholder: 'Job deposit',
+        type: 'number',
+        default: 0.5,
+        required: true
     }
 };
