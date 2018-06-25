@@ -73,8 +73,20 @@ class ConstructorForm extends PureComponent {
         });
     };
 
+    initFieldsDefaults = () => {
+
+        Object.keys(this.props.formModel).forEach(name => {
+
+            if (this.props.formModel[name].default !== undefined) {
+
+                this.props.formValues[name] = this.props.formModel[name].default;
+            }
+        });
+    }
+
     UNSAFE_componentWillMount = () => {
         this.initMultipleFields();
+        this.initFieldsDefaults();
 
         if (typeof this.props.willMountTasks === 'function') {
 
