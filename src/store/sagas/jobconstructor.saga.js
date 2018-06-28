@@ -56,10 +56,10 @@ function* constructJob() {
             return;
         }
 
-        // deposit should be more then 10 finney (0.1 ETH)
-        if (deposit < 0.1) {
+        // deposit should be more then 50 finney (0.5 ETH)
+        if (deposit < 0.5) {
 
-            yield put(actions.jobConstructorFailure(`Deposit value should be more then 10 finney (0.1 ETH). Currently set: ${deposit}`));
+            yield put(actions.jobConstructorFailure(`Deposit value should be more then 10 finney (0.5 ETH). Currently set: ${deposit}`));
             return;
         }
 
