@@ -7,7 +7,9 @@ import {
     JOB_CONSTRUCTOR_ERROR_INVALIDATE,
     JOB_CONSTRUCTOR_MESSAGE_DISMISS,
     JOB_CONSTRUCTOR_IPFS_PROGRESS,
-    JOB_CONSTRUCTOR_MESSAGE
+    JOB_CONSTRUCTOR_MESSAGE,
+    JOB_CONSTRUCTOR_STATUS_MESSAGE,
+    JOB_CONSTRUCTOR_STATUS_MESSAGE_DISMISS
 } from '../actions';
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
     formErrors: {},
     progress: {},
     messages: [],
+    statusMessage: null,
     errorMessages: []
 };
 
@@ -49,6 +52,20 @@ export const reduce = (state = initialState, action = {}) => {
                     ...state.messages,
                     action.message
                 ]
+            };
+
+        case JOB_CONSTRUCTOR_STATUS_MESSAGE:
+
+            return {
+                ...state, 
+                statusMessage: action.message
+            };
+
+        case JOB_CONSTRUCTOR_STATUS_MESSAGE_DISMISS:
+
+            return {
+                ...state, 
+                statusMessage: null
             };
             
         case JOB_CONSTRUCTOR_DONE:

@@ -10,6 +10,8 @@ export const KERNEL_CONSTRUCTOR_ERROR_INVALIDATE = 'KERNEL_CONSTRUCTOR_ERROR_INV
 export const KERNEL_CONSTRUCTOR_MESSAGE_DISMISS = 'KERNEL_CONSTRUCTOR_MESSAGE_INVALIDATE';
 export const KERNEL_CONSTRUCTOR_IPFS_PROGRESS = 'KERNEL_CONSTRUCTOR_IPFS_PROGRESS';
 export const KERNEL_CONSTRUCTOR_MESSAGE = 'KERNEL_CONSTRUCTOR_MESSAGE';
+export const KERNEL_CONSTRUCTOR_STATUS_MESSAGE = 'KERNEL_CONSTRUCTOR_STATUS_MESSAGE';
+export const KERNEL_CONSTRUCTOR_STATUS_MESSAGE_DISMISS = 'KERNEL_CONSTRUCTOR_STATUS_MESSAGE_DISMISS';
 
 export const setKernelConstructorField = (field, value) => action(KERNEL_CONSTRUCTOR_FIELD_UPDATED, {
     field,
@@ -24,3 +26,5 @@ export const kernelConstructorFailure = error => action(KERNEL_CONSTRUCTOR_FAILU
 export const kernelConstructorSuccess = (message = undefined) => action(KERNEL_CONSTRUCTOR_DONE, { message });
 export const kernelConstructorIpfsProgress = progress => action(KERNEL_CONSTRUCTOR_IPFS_PROGRESS, { progress });
 export const addKernelConstructorMessage = (message = undefined) => action(KERNEL_CONSTRUCTOR_MESSAGE, { message });
+export const addKernelConstructorStatusMessage = message => action(KERNEL_CONSTRUCTOR_STATUS_MESSAGE, { message });
+export const kernelConstructorStatusMessageDismiss = () => action(KERNEL_CONSTRUCTOR_STATUS_MESSAGE_DISMISS);

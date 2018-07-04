@@ -11,7 +11,9 @@ import {
     DATASET_CONSTRUCTOR_IPFS_PROGRESS,
     DATASET_CONSTRUCTOR_MESSAGE,
     DATASET_ADD_NEW_BATCH,
-    DATASET_REMOVE_BATCH
+    DATASET_REMOVE_BATCH,
+    DATASET_CONSTRUCTOR_STATUS_MESSAGE,
+    DATASET_CONSTRUCTOR_STATUS_MESSAGE_DISMISS
 } from '../actions';
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
     formErrors: {},
     progress: {},
     messages: [],
+    statusMessage: null,
     errorMessages: []
 };
 
@@ -54,6 +57,20 @@ export const reduce = (state = initialState, action = {}) => {
                     action.message
                 ]
             };
+
+        case DATASET_CONSTRUCTOR_STATUS_MESSAGE:
+
+            return {
+                ...state, 
+                statusMessage: action.message
+            };
+
+        case DATASET_CONSTRUCTOR_STATUS_MESSAGE_DISMISS:
+
+            return {
+                ...state, 
+                statusMessage: null
+            };
             
         case DATASET_CONSTRUCTOR_DONE:
             
@@ -77,15 +94,16 @@ export const reduce = (state = initialState, action = {}) => {
             };
 
         case DATASET_CONSTRUCTOR_FAILURE:
-            
+
             if (!Array.isArray(action.error)) {
                 action.error = [action.error];
             }
-            
+
+            //@fixme in pyrrha-js handle error from MetaMask correctly
             return { 
                 ...state, 
                 isSubmitting: false,
-                errorMessages: action.error.map(err => err.message || err) 
+                errorMessages: action.error.map(err => err.message.split('\n')[0] || err) 
             };
         
         case DATASET_CONSTRUCTOR_FIELD_UPDATED:  

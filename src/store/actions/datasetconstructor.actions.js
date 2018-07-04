@@ -12,6 +12,8 @@ export const DATASET_CONSTRUCTOR_IPFS_PROGRESS = 'DATASET_CONSTRUCTOR_IPFS_PROGR
 export const DATASET_CONSTRUCTOR_MESSAGE = 'DATASET_CONSTRUCTOR_MESSAGE';
 export const DATASET_ADD_NEW_BATCH = 'DATASET_ADD_NEW_BATCH';
 export const DATASET_REMOVE_BATCH = 'DATASET_REMOVE_BATCH';
+export const DATASET_CONSTRUCTOR_STATUS_MESSAGE = 'DATASET_CONSTRUCTOR_STATUS_MESSAGE';
+export const DATASET_CONSTRUCTOR_STATUS_MESSAGE_DISMISS = 'DATASET_CONSTRUCTOR_STATUS_MESSAGE_DISMISS';
 
 export const setDatasetConstructorField = (field, value, item) => action(DATASET_CONSTRUCTOR_FIELD_UPDATED, {
     field,
@@ -29,3 +31,5 @@ export const datasetConstructorIpfsProgress = progress => action(DATASET_CONSTRU
 export const addDatasetConstructorMessage = (message = undefined) => action(DATASET_CONSTRUCTOR_MESSAGE, { message });
 export const addDatasetBatch = name => action(DATASET_ADD_NEW_BATCH, { name });
 export const removeDatasetBatch = (name, item) => action(DATASET_REMOVE_BATCH, { name, item });
+export const addDatasetConstructorStatusMessage = message => action(DATASET_CONSTRUCTOR_STATUS_MESSAGE, { message });
+export const datasetConstructorStatusMessageDismiss = () => action(DATASET_CONSTRUCTOR_STATUS_MESSAGE_DISMISS);

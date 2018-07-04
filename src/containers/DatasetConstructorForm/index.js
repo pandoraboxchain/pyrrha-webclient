@@ -33,7 +33,8 @@ const mapStateToProps = state => {
         formErrors: selectors.getDatasetConFormErrors(state),
         messages: selectors.getDatasetConMessages(state),
         errorMessages: selectors.getDatasetConErrorMessages(state),
-        progress: selectors.getDatasetConFormProgress(state)
+        progress: selectors.getDatasetConFormProgress(state),
+        statusMessage: selectors.getDatasetConFormStatus(state)
     };
 };
 

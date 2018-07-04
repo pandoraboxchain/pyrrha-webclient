@@ -29,6 +29,7 @@ function* constructKernel() {
         const { model, weights } = validatedFormData;
         
         // upload kernel json to the IPFS
+        yield put(actions.addKernelConstructorStatusMessage('Uploading of kernel`s configuration to IPFS'));
         const kernelIpfsHash = yield call(services.uploadKernelJsonToIpfs, 
             model, 
             weights,
@@ -38,6 +39,8 @@ function* constructKernel() {
         const { dimension, complexity, price, metadata, description } = validatedFormData;
 
         // deploy kernel contract
+        yield put(actions.kernelConstructorStatusMessageDismiss());
+        yield put(actions.addKernelConstructorStatusMessage('Deploying of the kernel smart-contract. You should confirm this transaction with Metamask'));
         const kernelContractAddress = yield pjs.kernels.deploy(kernelIpfsHash, 
             { dimension, complexity, price, metadata, description }, 
             validatedFormData.publisher);
@@ -45,11 +48,16 @@ function* constructKernel() {
         yield put(actions.addKernelConstructorMessage(`Kernel successfully constructed and deployed. Сontract address: ${kernelContractAddress}`));
         
         // add contract to market
+        yield put(actions.kernelConstructorStatusMessageDismiss());
+        yield put(actions.addKernelConstructorStatusMessage('Publishing of the kernel on PandoraMarket. You should confirm this transaction with Metamask'));
         yield pjs.kernels.addToMarket(kernelContractAddress, validatedFormData.publisher);
         yield put(actions.kernelConstructorSuccess(`Kernel successfully added to Market`));
+        yield put(actions.kernelConstructorStatusMessageDismiss());
+
     } catch(error) {
         console.error(error)
         yield put(actions.kernelConstructorFailure(error));
+        yield put(actions.kernelConstructorStatusMessageDismiss());
     }
 }
 

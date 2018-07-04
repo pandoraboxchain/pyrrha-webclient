@@ -27,6 +27,7 @@ function* constructJob() {
         // create job
         const { jobType, kernel, dataset, publisher, complexity, description, deposit } = validatedFormData;
         
+        yield put(actions.addJobConstructorStatusMessage('Validating of maximum allowed count batches in dataset'));
         const datasetObj = yield pjs.datasets.fetchDataset(dataset);        
         
         // Maximum batches count should not be more then 10
@@ -37,6 +38,8 @@ function* constructJob() {
             return;
         }
 
+        yield put(actions.jobConstructorStatusMessageDismiss());
+        yield put(actions.addJobConstructorStatusMessage('Validating of equality of kernel and dataset dimensions'));
         const kernelObj = yield pjs.kernels.fetchKernel(kernel);
 
         // Data dimension of dataset and kernel should be equal
@@ -46,6 +49,8 @@ function* constructJob() {
             return;
         }
 
+        yield put(actions.jobConstructorStatusMessageDismiss());
+        yield put(actions.addJobConstructorStatusMessage('Validating of count of available workers nodes'));
         const idleCount = yield pjs.workers.fetchIdleCount();
 
         // Job can be created if dataset batchesCount not more then "count" of worker nodes in idle state
@@ -56,6 +61,7 @@ function* constructJob() {
             return;
         }
 
+        yield put(actions.jobConstructorStatusMessageDismiss());
         // deposit should be more then 50 finney (0.5 ETH)
         if (deposit < 0.5) {
 
@@ -72,6 +78,7 @@ function* constructJob() {
             return;
         }
 
+        yield put(actions.addJobConstructorStatusMessage('Creating of the cognitive job smart-contract. You should confirm this transaction with Metamask'));
         const jobAddress = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description, deposit }, publisher);
 
         if (jobAddress) {
@@ -82,9 +89,13 @@ function* constructJob() {
 
             yield put(actions.jobConstructorFailure(new Error(`Cognitive job has not been created. 
             Pandora contract createCognitiveJob method return "${jobAddress}"`)));
-        }        
+        }
+        
+        yield put(actions.jobConstructorStatusMessageDismiss());
+
     } catch(error) {
         yield put(actions.jobConstructorFailure(error));
+        yield put(actions.jobConstructorStatusMessageDismiss());
     }
 }
 

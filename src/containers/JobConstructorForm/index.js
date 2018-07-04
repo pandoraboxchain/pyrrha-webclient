@@ -32,7 +32,8 @@ const mapStateToProps = state => {
         formErrors: selectors.getJobConFormErrors(state),
         messages: selectors.getJobConMessages(state),
         errorMessages: selectors.getJobConErrorMessages(state),
-        progress: selectors.getJobConFormProgress(state)
+        progress: selectors.getJobConFormProgress(state),
+        statusMessage: selectors.getJobConFormStatus(state)
     };
 };
 

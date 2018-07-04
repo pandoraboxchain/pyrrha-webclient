@@ -7,7 +7,9 @@ import {
     KERNEL_CONSTRUCTOR_ERROR_INVALIDATE,
     KERNEL_CONSTRUCTOR_MESSAGE_DISMISS,
     KERNEL_CONSTRUCTOR_IPFS_PROGRESS,
-    KERNEL_CONSTRUCTOR_MESSAGE
+    KERNEL_CONSTRUCTOR_MESSAGE,
+    KERNEL_CONSTRUCTOR_STATUS_MESSAGE,
+    KERNEL_CONSTRUCTOR_STATUS_MESSAGE_DISMISS
 } from '../actions';
 
 const initialState = {
@@ -16,6 +18,7 @@ const initialState = {
     formErrors: {},
     progress: {},
     messages: [],
+    statusMessage: null,
     errorMessages: []
 };
 
@@ -49,6 +52,20 @@ export const reduce = (state = initialState, action = {}) => {
                     ...state.messages,
                     action.message
                 ]
+            };
+
+        case KERNEL_CONSTRUCTOR_STATUS_MESSAGE:
+
+            return {
+                ...state, 
+                statusMessage: action.message
+            };
+
+        case KERNEL_CONSTRUCTOR_STATUS_MESSAGE_DISMISS:
+
+            return {
+                ...state, 
+                statusMessage: null
             };
             
         case KERNEL_CONSTRUCTOR_DONE:

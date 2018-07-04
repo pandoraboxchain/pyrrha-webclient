@@ -3,7 +3,7 @@ import './ConstructorForm.scss';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Button, Label, Icon, Message, Progress } from 'semantic-ui-react';
+import { Form, Button, Label, Icon, Message, Progress, Loader, Transition } from 'semantic-ui-react';
 
 const displayNone = { display:'none' };
 
@@ -110,16 +110,21 @@ class ConstructorForm extends PureComponent {
             formErrors,
             messages,
             progress,
+            statusMessage,
             errorMessages 
         } = this.props;
 
         return (
-            <div>
+            <div className={isSubmitting ? 'pn-form-outer disabled' : 'pn-form-outer'}>
+                <Loader active={isSubmitting}>
+                    <Transition visible={!!statusMessage} animation="fade" duration={350}>
+                        <div className="pn-status-card">{statusMessage}</div>
+                    </Transition>
+                </Loader>
                 <Form 
                     autoComplete="off" 
                     onSubmit={this.handleSubmit} 
-                    error={errorMessages.length > 0} 
-                    loading={isSubmitting}>
+                    error={errorMessages.length > 0}>                    
 
                     {Object.keys(formModel).map((field, index) => (                        
                         <Form.Field key={index} required={formModel[field].required}>
@@ -287,6 +292,7 @@ class ConstructorForm extends PureComponent {
                             )}                        
                         </Message.List>
                     </Message>
+
                 </Form>
 
                 {Object.keys(progress).length > 0 && 
@@ -321,6 +327,7 @@ ConstructorForm.propTypes = {
     formErrors: PropTypes.object.isRequired,
     messages: PropTypes.array.isRequired,
     progress: PropTypes.object.isRequired,
+    statusMessage: PropTypes.oneOfType([() => null, PropTypes.string]),
     errorMessages: PropTypes.array.isRequired,
 
     // dspatcher props

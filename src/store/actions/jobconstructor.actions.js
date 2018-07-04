@@ -10,6 +10,8 @@ export const JOB_CONSTRUCTOR_ERROR_INVALIDATE = 'JOB_CONSTRUCTOR_ERROR_INVALIDAT
 export const JOB_CONSTRUCTOR_MESSAGE_DISMISS = 'JOB_CONSTRUCTOR_MESSAGE_INVALIDATE';
 export const JOB_CONSTRUCTOR_IPFS_PROGRESS = 'JOB_CONSTRUCTOR_IPFS_PROGRESS';
 export const JOB_CONSTRUCTOR_MESSAGE = 'JOB_CONSTRUCTOR_MESSAGE';
+export const JOB_CONSTRUCTOR_STATUS_MESSAGE = 'JOB_CONSTRUCTOR_STATUS_MESSAGE';
+export const JOB_CONSTRUCTOR_STATUS_MESSAGE_DISMISS = 'JOB_CONSTRUCTOR_STATUS_MESSAGE_DISMISS';
 
 export const setJobConstructorField = (field, value) => action(JOB_CONSTRUCTOR_FIELD_UPDATED, {
     field,
@@ -24,3 +26,5 @@ export const jobConstructorFailure = error => action(JOB_CONSTRUCTOR_FAILURE, { 
 export const jobConstructorSuccess = (message = undefined) => action(JOB_CONSTRUCTOR_DONE, { message });
 export const jobConstructorIpfsProgress = progress => action(JOB_CONSTRUCTOR_IPFS_PROGRESS, { progress });
 export const addJobConstructorMessage = (message = undefined) => action(JOB_CONSTRUCTOR_MESSAGE, { message });
+export const addJobConstructorStatusMessage = message => action(JOB_CONSTRUCTOR_STATUS_MESSAGE, { message });
+export const jobConstructorStatusMessageDismiss = () => action(JOB_CONSTRUCTOR_STATUS_MESSAGE_DISMISS);

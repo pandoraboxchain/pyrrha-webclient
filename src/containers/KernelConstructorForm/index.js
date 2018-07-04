@@ -32,7 +32,8 @@ const mapStateToProps = state => {
         formErrors: selectors.getKernelConFormErrors(state),
         messages: selectors.getKernelConMessages(state),
         errorMessages: selectors.getKernelConErrorMessages(state),
-        progress: selectors.getKernelConFormProgress(state)
+        progress: selectors.getKernelConFormProgress(state),
+        statusMessage: selectors.getKernelConFormStatus(state)
     };
 };
 
