@@ -7,11 +7,9 @@ services:
 branches:
   only:
     - master
-    - "/v\\d+\\.\\d+\\.\\d+(-\\w+)?/"
-stages:
-  - build
-  - hub
-  - deploy
+    - /^v[0-9]+\.[0-9]+\.[0-9]+$/
+    - /^v[0-9]+\.[0-9]+\.[0-9]+-staging$/
+
 jobs:
   include:
     - stage: build
@@ -21,8 +19,8 @@ jobs:
         - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         - docker build --tag pyrrha_webclient .
         - docker images
-    - stage: hub
-      if: tag IS present
+    - stage: build_prod
+      if: branch =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/
       install: skip
       script:
         - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
@@ -30,11 +28,26 @@ jobs:
         - docker images
         - docker tag pyrrha_webclient pandoraboxchain/pyrrha_webclient:latest
         - docker push pandoraboxchain/pyrrha_webclient:latest
-    - stage: deploy
-      if: tag IS present
+    - stage: build_staging
+      if: branch =~ /^v[0-9]+\.[0-9]+\.[0-9]+-staging$/
+      install: skip
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build --tag pyrrha_webclient .
+        - docker images
+        - docker tag pyrrha_webclient pandoraboxchain/pyrrha_webclient:staging
+        - docker push pandoraboxchain/pyrrha_webclient:staging
+    - stage: deploy_prod
+      if: branch =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/
       install: skip
       script:
         - openssl aes-256-cbc -K $encrypted_a6187e8b8d0f_key -iv $encrypted_a6187e8b8d0f_iv -in key.enc -out ./key -d
         - chmod 600 ./key
-        - ssh -o "StrictHostKeyChecking no" -i ./key kostysh@pandora.network -tt 'bash
-          -s' < ./deploy.sh
+        - ssh -o "StrictHostKeyChecking no" -i ./key kostysh@pandora.network -tt 'bash -s' < ./deploy.sh
+    - stage: deploy_staging
+      if: branch =~ /^v[0-9]+\.[0-9]+\.[0-9]+-staging$/
+      install: skip
+      script:
+        - openssl aes-256-cbc -K $encrypted_a6187e8b8d0f_key -iv $encrypted_a6187e8b8d0f_iv -in key.enc -out ./key -d
+        - chmod 600 ./key
+        - ssh -o "StrictHostKeyChecking no" -i ./key kostysh@client.staging.pandora.network -tt 'bash -s' < ./deploy-staging.sh

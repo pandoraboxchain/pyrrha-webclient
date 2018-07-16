@@ -75,7 +75,7 @@ class JobsTable extends PureComponent {
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshJobs}>Refresh</Button>
                                 {isFetching &&
-                                    <span>Fetching of jobs...</span>
+                                    <span>Fetching jobs...</span>
                                 }
                                 <Button floated="right"
                                     onClick={this.handleOpenConstructor}>Add</Button>

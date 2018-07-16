@@ -74,7 +74,7 @@ class DatasetsTable extends PureComponent {
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshDatasets}>Refresh</Button>
                                 {isFetching &&
-                                    <span>Fetching of datasets...</span>
+                                    <span>Fetching datasets...</span>
                                 }
                                 <Button floated="right"
                                     onClick={this.handleOpenConstructor}>Add</Button>

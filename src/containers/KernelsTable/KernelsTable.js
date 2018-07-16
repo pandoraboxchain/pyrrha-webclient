@@ -74,7 +74,7 @@ class KernelsTable extends PureComponent {
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshKernels}>Refresh</Button>
                                 {isFetching &&
-                                    <span>Fetching of kernels...</span>
+                                    <span>Fetching kernels...</span>
                                 }
                                 <Button floated="right"
                                     onClick={this.handleOpenConstructor}>Add</Button>
