@@ -20,8 +20,8 @@ const hosts = {
         port: 8546,
         net: 4,
         contracts: {
-            pandora: '0x6f76ecc921da8c2a42a71681e5dd84186cd90402',
-            market: '0xde4207d9501c3cde90232082687e35eaf989c861'
+            pandora: '0xf31b5318cfefcf8d661508b3e12f861aa160ca3b',
+            market: '0x6b73053425d5ec272e44ced005dc5f7d80d346e2'
         },
         ipfs: {
             protocol: 'http',
@@ -34,8 +34,8 @@ const hosts = {
         host: 'rinkeby.infura.io/Llc2pOEtpgzvopBH8dst',
         port: '',
         contracts: {
-            pandora: '0x6f76ecc921da8c2a42a71681e5dd84186cd90402',
-            market: '0xde4207d9501c3cde90232082687e35eaf989c861'
+            pandora: '0xf31b5318cfefcf8d661508b3e12f861aa160ca3b',
+            market: '0x6b73053425d5ec272e44ced005dc5f7d80d346e2'
         },
         ipfs: {
             protocol: 'http',
