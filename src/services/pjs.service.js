@@ -5,7 +5,7 @@ import Pjs from 'pyrrha-js';
 const Pandora = require('../pyrrha-consensus/Pandora.json');
 const PandoraMarket = require('../pyrrha-consensus/PandoraMarket.json');
 const WorkerNode = require('../pyrrha-consensus/WorkerNode.json');
-const CognitiveJob = require('../pyrrha-consensus/CognitiveJob.json');
+const CognitiveJobController = require('../pyrrha-consensus/CognitiveJobController.json');
 const Kernel = require('../pyrrha-consensus/Kernel.json');
 const Dataset = require('../pyrrha-consensus/Dataset.json');
 
@@ -32,7 +32,7 @@ export const initPjs = () => {
             Pandora,
             PandoraMarket,
             WorkerNode,
-            CognitiveJob,
+            CognitiveJobController,
             Kernel,
             Dataset
         },
