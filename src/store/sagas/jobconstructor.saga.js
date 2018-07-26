@@ -28,7 +28,16 @@ function* constructJob() {
         const { jobType, kernel, dataset, publisher, complexity, description, deposit } = validatedFormData;
         
         yield put(actions.addJobConstructorStatusMessage('Validating of maximum allowed count batches in dataset'));
-        const datasetObj = yield pjs.datasets.fetchDataset(dataset);        
+        const datasetObj = yield pjs.datasets.fetchDataset(dataset);
+        
+        const jobsCount = yield pjs.jobs.fetchCognitiveJobsCount();
+
+        // Current count of jobs should not be more then 2^16-1
+        if (jobsCount >= maxJobsCount) {
+
+            yield put(actions.jobConstructorFailure(`Maximum limit of cognitive jobs is exceeded`));
+            return;
+        }
         
         // Maximum batches count should not be more then 10
         if (datasetObj.batchesCount > maxBatchesCount) {
@@ -49,17 +58,17 @@ function* constructJob() {
             return;
         }
 
-        yield put(actions.jobConstructorStatusMessageDismiss());
-        yield put(actions.addJobConstructorStatusMessage('Validating of count of available workers nodes'));
-        const idleCount = yield pjs.workers.fetchIdleCount();
+        // yield put(actions.jobConstructorStatusMessageDismiss());
+        // yield put(actions.addJobConstructorStatusMessage('Validating of count of available workers nodes'));
+        // const idleCount = yield pjs.workers.fetchIdleCount();
 
-        // Job can be created if dataset batchesCount not more then "count" of worker nodes in idle state
-        if (datasetObj.batchesCount > idleCount) {
+        // // Job can be created if dataset batchesCount not more then "count" of worker nodes in idle state
+        // if (datasetObj.batchesCount > idleCount) {
 
-            yield put(actions.jobConstructorFailure(`Insuficient of currently available worker nodes to start the job. 
-                Dataset consists of ${datasetObj.batchesCount} batches. Available worker nodes count: ${idleCount}`));
-            return;
-        }
+        //     yield put(actions.jobConstructorFailure(`Insuficient of currently available worker nodes to start the job. 
+        //         Dataset consists of ${datasetObj.batchesCount} batches. Available worker nodes count: ${idleCount}`));
+        //     return;
+        // }
 
         yield put(actions.jobConstructorStatusMessageDismiss());
         // deposit should be more then 50 finney (0.5 ETH)
@@ -69,26 +78,17 @@ function* constructJob() {
             return;
         }
 
-        const jobsCount = yield pjs.jobs.fetchCognitiveJobsCount();
+        yield put(actions.addJobConstructorStatusMessage('Creating of the cognitive job. You should confirm this transaction with Metamask'));
+        const jobId = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description, deposit }, publisher);
 
-        // Current count of jobs should not be more then 2^16-1
-        if (jobsCount >= maxJobsCount) {
-
-            yield put(actions.jobConstructorFailure(`Maximum limit of cognitive jobs is exceeded`));
-            return;
-        }
-
-        yield put(actions.addJobConstructorStatusMessage('Creating of the cognitive job smart-contract. You should confirm this transaction with Metamask'));
-        const jobAddress = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description, deposit }, publisher);
-
-        if (jobAddress) {
+        if (jobId) {
 
             yield put(actions.jobsTableFetch());
-            yield put(actions.jobConstructorSuccess(`Cognitive Job successfully created. Сontract address: ${jobAddress}`));
+            yield put(actions.jobConstructorSuccess(`Cognitive Job successfully created. jobId: ${jobId}`));
         } else {
 
-            yield put(actions.jobConstructorFailure(new Error(`Cognitive job has not been created. 
-            Pandora contract createCognitiveJob method return "${jobAddress}"`)));
+            console.log('Job creation error:', jobId);
+            yield put(actions.jobConstructorFailure(new Error(`Cognitive job has not been created.`)));
         }
         
         yield put(actions.jobConstructorStatusMessageDismiss());
