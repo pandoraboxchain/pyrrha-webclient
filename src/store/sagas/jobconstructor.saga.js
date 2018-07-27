@@ -1,5 +1,5 @@
 import { call, put, fork, select, takeLatest } from 'redux-saga/effects';
-import { maxBatchesCount, maxJobsCount } from '../../config/constants'
+import { maxBatchesCount } from '../../config/constants'
 
 import * as utils from '../../utils';
 import * as models from '../models';
@@ -27,17 +27,9 @@ function* constructJob() {
         // create job
         const { jobType, kernel, dataset, publisher, complexity, description, deposit } = validatedFormData;
         
+        yield put(actions.jobConstructorStatusMessageDismiss());
         yield put(actions.addJobConstructorStatusMessage('Validating of maximum allowed count batches in dataset'));
         const datasetObj = yield pjs.datasets.fetchDataset(dataset);
-        
-        const jobsCount = yield pjs.jobs.fetchCognitiveJobsCount();
-
-        // Current count of jobs should not be more then 2^16-1
-        if (jobsCount >= maxJobsCount) {
-
-            yield put(actions.jobConstructorFailure(`Maximum limit of cognitive jobs is exceeded`));
-            return;
-        }
         
         // Maximum batches count should not be more then 10
         if (datasetObj.batchesCount > maxBatchesCount) {
@@ -57,18 +49,6 @@ function* constructJob() {
             yield put(actions.jobConstructorFailure(`Data dimension of dataset and kernel are not equal`));
             return;
         }
-
-        // yield put(actions.jobConstructorStatusMessageDismiss());
-        // yield put(actions.addJobConstructorStatusMessage('Validating of count of available workers nodes'));
-        // const idleCount = yield pjs.workers.fetchIdleCount();
-
-        // // Job can be created if dataset batchesCount not more then "count" of worker nodes in idle state
-        // if (datasetObj.batchesCount > idleCount) {
-
-        //     yield put(actions.jobConstructorFailure(`Insuficient of currently available worker nodes to start the job. 
-        //         Dataset consists of ${datasetObj.batchesCount} batches. Available worker nodes count: ${idleCount}`));
-        //     return;
-        // }
 
         yield put(actions.jobConstructorStatusMessageDismiss());
         // deposit should be more then 50 finney (0.5 ETH)
