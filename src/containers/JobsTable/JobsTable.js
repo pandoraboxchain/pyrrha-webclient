@@ -55,9 +55,9 @@ class JobsTable extends PureComponent {
                     </Table.Header>
                     <Table.Body>
                         {jobs && jobs.length > 0 &&
-                            jobs.map(job => (
-                                <Table.Row key={job.id}>
-                                    <Table.Cell>{job.id}</Table.Cell>
+                            jobs.map((job, index) => (
+                                <Table.Row key={index}>
+                                    <Table.Cell>{index}</Table.Cell>
                                     <Table.Cell title={job.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${job.address}`}>{job.address}</a></Table.Cell>
                                     <Responsive as={Table.Cell} minWidth={600}>{convertJobTypeCode(job.jobType)}</Responsive>
                                     <Responsive as={Table.Cell} minWidth={600}>{job.description}</Responsive>
