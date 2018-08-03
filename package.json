@@ -1,6 +1,6 @@
 {
   "name": "pyrrha-webclient",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "Webclient for Pyrrha",
   "author": "Kostiantyn Smyrnov <kostysh@gmail.com>",
   "scripts": {
