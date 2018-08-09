@@ -50,6 +50,7 @@ class JobsTable extends PureComponent {
                             <Table.HeaderCell>Address</Table.HeaderCell>
                             <Responsive as={Table.HeaderCell} width={1} minWidth={600}>Type</Responsive>
                             <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
+                            <Table.HeaderCell width={2}>Progress</Table.HeaderCell>
                             <Table.HeaderCell width={2}>status</Table.HeaderCell>
                         </Table.Row>                            
                     </Table.Header>
@@ -61,6 +62,7 @@ class JobsTable extends PureComponent {
                                     <Table.Cell title={job.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${job.address}`}>{job.address}</a></Table.Cell>
                                     <Responsive as={Table.Cell} minWidth={600}>{convertJobTypeCode(job.jobType)}</Responsive>
                                     <Responsive as={Table.Cell} minWidth={600}>{job.description}</Responsive>
+                                    <Table.Cell>{job.progress}</Table.Cell>
                                     <Table.Cell>{convertJobStatusCode(job.state)}</Table.Cell>
                                 </Table.Row> 
                             ))
@@ -68,7 +70,7 @@ class JobsTable extends PureComponent {
                     </Table.Body>
                     <Table.Footer>
                         <Table.Row>
-                            <Table.Cell colSpan="5">
+                            <Table.Cell colSpan="6">
                                 <Button 
                                     loading={isConnecting || isFetching}
                                     onClick={this.handleRefreshJobs}>Refresh</Button>
