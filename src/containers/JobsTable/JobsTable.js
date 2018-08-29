@@ -50,20 +50,20 @@ class JobsTable extends PureComponent {
                             <Table.HeaderCell>Address</Table.HeaderCell>
                             <Responsive as={Table.HeaderCell} width={1} minWidth={600}>Type</Responsive>
                             <Responsive as={Table.HeaderCell} width={4} minWidth={600}>Description</Responsive>
-                            <Responsive as={Table.HeaderCell} width={1} minWidth={600}>batches</Responsive>
+                            <Table.HeaderCell width={2}>Progress</Table.HeaderCell>
                             <Table.HeaderCell width={2}>status</Table.HeaderCell>
                         </Table.Row>                            
                     </Table.Header>
                     <Table.Body>
                         {jobs && jobs.length > 0 &&
-                            jobs.map(job => (
-                                <Table.Row key={job.id}>
-                                    <Table.Cell>{job.id}</Table.Cell>
+                            jobs.map((job, index) => (
+                                <Table.Row key={index}>
+                                    <Table.Cell>{index}</Table.Cell>
                                     <Table.Cell title={job.address} className="pn-address-link"><a href={`https://rinkeby.etherscan.io/address/${job.address}`}>{job.address}</a></Table.Cell>
                                     <Responsive as={Table.Cell} minWidth={600}>{convertJobTypeCode(job.jobType)}</Responsive>
                                     <Responsive as={Table.Cell} minWidth={600}>{job.description}</Responsive>
-                                    <Responsive as={Table.Cell} minWidth={600}>{job.batches}</Responsive>
-                                    <Table.Cell>{convertJobStatusCode(job.jobStatus)}</Table.Cell>
+                                    <Table.Cell>{job.progress}</Table.Cell>
+                                    <Table.Cell>{convertJobStatusCode(job.state)}</Table.Cell>
                                 </Table.Row> 
                             ))
                         }               
