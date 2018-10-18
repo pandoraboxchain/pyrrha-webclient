@@ -2,11 +2,11 @@ const hosts = {
     default: {
         protocol: 'ws',
         host: 'localhost',
-        port: 8545,
+        port: 4445,
         reconnect: 5000,
         contracts: {
-            pandora: '0x9561c133dd8580860b6b7e504bc5aa500f0f06a7',
-            market: '0x2612af3a521c2df9eaf28422ca335b04adf3ac66'
+            pandora: '0x5c86aa41d803b60cca6c114645d341c23b0cbac5',
+            market: '0xbb7b9caf771015279e04197c09e08703a9353b6f'
         },
         ipfs: {
             protocol: 'http',

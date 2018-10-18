@@ -148,14 +148,14 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/IWorkerNodeManager.sol",
     "exportedSymbols": {
       "IWorkerNodeManager": [
-        4433
+        4022
       ]
     },
-    "id": 4434,
+    "id": 4023,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4391,
+        "id": 3980,
         "literals": [
           "solidity",
           "^",
@@ -163,27 +163,27 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:27"
+        "src": "0:24:24"
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/factories/WorkerNodeFactory.sol",
         "file": "../factories/WorkerNodeFactory.sol",
-        "id": 4392,
+        "id": 3981,
         "nodeType": "ImportDirective",
-        "scope": 4434,
-        "sourceUnit": 1987,
-        "src": "27:44:27",
+        "scope": 4023,
+        "sourceUnit": 1487,
+        "src": "27:44:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/nodes/IWorkerNode.sol",
         "file": "../../nodes/IWorkerNode.sol",
-        "id": 4393,
+        "id": 3982,
         "nodeType": "ImportDirective",
-        "scope": 4434,
-        "sourceUnit": 1313,
-        "src": "72:37:27",
+        "scope": 4023,
+        "sourceUnit": 813,
+        "src": "72:37:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -193,35 +193,35 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4433,
+        "id": 4022,
         "linearizedBaseContracts": [
-          4433
+          4022
         ],
         "name": "IWorkerNodeManager",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 4395,
+            "id": 3984,
             "name": "workerNodeFactory",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "145:42:27",
+            "scope": 4022,
+            "src": "145:42:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_WorkerNodeFactory_$1986",
+              "typeIdentifier": "t_contract$_WorkerNodeFactory_$1486",
               "typeString": "contract WorkerNodeFactory"
             },
             "typeName": {
               "contractScope": null,
-              "id": 4394,
+              "id": 3983,
               "name": "WorkerNodeFactory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1986,
-              "src": "145:17:27",
+              "referencedDeclaration": 1486,
+              "src": "145:17:24",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_WorkerNodeFactory_$1986",
+                "typeIdentifier": "t_contract$_WorkerNodeFactory_$1486",
                 "typeString": "contract WorkerNodeFactory"
               }
             },
@@ -230,36 +230,36 @@
           },
           {
             "constant": false,
-            "id": 4398,
+            "id": 3987,
             "name": "workerNodes",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "193:32:27",
+            "scope": 4022,
+            "src": "193:32:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$1312_$dyn_storage",
+              "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$812_$dyn_storage",
               "typeString": "contract IWorkerNode[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 4396,
+                "id": 3985,
                 "name": "IWorkerNode",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1312,
-                "src": "193:11:27",
+                "referencedDeclaration": 812,
+                "src": "193:11:24",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                  "typeIdentifier": "t_contract$_IWorkerNode_$812",
                   "typeString": "contract IWorkerNode"
                 }
               },
-              "id": 4397,
+              "id": 3986,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "193:13:27",
+              "src": "193:13:24",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$1312_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$812_$dyn_storage_ptr",
                 "typeString": "contract IWorkerNode[]"
               }
             },
@@ -268,11 +268,11 @@
           },
           {
             "constant": false,
-            "id": 4402,
+            "id": 3991,
             "name": "workerAddresses",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "231:49:27",
+            "scope": 4022,
+            "src": "231:49:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -280,28 +280,28 @@
               "typeString": "mapping(address => uint16)"
             },
             "typeName": {
-              "id": 4401,
+              "id": 3990,
               "keyType": {
-                "id": 4399,
+                "id": 3988,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "239:7:27",
+                "src": "239:7:24",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "231:26:27",
+              "src": "231:26:24",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
                 "typeString": "mapping(address => uint16)"
               },
               "valueType": {
-                "id": 4400,
+                "id": 3989,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "250:6:27",
+                "src": "250:6:24",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -314,7 +314,7 @@
           {
             "body": null,
             "documentation": "@notice Returns count of registered worker nodes",
-            "id": 4407,
+            "id": 3996,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -322,23 +322,23 @@
             "name": "workerNodesCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4403,
+              "id": 3992,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "369:2:27"
+              "src": "369:2:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4406,
+              "id": 3995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4405,
+                  "id": 3994,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4407,
-                  "src": "393:4:27",
+                  "scope": 3996,
+                  "src": "393:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -346,10 +346,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4404,
+                    "id": 3993,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "393:4:27",
+                    "src": "393:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -359,10 +359,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "392:6:27"
+              "src": "392:6:24"
             },
-            "scope": 4433,
-            "src": "344:55:27",
+            "scope": 4022,
+            "src": "344:55:24",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -370,7 +370,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4412,
+            "id": 4001,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -378,38 +378,38 @@
             "name": "createWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4408,
+              "id": 3997,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "430:2:27"
+              "src": "430:2:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4411,
+              "id": 4000,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4410,
+                  "id": 3999,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4412,
-                  "src": "451:11:27",
+                  "scope": 4001,
+                  "src": "451:11:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4409,
+                    "id": 3998,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "451:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "451:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -417,10 +417,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "450:13:27"
+              "src": "450:13:24"
             },
-            "scope": 4433,
-            "src": "405:59:27",
+            "scope": 4022,
+            "src": "405:59:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -428,7 +428,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4419,
+            "id": 4008,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -436,31 +436,31 @@
             "name": "penaltizeWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4417,
+              "id": 4006,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4414,
+                  "id": 4003,
                   "name": "guilty",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4419,
-                  "src": "498:18:27",
+                  "scope": 4008,
+                  "src": "498:18:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4413,
+                    "id": 4002,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "498:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "498:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -469,26 +469,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 4416,
+                  "id": 4005,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4419,
-                  "src": "518:28:27",
+                  "scope": 4008,
+                  "src": "518:28:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Penalties_$1264",
+                    "typeIdentifier": "t_enum$_Penalties_$764",
                     "typeString": "enum IWorkerNode.Penalties"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4415,
+                    "id": 4004,
                     "name": "IWorkerNode.Penalties",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1264,
-                    "src": "518:21:27",
+                    "referencedDeclaration": 764,
+                    "src": "518:21:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Penalties_$1264",
+                      "typeIdentifier": "t_enum$_Penalties_$764",
                       "typeString": "enum IWorkerNode.Penalties"
                     }
                   },
@@ -496,17 +496,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "497:50:27"
+              "src": "497:50:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4418,
+              "id": 4007,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "556:0:27"
+              "src": "556:0:24"
             },
-            "scope": 4433,
-            "src": "469:88:27",
+            "scope": 4022,
+            "src": "469:88:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -514,7 +514,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4424,
+            "id": 4013,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -522,31 +522,31 @@
             "name": "destroyWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4422,
+              "id": 4011,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4421,
+                  "id": 4010,
                   "name": "node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4424,
-                  "src": "589:16:27",
+                  "scope": 4013,
+                  "src": "589:16:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4420,
+                    "id": 4009,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "589:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "589:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -554,17 +554,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "588:18:27"
+              "src": "588:18:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4423,
+              "id": 4012,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "615:0:27"
+              "src": "615:0:24"
             },
-            "scope": 4433,
-            "src": "562:54:27",
+            "scope": 4022,
+            "src": "562:54:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -572,36 +572,36 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 4428,
+            "id": 4017,
             "name": "WorkerNodeCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 4427,
+              "id": 4016,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4426,
+                  "id": 4015,
                   "indexed": false,
                   "name": "workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4428,
-                  "src": "646:22:27",
+                  "scope": 4017,
+                  "src": "646:22:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4425,
+                    "id": 4014,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "646:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "646:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -609,43 +609,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "645:24:27"
+              "src": "645:24:24"
             },
-            "src": "622:48:27"
+            "src": "622:48:24"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 4432,
+            "id": 4021,
             "name": "WorkerNodeDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 4431,
+              "id": 4020,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4430,
+                  "id": 4019,
                   "indexed": false,
                   "name": "workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4432,
-                  "src": "701:22:27",
+                  "scope": 4021,
+                  "src": "701:22:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4429,
+                    "id": 4018,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "701:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "701:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -653,29 +653,29 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "700:24:27"
+              "src": "700:24:24"
             },
-            "src": "675:50:27"
+            "src": "675:50:24"
           }
         ],
-        "scope": 4434,
-        "src": "111:616:27"
+        "scope": 4023,
+        "src": "111:616:24"
       }
     ],
-    "src": "0:728:27"
+    "src": "0:728:24"
   },
   "legacyAST": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/managers/IWorkerNodeManager.sol",
     "exportedSymbols": {
       "IWorkerNodeManager": [
-        4433
+        4022
       ]
     },
-    "id": 4434,
+    "id": 4023,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4391,
+        "id": 3980,
         "literals": [
           "solidity",
           "^",
@@ -683,27 +683,27 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:27"
+        "src": "0:24:24"
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/factories/WorkerNodeFactory.sol",
         "file": "../factories/WorkerNodeFactory.sol",
-        "id": 4392,
+        "id": 3981,
         "nodeType": "ImportDirective",
-        "scope": 4434,
-        "sourceUnit": 1987,
-        "src": "27:44:27",
+        "scope": 4023,
+        "sourceUnit": 1487,
+        "src": "27:44:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/nodes/IWorkerNode.sol",
         "file": "../../nodes/IWorkerNode.sol",
-        "id": 4393,
+        "id": 3982,
         "nodeType": "ImportDirective",
-        "scope": 4434,
-        "sourceUnit": 1313,
-        "src": "72:37:27",
+        "scope": 4023,
+        "sourceUnit": 813,
+        "src": "72:37:24",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -713,35 +713,35 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4433,
+        "id": 4022,
         "linearizedBaseContracts": [
-          4433
+          4022
         ],
         "name": "IWorkerNodeManager",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 4395,
+            "id": 3984,
             "name": "workerNodeFactory",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "145:42:27",
+            "scope": 4022,
+            "src": "145:42:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_WorkerNodeFactory_$1986",
+              "typeIdentifier": "t_contract$_WorkerNodeFactory_$1486",
               "typeString": "contract WorkerNodeFactory"
             },
             "typeName": {
               "contractScope": null,
-              "id": 4394,
+              "id": 3983,
               "name": "WorkerNodeFactory",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1986,
-              "src": "145:17:27",
+              "referencedDeclaration": 1486,
+              "src": "145:17:24",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_WorkerNodeFactory_$1986",
+                "typeIdentifier": "t_contract$_WorkerNodeFactory_$1486",
                 "typeString": "contract WorkerNodeFactory"
               }
             },
@@ -750,36 +750,36 @@
           },
           {
             "constant": false,
-            "id": 4398,
+            "id": 3987,
             "name": "workerNodes",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "193:32:27",
+            "scope": 4022,
+            "src": "193:32:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$1312_$dyn_storage",
+              "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$812_$dyn_storage",
               "typeString": "contract IWorkerNode[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 4396,
+                "id": 3985,
                 "name": "IWorkerNode",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1312,
-                "src": "193:11:27",
+                "referencedDeclaration": 812,
+                "src": "193:11:24",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                  "typeIdentifier": "t_contract$_IWorkerNode_$812",
                   "typeString": "contract IWorkerNode"
                 }
               },
-              "id": 4397,
+              "id": 3986,
               "length": null,
               "nodeType": "ArrayTypeName",
-              "src": "193:13:27",
+              "src": "193:13:24",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$1312_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_contract$_IWorkerNode_$812_$dyn_storage_ptr",
                 "typeString": "contract IWorkerNode[]"
               }
             },
@@ -788,11 +788,11 @@
           },
           {
             "constant": false,
-            "id": 4402,
+            "id": 3991,
             "name": "workerAddresses",
             "nodeType": "VariableDeclaration",
-            "scope": 4433,
-            "src": "231:49:27",
+            "scope": 4022,
+            "src": "231:49:24",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -800,28 +800,28 @@
               "typeString": "mapping(address => uint16)"
             },
             "typeName": {
-              "id": 4401,
+              "id": 3990,
               "keyType": {
-                "id": 4399,
+                "id": 3988,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "239:7:27",
+                "src": "239:7:24",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "231:26:27",
+              "src": "231:26:24",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_uint16_$",
                 "typeString": "mapping(address => uint16)"
               },
               "valueType": {
-                "id": 4400,
+                "id": 3989,
                 "name": "uint16",
                 "nodeType": "ElementaryTypeName",
-                "src": "250:6:27",
+                "src": "250:6:24",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint16",
                   "typeString": "uint16"
@@ -834,7 +834,7 @@
           {
             "body": null,
             "documentation": "@notice Returns count of registered worker nodes",
-            "id": 4407,
+            "id": 3996,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -842,23 +842,23 @@
             "name": "workerNodesCount",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4403,
+              "id": 3992,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "369:2:27"
+              "src": "369:2:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4406,
+              "id": 3995,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4405,
+                  "id": 3994,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4407,
-                  "src": "393:4:27",
+                  "scope": 3996,
+                  "src": "393:4:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -866,10 +866,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4404,
+                    "id": 3993,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "393:4:27",
+                    "src": "393:4:24",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -879,10 +879,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "392:6:27"
+              "src": "392:6:24"
             },
-            "scope": 4433,
-            "src": "344:55:27",
+            "scope": 4022,
+            "src": "344:55:24",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
@@ -890,7 +890,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4412,
+            "id": 4001,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -898,38 +898,38 @@
             "name": "createWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4408,
+              "id": 3997,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "430:2:27"
+              "src": "430:2:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4411,
+              "id": 4000,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4410,
+                  "id": 3999,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4412,
-                  "src": "451:11:27",
+                  "scope": 4001,
+                  "src": "451:11:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4409,
+                    "id": 3998,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "451:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "451:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -937,10 +937,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "450:13:27"
+              "src": "450:13:24"
             },
-            "scope": 4433,
-            "src": "405:59:27",
+            "scope": 4022,
+            "src": "405:59:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -948,7 +948,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4419,
+            "id": 4008,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -956,31 +956,31 @@
             "name": "penaltizeWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4417,
+              "id": 4006,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4414,
+                  "id": 4003,
                   "name": "guilty",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4419,
-                  "src": "498:18:27",
+                  "scope": 4008,
+                  "src": "498:18:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4413,
+                    "id": 4002,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "498:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "498:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -989,26 +989,26 @@
                 },
                 {
                   "constant": false,
-                  "id": 4416,
+                  "id": 4005,
                   "name": "reason",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4419,
-                  "src": "518:28:27",
+                  "scope": 4008,
+                  "src": "518:28:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Penalties_$1264",
+                    "typeIdentifier": "t_enum$_Penalties_$764",
                     "typeString": "enum IWorkerNode.Penalties"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4415,
+                    "id": 4004,
                     "name": "IWorkerNode.Penalties",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1264,
-                    "src": "518:21:27",
+                    "referencedDeclaration": 764,
+                    "src": "518:21:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Penalties_$1264",
+                      "typeIdentifier": "t_enum$_Penalties_$764",
                       "typeString": "enum IWorkerNode.Penalties"
                     }
                   },
@@ -1016,17 +1016,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "497:50:27"
+              "src": "497:50:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4418,
+              "id": 4007,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "556:0:27"
+              "src": "556:0:24"
             },
-            "scope": 4433,
-            "src": "469:88:27",
+            "scope": 4022,
+            "src": "469:88:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -1034,7 +1034,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4424,
+            "id": 4013,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -1042,31 +1042,31 @@
             "name": "destroyWorkerNode",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4422,
+              "id": 4011,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4421,
+                  "id": 4010,
                   "name": "node",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4424,
-                  "src": "589:16:27",
+                  "scope": 4013,
+                  "src": "589:16:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4420,
+                    "id": 4009,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "589:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "589:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -1074,17 +1074,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "588:18:27"
+              "src": "588:18:24"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4423,
+              "id": 4012,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "615:0:27"
+              "src": "615:0:24"
             },
-            "scope": 4433,
-            "src": "562:54:27",
+            "scope": 4022,
+            "src": "562:54:24",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
@@ -1092,36 +1092,36 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 4428,
+            "id": 4017,
             "name": "WorkerNodeCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 4427,
+              "id": 4016,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4426,
+                  "id": 4015,
                   "indexed": false,
                   "name": "workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4428,
-                  "src": "646:22:27",
+                  "scope": 4017,
+                  "src": "646:22:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4425,
+                    "id": 4014,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "646:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "646:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -1129,43 +1129,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "645:24:27"
+              "src": "645:24:24"
             },
-            "src": "622:48:27"
+            "src": "622:48:24"
           },
           {
             "anonymous": false,
             "documentation": null,
-            "id": 4432,
+            "id": 4021,
             "name": "WorkerNodeDestroyed",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 4431,
+              "id": 4020,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4430,
+                  "id": 4019,
                   "indexed": false,
                   "name": "workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4432,
-                  "src": "701:22:27",
+                  "scope": 4021,
+                  "src": "701:22:24",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                    "typeIdentifier": "t_contract$_IWorkerNode_$812",
                     "typeString": "contract IWorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 4429,
+                    "id": 4018,
                     "name": "IWorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1312,
-                    "src": "701:11:27",
+                    "referencedDeclaration": 812,
+                    "src": "701:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IWorkerNode_$1312",
+                      "typeIdentifier": "t_contract$_IWorkerNode_$812",
                       "typeString": "contract IWorkerNode"
                     }
                   },
@@ -1173,16 +1173,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "700:24:27"
+              "src": "700:24:24"
             },
-            "src": "675:50:27"
+            "src": "675:50:24"
           }
         ],
-        "scope": 4434,
-        "src": "111:616:27"
+        "scope": 4023,
+        "src": "111:616:24"
       }
     ],
-    "src": "0:728:27"
+    "src": "0:728:24"
   },
   "compiler": {
     "name": "solc",
@@ -1190,5 +1190,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.664Z"
+  "updatedAt": "2018-10-17T17:24:30.794Z"
 }

@@ -109,14 +109,14 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/factories/IWorkerNodeFactory.sol",
     "exportedSymbols": {
       "IWorkerNodeFactory": [
-        1933
+        1433
       ]
     },
-    "id": 1934,
+    "id": 1434,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1917,
+        "id": 1417,
         "literals": [
           "solidity",
           "^",
@@ -124,27 +124,27 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:19"
+        "src": "0:24:16"
       },
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 1918,
+        "id": 1418,
         "nodeType": "ImportDirective",
-        "scope": 1934,
-        "sourceUnit": 5051,
-        "src": "26:63:19",
+        "scope": 1434,
+        "sourceUnit": 4663,
+        "src": "26:63:16",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/nodes/WorkerNode.sol",
         "file": "../../nodes/WorkerNode.sol",
-        "id": 1919,
+        "id": 1419,
         "nodeType": "ImportDirective",
-        "scope": 1934,
-        "sourceUnit": 1822,
-        "src": "90:36:19",
+        "scope": 1434,
+        "sourceUnit": 1322,
+        "src": "90:36:16",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -154,31 +154,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1920,
+              "id": 1420,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
-              "src": "159:7:19",
+              "referencedDeclaration": 4662,
+              "src": "159:7:16",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$4662",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1921,
+            "id": 1421,
             "nodeType": "InheritanceSpecifier",
-            "src": "159:7:19"
+            "src": "159:7:16"
           }
         ],
         "contractDependencies": [
-          5050
+          4662
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1933,
+        "id": 1433,
         "linearizedBaseContracts": [
-          1933,
-          5050
+          1433,
+          4662
         ],
         "name": "IWorkerNodeFactory",
         "nodeType": "ContractDefinition",
@@ -186,21 +186,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1925,
+            "id": 1425,
             "name": "WorkerNodeOwner",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1924,
+              "id": 1424,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1923,
+                  "id": 1423,
                   "indexed": false,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1925,
-                  "src": "195:13:19",
+                  "scope": 1425,
+                  "src": "195:13:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -208,10 +208,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1922,
+                    "id": 1422,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "195:7:19",
+                    "src": "195:7:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -221,14 +221,14 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "194:15:19"
+              "src": "194:15:16"
             },
-            "src": "173:37:19"
+            "src": "173:37:16"
           },
           {
             "body": null,
             "documentation": "@dev Creates worker node contract for the main Pandora contract and does necessary preparations of it\n (transferring ownership). Can be called only by a Pandora contract (Pandora is the owner of the factory)",
-            "id": 1932,
+            "id": 1432,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -236,16 +236,16 @@
             "name": "create",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1928,
+              "id": 1428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1927,
+                  "id": 1427,
                   "name": "_nodeOwner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1932,
-                  "src": "464:18:19",
+                  "scope": 1432,
+                  "src": "464:18:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -253,10 +253,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1926,
+                    "id": 1426,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "464:7:19",
+                    "src": "464:7:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -266,35 +266,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "454:124:19"
+              "src": "454:124:16"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1931,
+              "id": 1431,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1930,
+                  "id": 1430,
                   "name": "o_workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1932,
-                  "src": "614:23:19",
+                  "scope": 1432,
+                  "src": "614:23:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_WorkerNode_$1821",
+                    "typeIdentifier": "t_contract$_WorkerNode_$1321",
                     "typeString": "contract WorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1929,
+                    "id": 1429,
                     "name": "WorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1821,
-                    "src": "614:10:19",
+                    "referencedDeclaration": 1321,
+                    "src": "614:10:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_WorkerNode_$1821",
+                      "typeIdentifier": "t_contract$_WorkerNode_$1321",
                       "typeString": "contract WorkerNode"
                     }
                   },
@@ -302,33 +302,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "604:78:19"
+              "src": "604:78:16"
             },
-            "scope": 1933,
-            "src": "439:244:19",
+            "scope": 1433,
+            "src": "439:244:16",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 1934,
-        "src": "128:557:19"
+        "scope": 1434,
+        "src": "128:557:16"
       }
     ],
-    "src": "0:686:19"
+    "src": "0:686:16"
   },
   "legacyAST": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/factories/IWorkerNodeFactory.sol",
     "exportedSymbols": {
       "IWorkerNodeFactory": [
-        1933
+        1433
       ]
     },
-    "id": 1934,
+    "id": 1434,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1917,
+        "id": 1417,
         "literals": [
           "solidity",
           "^",
@@ -336,27 +336,27 @@
           ".23"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:19"
+        "src": "0:24:16"
       },
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 1918,
+        "id": 1418,
         "nodeType": "ImportDirective",
-        "scope": 1934,
-        "sourceUnit": 5051,
-        "src": "26:63:19",
+        "scope": 1434,
+        "sourceUnit": 4663,
+        "src": "26:63:16",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/nodes/WorkerNode.sol",
         "file": "../../nodes/WorkerNode.sol",
-        "id": 1919,
+        "id": 1419,
         "nodeType": "ImportDirective",
-        "scope": 1934,
-        "sourceUnit": 1822,
-        "src": "90:36:19",
+        "scope": 1434,
+        "sourceUnit": 1322,
+        "src": "90:36:16",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -366,31 +366,31 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 1920,
+              "id": 1420,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
-              "src": "159:7:19",
+              "referencedDeclaration": 4662,
+              "src": "159:7:16",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$4662",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 1921,
+            "id": 1421,
             "nodeType": "InheritanceSpecifier",
-            "src": "159:7:19"
+            "src": "159:7:16"
           }
         ],
         "contractDependencies": [
-          5050
+          4662
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 1933,
+        "id": 1433,
         "linearizedBaseContracts": [
-          1933,
-          5050
+          1433,
+          4662
         ],
         "name": "IWorkerNodeFactory",
         "nodeType": "ContractDefinition",
@@ -398,21 +398,21 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 1925,
+            "id": 1425,
             "name": "WorkerNodeOwner",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1924,
+              "id": 1424,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1923,
+                  "id": 1423,
                   "indexed": false,
                   "name": "owner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1925,
-                  "src": "195:13:19",
+                  "scope": 1425,
+                  "src": "195:13:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -420,10 +420,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1922,
+                    "id": 1422,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "195:7:19",
+                    "src": "195:7:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -433,14 +433,14 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "194:15:19"
+              "src": "194:15:16"
             },
-            "src": "173:37:19"
+            "src": "173:37:16"
           },
           {
             "body": null,
             "documentation": "@dev Creates worker node contract for the main Pandora contract and does necessary preparations of it\n (transferring ownership). Can be called only by a Pandora contract (Pandora is the owner of the factory)",
-            "id": 1932,
+            "id": 1432,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -448,16 +448,16 @@
             "name": "create",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1928,
+              "id": 1428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1927,
+                  "id": 1427,
                   "name": "_nodeOwner",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1932,
-                  "src": "464:18:19",
+                  "scope": 1432,
+                  "src": "464:18:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -465,10 +465,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 1926,
+                    "id": 1426,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "464:7:19",
+                    "src": "464:7:16",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -478,35 +478,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "454:124:19"
+              "src": "454:124:16"
             },
             "payable": false,
             "returnParameters": {
-              "id": 1931,
+              "id": 1431,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1930,
+                  "id": 1430,
                   "name": "o_workerNode",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1932,
-                  "src": "614:23:19",
+                  "scope": 1432,
+                  "src": "614:23:16",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_WorkerNode_$1821",
+                    "typeIdentifier": "t_contract$_WorkerNode_$1321",
                     "typeString": "contract WorkerNode"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 1929,
+                    "id": 1429,
                     "name": "WorkerNode",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 1821,
-                    "src": "614:10:19",
+                    "referencedDeclaration": 1321,
+                    "src": "614:10:16",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_WorkerNode_$1821",
+                      "typeIdentifier": "t_contract$_WorkerNode_$1321",
                       "typeString": "contract WorkerNode"
                     }
                   },
@@ -514,20 +514,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "604:78:19"
+              "src": "604:78:16"
             },
-            "scope": 1933,
-            "src": "439:244:19",
+            "scope": 1433,
+            "src": "439:244:16",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 1934,
-        "src": "128:557:19"
+        "scope": 1434,
+        "src": "128:557:16"
       }
     ],
-    "src": "0:686:19"
+    "src": "0:686:16"
   },
   "compiler": {
     "name": "solc",
@@ -535,5 +535,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.658Z"
+  "updatedAt": "2018-10-17T17:24:30.790Z"
 }
