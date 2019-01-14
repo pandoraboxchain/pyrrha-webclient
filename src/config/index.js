@@ -5,8 +5,10 @@ const hosts = {
         port: 8545,
         reconnect: 5000,
         contracts: {
-            pandora: '0x9561c133dd8580860b6b7e504bc5aa500f0f06a7',
-            market: '0x2612af3a521c2df9eaf28422ca335b04adf3ac66'
+            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
+            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
+            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
+            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
         },
         ipfs: {
             protocol: 'http',
@@ -20,8 +22,10 @@ const hosts = {
         port: 8546,
         net: 4,
         contracts: {
-            pandora: '0xf23f45caa5c697c54d2e92ecbee48855233040e1',
-            market: '0xd1feab2687c6beea17d8c1f728aaf54aed5c0ea9'
+            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
+            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
+            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
+            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
         },
         ipfs: {
             protocol: 'http',
@@ -30,12 +34,14 @@ const hosts = {
         }
     },
     rikebyinfura: {
-        protocol: 'https',
-        host: 'rinkeby.infura.io/Llc2pOEtpgzvopBH8dst',
+        protocol: 'wss',
+        host: 'rinkeby.infura.io/ws',
         port: '',
         contracts: {
-            pandora: '0xf23f45caa5c697c54d2e92ecbee48855233040e1',
-            market: '0xd1feab2687c6beea17d8c1f728aaf54aed5c0ea9'
+            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
+            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
+            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
+            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
         },
         ipfs: {
             protocol: 'http',
@@ -60,7 +66,9 @@ export default {
     ipfsProtocol: process.env.REACT_APP_IPFS_PROTOCOL || config.ipfs.protocol,
     ipfsHost: process.env.REACT_APP_IPFS_HOST || config.ipfs.host,
     ipfsPort: process.env.REACT_APP_IPFS_PORT || config.ipfs.port,
-    pandoraAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pandora,
+    panAddress: process.env.REACT_APP_PAN_ADDRESS || config.contracts.pan,
+    economicAddress: process.env.REACT_APP_ECO_ADDRESS || config.contracts.economic,
+    pandoraAddress: process.env.REACT_APP_PANDORA_ADDRESS || config.contracts.pandora,
     marketAddress: process.env.REACT_APP_MARKET_ADDRESS || config.contracts.market,
     reconnect: process.env.REACT_APP_WEB3_RECONNECT_TIMEOUT || config.reconnect    
 };

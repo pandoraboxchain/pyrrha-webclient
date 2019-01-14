@@ -1,12 +1,13 @@
 {
   "name": "pyrrha-webclient",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Webclient for Pyrrha",
   "author": "Kostiantyn Smyrnov <kostysh@gmail.com>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sync:abis": "npx rimraf ./src/pyrrha-consensus && cp -R ./pyrrha-consensus/build/contracts ./src/pyrrha-consensus",
     "start": "npm run sync:abis && BROWSER=none npx react-app-rewired start",
+    "start:rikebyinfura": "npm run sync:abis && BROWSER=none REACT_APP_USE_HOST=rikebyinfura npx react-app-rewired start",
     "start:local": "npm run sync:abis && BROWSER=none REACT_APP_USE_HOST=default npx react-app-rewired start",
     "build:app": "npx react-app-rewired build",
     "build:docker": "docker-compose build --no-cache",
@@ -22,7 +23,7 @@
   },
   "homepage": "http://client.pandora.network",
   "dependencies": {
-    "@babel/polyfill": "7.0.0",
+    "@babel/polyfill": "7.2.5",
     "history": "4.7.2",
     "prop-types": "15.6.2",
     "react": "16.4.2",
@@ -34,19 +35,19 @@
     "redux": "4.0.0",
     "redux-persist": "5.10.0",
     "redux-saga": "0.16.0",
-    "reselect": "3.0.1",
-    "semantic-ui-css": "2.3.3",
-    "semantic-ui-react": "0.82.1",
-    "pyrrha-js": "https://github.com/pandoraboxchain/pyrrha-js.git#v1.8.0"
+    "reselect": "4.0.0",
+    "semantic-ui-css": "2.4.1",
+    "semantic-ui-react": "0.84.0",
+    "pyrrha-js": "https://github.com/pandoraboxchain/pyrrha-js.git#v1.8.2"
   },
   "devDependencies": {
-    "node-sass-chokidar": "1.3.3",
-    "react-app-rewired": "2.0.0",
-    "react-scripts": "2.0.0-next.a671462c",
-    "rimraf": "2.6.2",
+    "node-sass-chokidar": "1.3.4",
+    "react-app-rewired": "2.0.2",
+    "react-scripts": "2.1.3",
+    "rimraf": "2.6.3",
     "sass-loader": "7.1.0",
-    "solhint": "1.2.1",
-    "style-loader": "0.23.0"
+    "solhint": "1.5.0",
+    "style-loader": "0.23.1"
   },
   "keywords": [
     "pandoraboxchain",

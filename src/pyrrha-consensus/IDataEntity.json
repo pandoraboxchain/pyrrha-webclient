@@ -27,6 +27,20 @@
     {
       "constant": true,
       "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
       "name": "currentPrice",
       "outputs": [
         {
@@ -70,7 +84,7 @@
       "constant": false,
       "inputs": [
         {
-          "name": "_newOwner",
+          "name": "newOwner",
           "type": "address"
         }
       ],
@@ -95,18 +109,6 @@
         }
       ],
       "name": "PriceUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "previousOwner",
-          "type": "address"
-        }
-      ],
-      "name": "OwnershipRenounced",
       "type": "event"
     },
     {
@@ -154,25 +156,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.23;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract IDataEntity is Ownable {\n    bytes public ipfsAddress;\n    uint256 public dataDim;\n    uint256 public currentPrice;\n\n    function updatePrice(uint256 newPrice) external;\n    function withdrawBalance() external;\n\n    event PriceUpdated(uint256 oldPrice, uint256 newPrice);\n}\n",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract IDataEntity is Ownable {\n    bytes public ipfsAddress;\n    uint256 public dataDim;\n    uint256 public currentPrice;\n\n    function updatePrice(uint256 newPrice) external;\n    function withdrawBalance() external;\n\n    event PriceUpdated(uint256 oldPrice, uint256 newPrice);\n}\n",
   "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
   "ast": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
     "exportedSymbols": {
       "IDataEntity": [
-        630
+        635
       ]
     },
-    "id": 631,
+    "id": 636,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 606,
+        "id": 611,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
@@ -180,10 +182,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 607,
+        "id": 612,
         "nodeType": "ImportDirective",
-        "scope": 631,
-        "sourceUnit": 5051,
+        "scope": 636,
+        "sourceUnit": 7434,
         "src": "26:63:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -194,41 +196,41 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 608,
+              "id": 613,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
+              "referencedDeclaration": 7433,
               "src": "115:7:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$7433",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 609,
+            "id": 614,
             "nodeType": "InheritanceSpecifier",
             "src": "115:7:5"
           }
         ],
         "contractDependencies": [
-          5050
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 630,
+        "id": 635,
         "linearizedBaseContracts": [
-          630,
-          5050
+          635,
+          7433
         ],
         "name": "IDataEntity",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 611,
+            "id": 616,
             "name": "ipfsAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "129:24:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -237,7 +239,7 @@
               "typeString": "bytes"
             },
             "typeName": {
-              "id": 610,
+              "id": 615,
               "name": "bytes",
               "nodeType": "ElementaryTypeName",
               "src": "129:5:5",
@@ -251,10 +253,10 @@
           },
           {
             "constant": false,
-            "id": 613,
+            "id": 618,
             "name": "dataDim",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "159:22:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -263,7 +265,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 612,
+              "id": 617,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "159:7:5",
@@ -277,10 +279,10 @@
           },
           {
             "constant": false,
-            "id": 615,
+            "id": 620,
             "name": "currentPrice",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "187:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -289,7 +291,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 614,
+              "id": 619,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "187:7:5",
@@ -304,7 +306,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 620,
+            "id": 625,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -312,15 +314,15 @@
             "name": "updatePrice",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 618,
+              "id": 623,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 617,
+                  "id": 622,
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 620,
+                  "scope": 625,
                   "src": "242:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -329,7 +331,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 616,
+                    "id": 621,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "242:7:5",
@@ -346,12 +348,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 619,
+              "id": 624,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "268:0:5"
             },
-            "scope": 630,
+            "scope": 635,
             "src": "221:48:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -360,7 +362,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 623,
+            "id": 628,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -368,19 +370,19 @@
             "name": "withdrawBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 621,
+              "id": 626,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "298:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 622,
+              "id": 627,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "309:0:5"
             },
-            "scope": 630,
+            "scope": 635,
             "src": "274:36:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -389,20 +391,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 629,
+            "id": 634,
             "name": "PriceUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 628,
+              "id": 633,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 625,
+                  "id": 630,
                   "indexed": false,
                   "name": "oldPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 629,
+                  "scope": 634,
                   "src": "335:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -411,7 +413,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 624,
+                    "id": 629,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "335:7:5",
@@ -425,11 +427,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 627,
+                  "id": 632,
                   "indexed": false,
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 629,
+                  "scope": 634,
                   "src": "353:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -438,7 +440,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 626,
+                    "id": 631,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:7:5",
@@ -456,7 +458,7 @@
             "src": "316:55:5"
           }
         ],
-        "scope": 631,
+        "scope": 636,
         "src": "91:282:5"
       }
     ],
@@ -466,19 +468,19 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
     "exportedSymbols": {
       "IDataEntity": [
-        630
+        635
       ]
     },
-    "id": 631,
+    "id": 636,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 606,
+        "id": 611,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:5"
@@ -486,10 +488,10 @@
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 607,
+        "id": 612,
         "nodeType": "ImportDirective",
-        "scope": 631,
-        "sourceUnit": 5051,
+        "scope": 636,
+        "sourceUnit": 7434,
         "src": "26:63:5",
         "symbolAliases": [],
         "unitAlias": ""
@@ -500,41 +502,41 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 608,
+              "id": 613,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
+              "referencedDeclaration": 7433,
               "src": "115:7:5",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$7433",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 609,
+            "id": 614,
             "nodeType": "InheritanceSpecifier",
             "src": "115:7:5"
           }
         ],
         "contractDependencies": [
-          5050
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 630,
+        "id": 635,
         "linearizedBaseContracts": [
-          630,
-          5050
+          635,
+          7433
         ],
         "name": "IDataEntity",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 611,
+            "id": 616,
             "name": "ipfsAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "129:24:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -543,7 +545,7 @@
               "typeString": "bytes"
             },
             "typeName": {
-              "id": 610,
+              "id": 615,
               "name": "bytes",
               "nodeType": "ElementaryTypeName",
               "src": "129:5:5",
@@ -557,10 +559,10 @@
           },
           {
             "constant": false,
-            "id": 613,
+            "id": 618,
             "name": "dataDim",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "159:22:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -569,7 +571,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 612,
+              "id": 617,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "159:7:5",
@@ -583,10 +585,10 @@
           },
           {
             "constant": false,
-            "id": 615,
+            "id": 620,
             "name": "currentPrice",
             "nodeType": "VariableDeclaration",
-            "scope": 630,
+            "scope": 635,
             "src": "187:27:5",
             "stateVariable": true,
             "storageLocation": "default",
@@ -595,7 +597,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 614,
+              "id": 619,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "187:7:5",
@@ -610,7 +612,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 620,
+            "id": 625,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -618,15 +620,15 @@
             "name": "updatePrice",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 618,
+              "id": 623,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 617,
+                  "id": 622,
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 620,
+                  "scope": 625,
                   "src": "242:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -635,7 +637,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 616,
+                    "id": 621,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "242:7:5",
@@ -652,12 +654,12 @@
             },
             "payable": false,
             "returnParameters": {
-              "id": 619,
+              "id": 624,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "268:0:5"
             },
-            "scope": 630,
+            "scope": 635,
             "src": "221:48:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -666,7 +668,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 623,
+            "id": 628,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -674,19 +676,19 @@
             "name": "withdrawBalance",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 621,
+              "id": 626,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "298:2:5"
             },
             "payable": false,
             "returnParameters": {
-              "id": 622,
+              "id": 627,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "309:0:5"
             },
-            "scope": 630,
+            "scope": 635,
             "src": "274:36:5",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -695,20 +697,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 629,
+            "id": 634,
             "name": "PriceUpdated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 628,
+              "id": 633,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 625,
+                  "id": 630,
                   "indexed": false,
                   "name": "oldPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 629,
+                  "scope": 634,
                   "src": "335:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -717,7 +719,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 624,
+                    "id": 629,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "335:7:5",
@@ -731,11 +733,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 627,
+                  "id": 632,
                   "indexed": false,
                   "name": "newPrice",
                   "nodeType": "VariableDeclaration",
-                  "scope": 629,
+                  "scope": 634,
                   "src": "353:16:5",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -744,7 +746,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 626,
+                    "id": 631,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "353:7:5",
@@ -762,7 +764,7 @@
             "src": "316:55:5"
           }
         ],
-        "scope": 631,
+        "scope": 636,
         "src": "91:282:5"
       }
     ],
@@ -774,5 +776,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.648Z"
+  "updatedAt": "2019-01-11T15:27:33.201Z"
 }

@@ -37,25 +37,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.23;\n\n\ncontract IStateMachine {\n\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
+  "source": "pragma solidity ^0.4.24;\n\n\ncontract IStateMachine {\n\n    function currentState() public view returns (uint8);\n\n    event StateChanged(uint8 oldState, uint8 newState);\n}",
   "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
   "ast": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
     "exportedSymbols": {
       "IStateMachine": [
-        708
+        713
       ]
     },
-    "id": 709,
+    "id": 714,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 696,
+        "id": 701,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:9"
@@ -66,9 +66,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 708,
+        "id": 713,
         "linearizedBaseContracts": [
-          708
+          713
         ],
         "name": "IStateMachine",
         "nodeType": "ContractDefinition",
@@ -76,7 +76,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 701,
+            "id": 706,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -84,22 +84,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 697,
+              "id": 702,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "78:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 700,
+              "id": 705,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 699,
+                  "id": 704,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
+                  "scope": 706,
                   "src": "102:5:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -108,7 +108,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 698,
+                    "id": 703,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "102:5:9",
@@ -123,7 +123,7 @@
               ],
               "src": "101:7:9"
             },
-            "scope": 708,
+            "scope": 713,
             "src": "57:52:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -132,20 +132,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 707,
+            "id": 712,
             "name": "StateChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 706,
+              "id": 711,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 703,
+                  "id": 708,
                   "indexed": false,
                   "name": "oldState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 707,
+                  "scope": 712,
                   "src": "134:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -154,7 +154,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 702,
+                    "id": 707,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "134:5:9",
@@ -168,11 +168,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 705,
+                  "id": 710,
                   "indexed": false,
                   "name": "newState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 707,
+                  "scope": 712,
                   "src": "150:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -181,7 +181,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 704,
+                    "id": 709,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "150:5:9",
@@ -199,7 +199,7 @@
             "src": "115:51:9"
           }
         ],
-        "scope": 709,
+        "scope": 714,
         "src": "27:141:9"
       }
     ],
@@ -209,19 +209,19 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/libraries/IStateMachine.sol",
     "exportedSymbols": {
       "IStateMachine": [
-        708
+        713
       ]
     },
-    "id": 709,
+    "id": 714,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 696,
+        "id": 701,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:9"
@@ -232,9 +232,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 708,
+        "id": 713,
         "linearizedBaseContracts": [
-          708
+          713
         ],
         "name": "IStateMachine",
         "nodeType": "ContractDefinition",
@@ -242,7 +242,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 701,
+            "id": 706,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -250,22 +250,22 @@
             "name": "currentState",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 697,
+              "id": 702,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "78:2:9"
             },
             "payable": false,
             "returnParameters": {
-              "id": 700,
+              "id": 705,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 699,
+                  "id": 704,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 701,
+                  "scope": 706,
                   "src": "102:5:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -274,7 +274,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 698,
+                    "id": 703,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "102:5:9",
@@ -289,7 +289,7 @@
               ],
               "src": "101:7:9"
             },
-            "scope": 708,
+            "scope": 713,
             "src": "57:52:9",
             "stateMutability": "view",
             "superFunction": null,
@@ -298,20 +298,20 @@
           {
             "anonymous": false,
             "documentation": null,
-            "id": 707,
+            "id": 712,
             "name": "StateChanged",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 706,
+              "id": 711,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 703,
+                  "id": 708,
                   "indexed": false,
                   "name": "oldState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 707,
+                  "scope": 712,
                   "src": "134:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -320,7 +320,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 702,
+                    "id": 707,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "134:5:9",
@@ -334,11 +334,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 705,
+                  "id": 710,
                   "indexed": false,
                   "name": "newState",
                   "nodeType": "VariableDeclaration",
-                  "scope": 707,
+                  "scope": 712,
                   "src": "150:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -347,7 +347,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 704,
+                    "id": 709,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "150:5:9",
@@ -365,7 +365,7 @@
             "src": "115:51:9"
           }
         ],
-        "scope": 709,
+        "scope": 714,
         "src": "27:141:9"
       }
     ],
@@ -377,5 +377,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.648Z"
+  "updatedAt": "2019-01-11T15:27:33.200Z"
 }

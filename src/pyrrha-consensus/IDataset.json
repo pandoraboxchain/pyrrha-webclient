@@ -64,6 +64,20 @@
     {
       "constant": true,
       "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
       "name": "currentPrice",
       "outputs": [
         {
@@ -107,7 +121,7 @@
       "constant": false,
       "inputs": [
         {
-          "name": "_newOwner",
+          "name": "newOwner",
           "type": "address"
         }
       ],
@@ -141,18 +155,6 @@
           "indexed": true,
           "name": "previousOwner",
           "type": "address"
-        }
-      ],
-      "name": "OwnershipRenounced",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "previousOwner",
-          "type": "address"
         },
         {
           "indexed": true,
@@ -168,25 +170,25 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.23;\n\nimport \"./IDataEntity.sol\";\n\ncontract IDataset is IDataEntity {\n    uint8 public batchesCount;\n}\n",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"./IDataEntity.sol\";\n\ncontract IDataset is IDataEntity {\n    uint8 public batchesCount;\n}\n",
   "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataset.sol",
   "ast": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataset.sol",
     "exportedSymbols": {
       "IDataset": [
-        638
+        643
       ]
     },
-    "id": 639,
+    "id": 644,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 632,
+        "id": 637,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:6"
@@ -194,10 +196,10 @@
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
         "file": "./IDataEntity.sol",
-        "id": 633,
+        "id": 638,
         "nodeType": "ImportDirective",
-        "scope": 639,
-        "sourceUnit": 631,
+        "scope": 644,
+        "sourceUnit": 636,
         "src": "26:27:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -208,43 +210,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 634,
+              "id": 639,
               "name": "IDataEntity",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 630,
+              "referencedDeclaration": 635,
               "src": "76:11:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IDataEntity_$630",
+                "typeIdentifier": "t_contract$_IDataEntity_$635",
                 "typeString": "contract IDataEntity"
               }
             },
-            "id": 635,
+            "id": 640,
             "nodeType": "InheritanceSpecifier",
             "src": "76:11:6"
           }
         ],
         "contractDependencies": [
-          630,
-          5050
+          635,
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 638,
+        "id": 643,
         "linearizedBaseContracts": [
-          638,
-          630,
-          5050
+          643,
+          635,
+          7433
         ],
         "name": "IDataset",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 637,
+            "id": 642,
             "name": "batchesCount",
             "nodeType": "VariableDeclaration",
-            "scope": 638,
+            "scope": 643,
             "src": "94:25:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -253,7 +255,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 636,
+              "id": 641,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "94:5:6",
@@ -266,7 +268,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 639,
+        "scope": 644,
         "src": "55:67:6"
       }
     ],
@@ -276,19 +278,19 @@
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataset.sol",
     "exportedSymbols": {
       "IDataset": [
-        638
+        643
       ]
     },
-    "id": 639,
+    "id": 644,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 632,
+        "id": 637,
         "literals": [
           "solidity",
           "^",
           "0.4",
-          ".23"
+          ".24"
         ],
         "nodeType": "PragmaDirective",
         "src": "0:24:6"
@@ -296,10 +298,10 @@
       {
         "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/entities/IDataEntity.sol",
         "file": "./IDataEntity.sol",
-        "id": 633,
+        "id": 638,
         "nodeType": "ImportDirective",
-        "scope": 639,
-        "sourceUnit": 631,
+        "scope": 644,
+        "sourceUnit": 636,
         "src": "26:27:6",
         "symbolAliases": [],
         "unitAlias": ""
@@ -310,43 +312,43 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 634,
+              "id": 639,
               "name": "IDataEntity",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 630,
+              "referencedDeclaration": 635,
               "src": "76:11:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IDataEntity_$630",
+                "typeIdentifier": "t_contract$_IDataEntity_$635",
                 "typeString": "contract IDataEntity"
               }
             },
-            "id": 635,
+            "id": 640,
             "nodeType": "InheritanceSpecifier",
             "src": "76:11:6"
           }
         ],
         "contractDependencies": [
-          630,
-          5050
+          635,
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 638,
+        "id": 643,
         "linearizedBaseContracts": [
-          638,
-          630,
-          5050
+          643,
+          635,
+          7433
         ],
         "name": "IDataset",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 637,
+            "id": 642,
             "name": "batchesCount",
             "nodeType": "VariableDeclaration",
-            "scope": 638,
+            "scope": 643,
             "src": "94:25:6",
             "stateVariable": true,
             "storageLocation": "default",
@@ -355,7 +357,7 @@
               "typeString": "uint8"
             },
             "typeName": {
-              "id": 636,
+              "id": 641,
               "name": "uint8",
               "nodeType": "ElementaryTypeName",
               "src": "94:5:6",
@@ -368,7 +370,7 @@
             "visibility": "public"
           }
         ],
-        "scope": 639,
+        "scope": 644,
         "src": "55:67:6"
       }
     ],
@@ -380,5 +382,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.648Z"
+  "updatedAt": "2019-01-11T15:27:33.199Z"
 }

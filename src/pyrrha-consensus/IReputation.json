@@ -44,10 +44,24 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
-          "name": "_newOwner",
+          "name": "newOwner",
           "type": "address"
         }
       ],
@@ -56,18 +70,6 @@
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "name": "previousOwner",
-          "type": "address"
-        }
-      ],
-      "name": "OwnershipRenounced",
-      "type": "event"
     },
     {
       "anonymous": false,
@@ -127,20 +129,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract IReputation is Ownable {\n    mapping(address => uint256) public values;\n\n    function incrReputation(address account, uint256 amount) public;\n\n    function decrReputation(address account, uint256 amount) public;\n}\n",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"openzeppelin-solidity/contracts/ownership/Ownable.sol\";\n\ncontract IReputation is Ownable {\n\n    mapping(address => uint256) public values;\n\n    function incrReputation(address account, uint256 amount) public;\n\n    function decrReputation(address account, uint256 amount) public;\n}\n",
   "sourcePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/token/IReputation.sol",
   "ast": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/token/IReputation.sol",
     "exportedSymbols": {
       "IReputation": [
-        4744
+        6794
       ]
     },
-    "id": 4745,
+    "id": 6795,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4722,
+        "id": 6772,
         "literals": [
           "solidity",
           "^",
@@ -148,16 +150,16 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:29"
+        "src": "0:24:33"
       },
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 4723,
+        "id": 6773,
         "nodeType": "ImportDirective",
-        "scope": 4745,
-        "sourceUnit": 5051,
-        "src": "26:63:29",
+        "scope": 6795,
+        "sourceUnit": 7434,
+        "src": "26:63:33",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -167,42 +169,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 4724,
+              "id": 6774,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
-              "src": "115:7:29",
+              "referencedDeclaration": 7433,
+              "src": "115:7:33",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$7433",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 4725,
+            "id": 6775,
             "nodeType": "InheritanceSpecifier",
-            "src": "115:7:29"
+            "src": "115:7:33"
           }
         ],
         "contractDependencies": [
-          5050
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4744,
+        "id": 6794,
         "linearizedBaseContracts": [
-          4744,
-          5050
+          6794,
+          7433
         ],
         "name": "IReputation",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 4729,
+            "id": 6779,
             "name": "values",
             "nodeType": "VariableDeclaration",
-            "scope": 4744,
-            "src": "129:41:29",
+            "scope": 6794,
+            "src": "130:41:33",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -210,28 +212,28 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 4728,
+              "id": 6778,
               "keyType": {
-                "id": 4726,
+                "id": 6776,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "137:7:29",
+                "src": "138:7:33",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "129:27:29",
+              "src": "130:27:33",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 4727,
+                "id": 6777,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "148:7:29",
+                "src": "149:7:33",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
@@ -244,7 +246,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4736,
+            "id": 6786,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -252,16 +254,16 @@
             "name": "incrReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4734,
+              "id": 6784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4731,
+                  "id": 6781,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4736,
-                  "src": "201:15:29",
+                  "scope": 6786,
+                  "src": "202:15:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -269,10 +271,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4730,
+                    "id": 6780,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "201:7:29",
+                    "src": "202:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -283,11 +285,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4733,
+                  "id": 6783,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4736,
-                  "src": "218:14:29",
+                  "scope": 6786,
+                  "src": "219:14:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -295,10 +297,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4732,
+                    "id": 6782,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "218:7:29",
+                    "src": "219:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -308,17 +310,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "200:33:29"
+              "src": "201:33:33"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4735,
+              "id": 6785,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "240:0:29"
+              "src": "241:0:33"
             },
-            "scope": 4744,
-            "src": "177:64:29",
+            "scope": 6794,
+            "src": "178:64:33",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -326,7 +328,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4743,
+            "id": 6793,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -334,16 +336,16 @@
             "name": "decrReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4741,
+              "id": 6791,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4738,
+                  "id": 6788,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4743,
-                  "src": "271:15:29",
+                  "scope": 6793,
+                  "src": "272:15:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -351,10 +353,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4737,
+                    "id": 6787,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "271:7:29",
+                    "src": "272:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -365,11 +367,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4740,
+                  "id": 6790,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4743,
-                  "src": "288:14:29",
+                  "scope": 6793,
+                  "src": "289:14:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -377,10 +379,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4739,
+                    "id": 6789,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "288:7:29",
+                    "src": "289:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -390,40 +392,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "270:33:29"
+              "src": "271:33:33"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4742,
+              "id": 6792,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "310:0:29"
+              "src": "311:0:33"
             },
-            "scope": 4744,
-            "src": "247:64:29",
+            "scope": 6794,
+            "src": "248:64:33",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4745,
-        "src": "91:222:29"
+        "scope": 6795,
+        "src": "91:223:33"
       }
     ],
-    "src": "0:314:29"
+    "src": "0:315:33"
   },
   "legacyAST": {
     "absolutePath": "/home/kostysh/dev/pyrrha-consensus/contracts/pandora/token/IReputation.sol",
     "exportedSymbols": {
       "IReputation": [
-        4744
+        6794
       ]
     },
-    "id": 4745,
+    "id": 6795,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4722,
+        "id": 6772,
         "literals": [
           "solidity",
           "^",
@@ -431,16 +433,16 @@
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:24:29"
+        "src": "0:24:33"
       },
       {
         "absolutePath": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
         "file": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
-        "id": 4723,
+        "id": 6773,
         "nodeType": "ImportDirective",
-        "scope": 4745,
-        "sourceUnit": 5051,
-        "src": "26:63:29",
+        "scope": 6795,
+        "sourceUnit": 7434,
+        "src": "26:63:33",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -450,42 +452,42 @@
             "arguments": null,
             "baseName": {
               "contractScope": null,
-              "id": 4724,
+              "id": 6774,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 5050,
-              "src": "115:7:29",
+              "referencedDeclaration": 7433,
+              "src": "115:7:33",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$5050",
+                "typeIdentifier": "t_contract$_Ownable_$7433",
                 "typeString": "contract Ownable"
               }
             },
-            "id": 4725,
+            "id": 6775,
             "nodeType": "InheritanceSpecifier",
-            "src": "115:7:29"
+            "src": "115:7:33"
           }
         ],
         "contractDependencies": [
-          5050
+          7433
         ],
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 4744,
+        "id": 6794,
         "linearizedBaseContracts": [
-          4744,
-          5050
+          6794,
+          7433
         ],
         "name": "IReputation",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 4729,
+            "id": 6779,
             "name": "values",
             "nodeType": "VariableDeclaration",
-            "scope": 4744,
-            "src": "129:41:29",
+            "scope": 6794,
+            "src": "130:41:33",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -493,28 +495,28 @@
               "typeString": "mapping(address => uint256)"
             },
             "typeName": {
-              "id": 4728,
+              "id": 6778,
               "keyType": {
-                "id": 4726,
+                "id": 6776,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "137:7:29",
+                "src": "138:7:33",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "129:27:29",
+              "src": "130:27:33",
               "typeDescriptions": {
                 "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
                 "typeString": "mapping(address => uint256)"
               },
               "valueType": {
-                "id": 4727,
+                "id": 6777,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "148:7:29",
+                "src": "149:7:33",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
@@ -527,7 +529,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4736,
+            "id": 6786,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -535,16 +537,16 @@
             "name": "incrReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4734,
+              "id": 6784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4731,
+                  "id": 6781,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4736,
-                  "src": "201:15:29",
+                  "scope": 6786,
+                  "src": "202:15:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -552,10 +554,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4730,
+                    "id": 6780,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "201:7:29",
+                    "src": "202:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -566,11 +568,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4733,
+                  "id": 6783,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4736,
-                  "src": "218:14:29",
+                  "scope": 6786,
+                  "src": "219:14:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -578,10 +580,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4732,
+                    "id": 6782,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "218:7:29",
+                    "src": "219:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -591,17 +593,17 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "200:33:29"
+              "src": "201:33:33"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4735,
+              "id": 6785,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "240:0:29"
+              "src": "241:0:33"
             },
-            "scope": 4744,
-            "src": "177:64:29",
+            "scope": 6794,
+            "src": "178:64:33",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
@@ -609,7 +611,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 4743,
+            "id": 6793,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -617,16 +619,16 @@
             "name": "decrReputation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4741,
+              "id": 6791,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4738,
+                  "id": 6788,
                   "name": "account",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4743,
-                  "src": "271:15:29",
+                  "scope": 6793,
+                  "src": "272:15:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -634,10 +636,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4737,
+                    "id": 6787,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "271:7:29",
+                    "src": "272:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -648,11 +650,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 4740,
+                  "id": 6790,
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4743,
-                  "src": "288:14:29",
+                  "scope": 6793,
+                  "src": "289:14:33",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -660,10 +662,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4739,
+                    "id": 6789,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "288:7:29",
+                    "src": "289:7:33",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -673,27 +675,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "270:33:29"
+              "src": "271:33:33"
             },
             "payable": false,
             "returnParameters": {
-              "id": 4742,
+              "id": 6792,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "310:0:29"
+              "src": "311:0:33"
             },
-            "scope": 4744,
-            "src": "247:64:29",
+            "scope": 6794,
+            "src": "248:64:33",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 4745,
-        "src": "91:222:29"
+        "scope": 6795,
+        "src": "91:223:33"
       }
     ],
-    "src": "0:314:29"
+    "src": "0:315:33"
   },
   "compiler": {
     "name": "solc",
@@ -701,5 +703,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-07-24T18:49:05.669Z"
+  "updatedAt": "2019-01-11T15:27:33.202Z"
 }

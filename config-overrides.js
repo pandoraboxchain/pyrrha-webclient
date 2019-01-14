@@ -1,8 +1,16 @@
-const rewired = require('react-app-rewired');
+const getLoader = function (rules, matcher) {
+    var loader;
+
+    rules.some(rule => {
+        return loader = matcher(rule) ? rule : getLoader(rule.use || rule.oneOf || [], matcher);
+    });
+
+    return loader;
+};
 
 function rewireSass(config) {
 
-    const cssLoader = rewired.getLoader(
+    const cssLoader = getLoader(
         config.module.rules,
         rule => rule.test && String(rule.test) === String(/\.css$/)
     );
