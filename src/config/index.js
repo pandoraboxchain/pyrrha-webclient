@@ -5,8 +5,8 @@ const hosts = {
         port: 4445,
         reconnect: 5000,
         contracts: {
-            pandora: '0x5c86aa41d803b60cca6c114645d341c23b0cbac5',
-            market: '0xbb7b9caf771015279e04197c09e08703a9353b6f'
+            pandora: '',
+            market: ''
         },
         ipfs: {
             protocol: 'http',
@@ -20,8 +20,8 @@ const hosts = {
         port: 8546,
         net: 4,
         contracts: {
-            pandora: '0xf23f45caa5c697c54d2e92ecbee48855233040e1',
-            market: '0xd1feab2687c6beea17d8c1f728aaf54aed5c0ea9'
+            pandora: '',
+            market: ''
         },
         ipfs: {
             protocol: 'http',
@@ -34,8 +34,23 @@ const hosts = {
         host: 'rinkeby.infura.io/Llc2pOEtpgzvopBH8dst',
         port: '',
         contracts: {
-            pandora: '0xf23f45caa5c697c54d2e92ecbee48855233040e1',
-            market: '0xd1feab2687c6beea17d8c1f728aaf54aed5c0ea9'
+            pandora: '',
+            market: ''
+        },
+        ipfs: {
+            protocol: 'http',
+            host: 'ipfs.pandora.network',
+            port: 5001
+        }
+    },
+    rsktest: {
+        protocol: 'ws',
+        host: 'public-node.testnet.rsk.co',
+        port: 4445,
+        net: 31,
+        contracts: {
+            pandora: '0xcdca0f85f696a8a8d70a6ecd74236690548bf44b',
+            market: '0x55da07dbb7c76cb6be03f6ab6669626a83ec250d'
         },
         ipfs: {
             protocol: 'http',
@@ -45,7 +60,7 @@ const hosts = {
     }
 };
 
-let defaultHost = process.env.REACT_APP_USE_HOST || 'rinkeby';
+let defaultHost = process.env.REACT_APP_USE_HOST || 'rsktest';
 
 const config = {
     ...hosts.default,
