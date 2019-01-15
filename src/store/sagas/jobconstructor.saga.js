@@ -1,5 +1,6 @@
 import { call, put, fork, select, takeLatest } from 'redux-saga/effects';
 import { maxBatchesCount } from '../../config/constants'
+import config from '../../config';
 
 import * as utils from '../../utils';
 import * as models from '../models';
@@ -57,6 +58,22 @@ function* constructJob() {
             yield put(actions.jobConstructorFailure(`Deposit value should be more then 10 finney (0.5 ETH). Currently set: ${deposit}`));
             return;
         }
+
+        const panBalance = yield pjs.pan.balanceOf(publisher);
+        const maxWorkernNodePrice = yield pjs.pandora.getMaximumWorkerPrice();
+        const totalJobPrice = kernelObj.currentPrice + datasetObj.currentPrice + maxWorkernNodePrice * datasetObj.batchesCount;
+
+        yield put(actions.jobConstructorStatusMessageDismiss());
+        // PAN token balance should be at least: dataset.currentPrice + kernel.currentPrice + maxWorkernNodePrice * batchesCount
+        if (panBalance < totalJobPrice) {
+
+            yield put(actions.jobConstructorFailure(`Your PAN token balance (${panBalance}) 
+                is less than the minimally required amount of funds to create a job (${totalJobPrice})`));
+            return;
+        }
+
+        // Approve spending of tokens for the economicController
+        yield pjs.pan.approve(publisher, config.economicAddress, totalJobPrice);
 
         yield put(actions.addJobConstructorStatusMessage('Creating of the cognitive job. You should confirm this transaction with Metamask'));
         const jobId = yield pjs.jobs.create({ jobType, kernel, dataset, complexity, description, deposit }, publisher);
