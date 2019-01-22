@@ -2,6 +2,8 @@ import config from '../config';
 import Pjs from 'pyrrha-js';
 
 // Contracts APIs
+const Pan = require('../pyrrha-consensus/Pan.json');
+const EconomicController = require('../pyrrha-consensus/EconomicController.json');
 const Pandora = require('../pyrrha-consensus/Pandora.json');
 const PandoraMarket = require('../pyrrha-consensus/PandoraMarket.json');
 const WorkerNode = require('../pyrrha-consensus/WorkerNode.json');
@@ -29,6 +31,8 @@ export const initPjs = () => {
             port: config.ipfsPort
         },
         contracts: {
+            Pan,
+            EconomicController,
             Pandora,
             PandoraMarket,
             WorkerNode,
@@ -38,7 +42,9 @@ export const initPjs = () => {
         },
         addresses: {
             Pandora: config.pandoraAddress,
-            PandoraMarket: config.marketAddress
+            PandoraMarket: config.marketAddress,
+            Pan: config.panAddress,
+            EconomicController: config.economicAddress
         }
     });
 };

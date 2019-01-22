@@ -21,6 +21,7 @@ const hosts = {
         host: 'rinkeby.pandora.network',
         port: 8546,
         net: 4,
+        reconnect: 5000,
         contracts: {
             pan: '0xa40600efcb9b69003757fb196304858f989888a1',
             economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
@@ -37,6 +38,7 @@ const hosts = {
         protocol: 'wss',
         host: 'rinkeby.infura.io/ws',
         port: '',
+        reconnect: 5000,
         contracts: {
             pan: '0xa40600efcb9b69003757fb196304858f989888a1',
             economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
@@ -51,7 +53,7 @@ const hosts = {
     }
 };
 
-let defaultHost = process.env.REACT_APP_USE_HOST || 'rinkeby';
+let defaultHost = process.env.REACT_APP_USE_HOST || 'rikebyinfura';
 
 const config = {
     ...hosts.default,
