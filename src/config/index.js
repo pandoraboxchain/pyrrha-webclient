@@ -5,10 +5,10 @@ const hosts = {
         port: 8545,
         reconnect: 5000,
         contracts: {
-            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
-            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
-            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
-            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
+            pan: '0x49e429ec1199d077b1f2ae8b6100b220f56401ef',
+            economic: '0xf70a24b04e6b59eb6af9bd176e1ee24a97fa1961',
+            pandora: '0x044662dfbfa067dd603f54b900cc157b9d6618d4',
+            market: '0xc20e1435e654fbac8d7ed557ee424ab876d4f463'
         },
         ipfs: {
             protocol: 'http',
@@ -23,10 +23,10 @@ const hosts = {
         net: 4,
         reconnect: 5000,
         contracts: {
-            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
-            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
-            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
-            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
+            pan: '0x49e429ec1199d077b1f2ae8b6100b220f56401ef',
+            economic: '0xf70a24b04e6b59eb6af9bd176e1ee24a97fa1961',
+            pandora: '0x044662dfbfa067dd603f54b900cc157b9d6618d4',
+            market: '0xc20e1435e654fbac8d7ed557ee424ab876d4f463'
         },
         ipfs: {
             protocol: 'http',
@@ -40,10 +40,10 @@ const hosts = {
         port: '',
         reconnect: 5000,
         contracts: {
-            pan: '0xa40600efcb9b69003757fb196304858f989888a1',
-            economic: '0x3c2f60a3c1dba316c1031925712339f694f0da99',
-            pandora: '0x2ac8d321cdfdc1fa5591a38ee2c2bcbe094b64d7',
-            market: '0xfd4158c461df6295229e23c7686f8684a0d26531'
+            pan: '0x49e429ec1199d077b1f2ae8b6100b220f56401ef',
+            economic: '0xf70a24b04e6b59eb6af9bd176e1ee24a97fa1961',
+            pandora: '0x044662dfbfa067dd603f54b900cc157b9d6618d4',
+            market: '0xc20e1435e654fbac8d7ed557ee424ab876d4f463'
         },
         ipfs: {
             protocol: 'http',
